@@ -23,6 +23,7 @@ export default function Home() {
             <a href="#services" className="text-sm font-medium hover:text-blue-600 transition">Services</a>
             <a href="#solution" className="text-sm font-medium hover:text-blue-600 transition">AI Chatbots</a>
             <a href="#calculator" className="text-sm font-medium hover:text-blue-600 transition">ROI Calculator</a>
+            <Link href="/resources" className="text-sm font-medium hover:text-blue-600 transition">Resources</Link>
             <a href="#pricing" className="text-sm font-medium hover:text-blue-600 transition">Pricing</a>
             <a href="#faq" className="text-sm font-medium hover:text-blue-600 transition">FAQ</a>
           </nav>
