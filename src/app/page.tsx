@@ -20,7 +20,8 @@ export default function Home() {
             <span className="font-bold text-lg">Pacific Pulse</span>
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#solution" className="text-sm font-medium hover:text-blue-600 transition">Solution</a>
+            <a href="#services" className="text-sm font-medium hover:text-blue-600 transition">Services</a>
+            <a href="#solution" className="text-sm font-medium hover:text-blue-600 transition">AI Chatbots</a>
             <a href="#calculator" className="text-sm font-medium hover:text-blue-600 transition">ROI Calculator</a>
             <a href="#pricing" className="text-sm font-medium hover:text-blue-600 transition">Pricing</a>
             <a href="#faq" className="text-sm font-medium hover:text-blue-600 transition">FAQ</a>
@@ -50,27 +51,27 @@ export default function Home() {
           {/* Main Hero */}
           <div className="text-center max-w-4xl mx-auto mb-16">
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
-              Stop losing money to
+              AI Marketing That
               <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                missed calls
+                Scales Your Business
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 mb-8 leading-relaxed max-w-3xl mx-auto">
-              AI that answers 24/7, sounds human, and converts leads while you sleep.
-              <strong className="text-zinc-900 dark:text-zinc-100"> Built by an NLP expert</strong> who understands conversation psychology.
+              Complete AI solutions for Hawaii SMEs: 24/7 chatbots, automated content creation, marketing systems, and passive income streams.
+              <strong className="text-zinc-900 dark:text-zinc-100"> Built by a Master NLP Coach</strong> who understands conversion psychology.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Link href="/apply">
                 <Button size="lg" className="text-lg px-8 h-14 shadow-xl shadow-blue-600/20">
-                  Calculate Your Savings
+                  See Our Solutions
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </Button>
               </Link>
               <Button size="lg" variant="outline" className="text-lg px-8 h-14">
-                Watch 2-Min Demo
+                View Case Studies
               </Button>
             </div>
 
@@ -112,10 +113,10 @@ export default function Home() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              You&apos;re bleeding money
+              Hawaii SMEs Are Drowning in Marketing
             </h2>
             <p className="text-xl text-zinc-600 dark:text-zinc-400">
-              Every missed call is lost revenue. Here&apos;s why:
+              You know you need marketing automation. But hiring a team costs $200K+/year.
             </p>
           </div>
 
@@ -125,10 +126,10 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-xl bg-red-100 dark:bg-red-900/30 flex items-center justify-center mb-4">
                   <span className="text-2xl">📞</span>
                 </div>
-                <CardTitle className="text-xl">After-Hours Calls</CardTitle>
+                <CardTitle className="text-xl">Missed Calls = Lost Revenue</CardTitle>
                 <CardDescription className="text-base">
                   <strong className="text-zinc-900 dark:text-zinc-100">73% won&apos;t leave voicemail.</strong><br />
-                  They call your competitor instead.
+                  After-hours calls go straight to competitors.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -136,12 +137,12 @@ export default function Home() {
             <Card className="border-none shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 rounded-xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mb-4">
-                  <span className="text-2xl">⏰</span>
+                  <span className="text-2xl">✍️</span>
                 </div>
-                <CardTitle className="text-xl">Slow Response</CardTitle>
+                <CardTitle className="text-xl">Content Takes Forever</CardTitle>
                 <CardDescription className="text-base">
-                  <strong className="text-zinc-900 dark:text-zinc-100">80% choose who responds first.</strong><br />
-                  Your staff can&apos;t be instant.
+                  <strong className="text-zinc-900 dark:text-zinc-100">20 hours/month on blogs & social.</strong><br />
+                  You need content to compete, but don&apos;t have time.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -149,12 +150,12 @@ export default function Home() {
             <Card className="border-none shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 rounded-xl bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center mb-4">
-                  <span className="text-2xl">🔁</span>
+                  <span className="text-2xl">💰</span>
                 </div>
-                <CardTitle className="text-xl">Repetitive Questions</CardTitle>
+                <CardTitle className="text-xl">No Passive Income</CardTitle>
                 <CardDescription className="text-base">
-                  <strong className="text-zinc-900 dark:text-zinc-100">50+ identical questions/week.</strong><br />
-                  Staff time wasted on autopilot answers.
+                  <strong className="text-zinc-900 dark:text-zinc-100">One income stream = risky.</strong><br />
+                  You could monetize your expertise while you sleep.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -167,17 +168,17 @@ export default function Home() {
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 dark:bg-red-900/30 mb-2">
                   <span className="text-3xl">❌</span>
                 </div>
-                <p className="text-xl font-bold text-red-600 dark:text-red-400">WITHOUT AI</p>
-                <p className="text-lg text-zinc-700 dark:text-zinc-300">Call → Voicemail → Lost Forever</p>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">~$300/week in missed revenue</p>
+                <p className="text-xl font-bold text-red-600 dark:text-red-400">WITHOUT AI AUTOMATION</p>
+                <p className="text-lg text-zinc-700 dark:text-zinc-300">Missed calls + manual content + one revenue stream</p>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">Overwhelmed, expensive, limited growth</p>
               </div>
               <div className="space-y-3">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 mb-2">
                   <span className="text-3xl">✓</span>
                 </div>
-                <p className="text-xl font-bold text-green-600 dark:text-green-400">WITH AI</p>
-                <p className="text-lg text-zinc-700 dark:text-zinc-300">Call → AI Answers → Booked</p>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">Capture 70% of missed calls</p>
+                <p className="text-xl font-bold text-green-600 dark:text-green-400">WITH PACIFIC PULSE</p>
+                <p className="text-lg text-zinc-700 dark:text-zinc-300">24/7 AI + automated content + passive income</p>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">Scalable marketing at 1/10th the cost</p>
               </div>
             </div>
           </div>
@@ -255,6 +256,208 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Service Tiers Section - NEW */}
+      <section id="services" className="py-20 px-4 bg-gradient-to-b from-white via-purple-50/30 to-white dark:from-black dark:via-purple-950/10 dark:to-black">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Complete AI Marketing Solutions
+            </h2>
+            <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto">
+              From chatbots to complete marketing automation. Choose the package that scales your business.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            {/* Starter Package */}
+            <Card className="border-2 hover:border-blue-600 transition-all hover:shadow-xl relative">
+              <CardHeader className="pb-4">
+                <div className="flex items-center justify-between mb-2">
+                  <CardTitle className="text-2xl">Starter</CardTitle>
+                  <span className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full font-semibold">POPULAR</span>
+                </div>
+                <div className="flex items-baseline gap-1 mb-2">
+                  <span className="text-4xl font-bold">$497</span>
+                  <span className="text-zinc-500">/month</span>
+                </div>
+                <CardDescription>Perfect for getting started with AI</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>AI Chatbot (1 website)</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>24/7 lead capture</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Monthly reports</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Email support</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Growth Package */}
+            <Card className="border-2 border-purple-600 hover:shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-gradient-to-br from-purple-600 to-pink-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                RECOMMENDED
+              </div>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-2xl">Growth</CardTitle>
+                <div className="flex items-baseline gap-1 mb-2">
+                  <span className="text-4xl font-bold">$997</span>
+                  <span className="text-zinc-500">/month</span>
+                </div>
+                <CardDescription>Scale with content automation</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="font-semibold">Everything in Starter, plus:</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>4 AI-written blog posts/month</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>20 social media posts/month</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Email sequences</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Landing pages</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Scale Package */}
+            <Card className="border-2 hover:border-pink-600 transition-all hover:shadow-xl">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-2xl">Scale</CardTitle>
+                <div className="flex items-baseline gap-1 mb-2">
+                  <span className="text-4xl font-bold">$1,997</span>
+                  <span className="text-zinc-500">/month</span>
+                </div>
+                <CardDescription>Complete marketing automation</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="font-semibold">Everything in Growth, plus:</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-pink-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Full marketing automation</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-pink-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Passive income system setup</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-pink-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Social media automation</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-pink-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Priority support</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Enterprise Package */}
+            <Card className="border-2 border-zinc-300 dark:border-zinc-700 hover:border-zinc-500 transition-all hover:shadow-xl bg-gradient-to-br from-zinc-50 to-white dark:from-zinc-950 dark:to-black">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-2xl">Enterprise</CardTitle>
+                <div className="flex items-baseline gap-1 mb-2">
+                  <span className="text-3xl font-bold">Custom</span>
+                </div>
+                <CardDescription>White-label & custom AI solutions</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="font-semibold">Everything in Scale, plus:</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-zinc-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Custom AI agent development</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-zinc-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Team training</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-zinc-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>White-label options</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <svg className="w-5 h-5 text-zinc-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Dedicated account manager</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-zinc-600 dark:text-zinc-400 mb-6">
+              <strong>Founding Client Program:</strong> Get Growth package at Starter pricing ($497/month) • Only 8 spots
+            </p>
+            <Link href="/apply">
+              <Button size="lg" className="shadow-xl shadow-purple-600/20">
+                Apply for Founding Client Program
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ROI Calculator Section */}
       <section id="calculator" className="py-20 px-4 bg-gradient-to-b from-white to-blue-50 dark:from-black dark:to-blue-950/20">
         <div className="container mx-auto max-w-6xl">
@@ -267,6 +470,351 @@ export default function Home() {
             </p>
           </div>
           <ROICalculator />
+        </div>
+      </section>
+
+      {/* Content Automation Showcase - NEW */}
+      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 dark:from-purple-950/20 dark:via-pink-950/20 dark:to-blue-950/20">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium mb-6">
+              <span>✨</span> Powered by Claude Code
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Content That Writes Itself
+            </h2>
+            <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto">
+              AI-powered content automation that saves 20+ hours/month while maintaining your brand voice
+            </p>
+          </div>
+
+          {/* Before/After Comparison */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <Card className="border-2 border-red-200 dark:border-red-900/30">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
+                    <span className="text-xl">❌</span>
+                  </div>
+                  <CardTitle className="text-xl">Manual Content Creation</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center gap-3 text-sm">
+                  <span className="text-red-600 dark:text-red-400 font-mono font-bold">20hrs</span>
+                  <span className="text-zinc-600 dark:text-zinc-400">Writing 4 blog posts</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm">
+                  <span className="text-red-600 dark:text-red-400 font-mono font-bold">10hrs</span>
+                  <span className="text-zinc-600 dark:text-zinc-400">Creating 20 social posts</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm">
+                  <span className="text-red-600 dark:text-red-400 font-mono font-bold">5hrs</span>
+                  <span className="text-zinc-600 dark:text-zinc-400">Writing email sequences</span>
+                </div>
+                <div className="pt-3 mt-3 border-t border-red-200 dark:border-red-900/30">
+                  <p className="text-lg font-bold text-red-600 dark:text-red-400">Total: 35 hours/month</p>
+                  <p className="text-sm text-zinc-500 mt-1">That&apos;s almost a full work week!</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-green-200 dark:border-green-900/30 bg-gradient-to-br from-green-50/50 to-white dark:from-green-950/10 dark:to-black">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                    <span className="text-xl">✓</span>
+                  </div>
+                  <CardTitle className="text-xl">AI Content Automation</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center gap-3 text-sm">
+                  <span className="text-green-600 dark:text-green-400 font-mono font-bold">2hrs</span>
+                  <span className="text-zinc-600 dark:text-zinc-400">Reviewing AI-written blog posts</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm">
+                  <span className="text-green-600 dark:text-green-400 font-mono font-bold">30min</span>
+                  <span className="text-zinc-600 dark:text-zinc-400">Approving social content</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm">
+                  <span className="text-green-600 dark:text-green-400 font-mono font-bold">30min</span>
+                  <span className="text-zinc-600 dark:text-zinc-400">Reviewing email sequences</span>
+                </div>
+                <div className="pt-3 mt-3 border-t border-green-200 dark:border-green-900/30">
+                  <p className="text-lg font-bold text-green-600 dark:text-green-400">Total: 3 hours/month</p>
+                  <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mt-1">Save 32 hours/month = $3,200+ in value</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Sample AI-Generated Content */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-center mb-8">Real AI-Generated Content Examples</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card>
+                <CardHeader>
+                  <div className="text-sm text-purple-600 dark:text-purple-400 font-semibold mb-2">BLOG POST</div>
+                  <CardTitle className="text-lg">5 Reasons Hawaii Spas Are Embracing AI Customer Service</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm text-zinc-600 dark:text-zinc-400">
+                  <p className="mb-3">In the heart of paradise, Hawaii&apos;s spa industry is undergoing a quiet revolution. While visitors still seek...</p>
+                  <div className="flex items-center gap-4 text-xs">
+                    <span className="text-green-600 dark:text-green-400">✓ SEO Optimized</span>
+                    <span className="text-green-600 dark:text-green-400">✓ 1,200 words</span>
+                    <span className="text-green-600 dark:text-green-400">✓ Local voice</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <div className="text-sm text-blue-600 dark:text-blue-400 font-semibold mb-2">SOCIAL MEDIA</div>
+                  <CardTitle className="text-lg">Instagram Post</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm text-zinc-600 dark:text-zinc-400">
+                  <p className="mb-3">🌺 Ever miss a call at 2am from a tourist who can&apos;t sleep and wants a massage? Now you don&apos;t have to. Our AI answers, books, and you wake up to new revenue. #HawaiiTech #SmallBiz</p>
+                  <div className="flex items-center gap-4 text-xs">
+                    <span className="text-green-600 dark:text-green-400">✓ Engaging</span>
+                    <span className="text-green-600 dark:text-green-400">✓ Hashtags</span>
+                    <span className="text-green-600 dark:text-green-400">✓ CTA</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <div className="text-sm text-pink-600 dark:text-pink-400 font-semibold mb-2">EMAIL</div>
+                  <CardTitle className="text-lg">Welcome Sequence Email 2</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm text-zinc-600 dark:text-zinc-400">
+                  <p className="mb-3"><strong>Subject:</strong> Here&apos;s what we can do for you, [Name]<br/><br/>Aloha [Name], Yesterday I told you about our AI chatbot...</p>
+                  <div className="flex items-center gap-4 text-xs">
+                    <span className="text-green-600 dark:text-green-400">✓ Personalized</span>
+                    <span className="text-green-600 dark:text-green-400">✓ High open rate</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* How It Works */}
+          <div className="bg-white dark:bg-zinc-950 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-8">
+            <h3 className="text-2xl font-bold text-center mb-8">How Claude Code Automates Your Content</h3>
+            <div className="grid md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mx-auto mb-4 text-2xl">
+                  🎯
+                </div>
+                <h4 className="font-semibold mb-2">1. Your Strategy</h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">You provide topics, keywords, and brand voice guidelines</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mx-auto mb-4 text-2xl">
+                  🤖
+                </div>
+                <h4 className="font-semibold mb-2">2. AI Generates</h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">Claude Code creates blogs, social posts, and emails matching your voice</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center mx-auto mb-4 text-2xl">
+                  ✅
+                </div>
+                <h4 className="font-semibold mb-2">3. You Approve</h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">Review, edit if needed (most need zero changes), and approve</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-4 text-2xl">
+                  🚀
+                </div>
+                <h4 className="font-semibold mb-2">4. Auto-Publish</h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">Content schedules and publishes automatically across all platforms</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link href="/apply">
+              <Button size="lg" className="shadow-xl shadow-purple-600/20">
+                Get Content Automation →
+              </Button>
+            </Link>
+            <p className="text-sm text-zinc-500 mt-4">Available in Growth package and above • $997/month (or $497 for founding clients)</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Passive Income Section - NEW */}
+      <section className="py-20 px-4 bg-zinc-50 dark:bg-zinc-950">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-sm font-medium mb-6">
+              <span>💰</span> Passive Income Systems
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Monetize Your Expertise While You Sleep
+            </h2>
+            <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto">
+              We help Hawaii SMEs create digital products and passive income streams using AI automation
+            </p>
+          </div>
+
+          {/* Case Study Example */}
+          <Card className="border-2 border-amber-200 dark:border-amber-900/30 mb-12 overflow-hidden">
+            <div className="bg-gradient-to-r from-amber-100 to-amber-50 dark:from-amber-950/30 dark:to-amber-950/10 p-6 border-b border-amber-200 dark:border-amber-900/30">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-12 h-12 rounded-full bg-amber-200 dark:bg-amber-900/50 flex items-center justify-center text-2xl">
+                  🌺
+                </div>
+                <div>
+                  <p className="text-sm text-amber-700 dark:text-amber-400 font-semibold">CASE STUDY</p>
+                  <h3 className="text-2xl font-bold">Maui Wellness Spa</h3>
+                </div>
+              </div>
+            </div>
+            <CardContent className="p-8">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="font-bold mb-4 text-lg">The Challenge:</h4>
+                  <p className="text-zinc-600 dark:text-zinc-400 mb-6">
+                    Successful spa with loyal local clients, but revenue capped by appointment hours. Owner wanted to create additional income without working more hours.
+                  </p>
+
+                  <h4 className="font-bold mb-4 text-lg">What We Built:</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-amber-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span><strong>Online Course:</strong> "Hawaiian Lomilomi Self-Massage" ($97, 150 sales = $14,550)</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-amber-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span><strong>Membership Site:</strong> Monthly wellness tips & exclusive discounts ($27/mo, 80 members = $2,160/mo)</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-amber-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span><strong>Affiliate Income:</strong> Curated massage tools & oils ($500-800/mo passive)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 rounded-xl p-6 border-2 border-green-200 dark:border-green-900/30">
+                  <h4 className="font-bold mb-6 text-xl text-green-900 dark:text-green-400">Results After 6 Months:</h4>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="text-3xl font-bold text-green-600 dark:text-green-400">$3,200/month</p>
+                      <p className="text-sm text-zinc-600 dark:text-zinc-400">New passive income (average)</p>
+                    </div>
+                    <div className="pt-4 border-t border-green-200 dark:border-green-900/30">
+                      <p className="text-lg font-semibold mb-2">Time Investment:</p>
+                      <p className="text-sm text-zinc-600 dark:text-zinc-400">2 hours/month managing (we handle the rest)</p>
+                    </div>
+                    <div className="pt-4 border-t border-green-200 dark:border-green-900/30">
+                      <p className="text-lg font-semibold mb-2">ROI:</p>
+                      <p className="text-sm text-zinc-600 dark:text-zinc-400">$38,400/year from content she already had</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Passive Income Models */}
+          <div className="grid md:grid-cols-4 gap-6 mb-12">
+            <Card className="border-2 hover:border-amber-500 transition-all">
+              <CardHeader>
+                <div className="text-4xl mb-3 text-center">📚</div>
+                <CardTitle className="text-center text-lg">Online Courses</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-center text-zinc-600 dark:text-zinc-400">
+                <p className="mb-3">Turn your expertise into evergreen courses</p>
+                <p className="font-semibold text-zinc-900 dark:text-zinc-100">$47-$497 per sale</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-amber-500 transition-all">
+              <CardHeader>
+                <div className="text-4xl mb-3 text-center">💳</div>
+                <CardTitle className="text-center text-lg">Memberships</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-center text-zinc-600 dark:text-zinc-400">
+                <p className="mb-3">Recurring revenue with exclusive content</p>
+                <p className="font-semibold text-zinc-900 dark:text-zinc-100">$27-$97/month</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-amber-500 transition-all">
+              <CardHeader>
+                <div className="text-4xl mb-3 text-center">📄</div>
+                <CardTitle className="text-center text-lg">Digital Templates</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-center text-zinc-600 dark:text-zinc-400">
+                <p className="mb-3">Downloadable guides, checklists, tools</p>
+                <p className="font-semibold text-zinc-900 dark:text-zinc-100">$17-$97 per sale</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-amber-500 transition-all">
+              <CardHeader>
+                <div className="text-4xl mb-3 text-center">🤝</div>
+                <CardTitle className="text-center text-lg">Affiliate Systems</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-center text-zinc-600 dark:text-zinc-400">
+                <p className="mb-3">AI-curated product recommendations</p>
+                <p className="font-semibold text-zinc-900 dark:text-zinc-100">10-30% commission</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* How We Help */}
+          <div className="bg-white dark:bg-zinc-950 rounded-2xl border-2 border-amber-200 dark:border-amber-900/30 p-8">
+            <h3 className="text-2xl font-bold text-center mb-8">How We Build Your Passive Income System</h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center font-bold text-amber-600 dark:text-amber-400">
+                    1
+                  </div>
+                  <h4 className="font-bold">Content Extraction</h4>
+                </div>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">We interview you and extract your unique expertise, processes, and knowledge</p>
+              </div>
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center font-bold text-amber-600 dark:text-amber-400">
+                    2
+                  </div>
+                  <h4 className="font-bold">AI Content Creation</h4>
+                </div>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">Claude Code writes course modules, guides, templates in your voice - you just review</p>
+              </div>
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center font-bold text-amber-600 dark:text-amber-400">
+                    3
+                  </div>
+                  <h4 className="font-bold">Platform Setup & Launch</h4>
+                </div>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">We handle tech, payment processing, delivery - you just collect revenue</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-zinc-600 dark:text-zinc-400 mb-6">
+              <strong>Setup Fee:</strong> $2,997 one-time + $497/month management (or included in Scale package)
+            </p>
+            <Link href="/apply">
+              <Button size="lg" className="shadow-xl shadow-amber-600/20 bg-amber-600 hover:bg-amber-700 text-white">
+                Start Building Passive Income →
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
