@@ -10,7 +10,7 @@ interface Message {
   content: string;
 }
 
-export function ClaudeChatbot() {
+export function AIChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -198,7 +198,7 @@ export function ClaudeChatbot() {
               </Button>
             </div>
             <p className="text-xs text-zinc-500 mt-2 text-center">
-              Powered by Claude AI
+              AI-Powered Support
             </p>
           </form>
         </Card>
