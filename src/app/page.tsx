@@ -64,14 +64,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Link href="/apply">
                 <Button size="lg" className="text-lg px-8 h-14 shadow-xl shadow-blue-600/20">
-                  See Our Solutions
+                  Discover How to Capture $3K+/Month in Missed Revenue
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </Button>
               </Link>
               <Button size="lg" variant="outline" className="text-lg px-8 h-14">
-                View Case Studies
+                See Hawaii Businesses Already Saving 20hrs/Week
               </Button>
             </div>
 
@@ -478,13 +478,13 @@ export default function Home() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium mb-6">
-              <span>✨</span> Powered by Claude Code
+              <span>✨</span> Advanced AI + NLP Psychology
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Content That Writes Itself
+              Imagine Content That Writes Itself While You Sleep
             </h2>
             <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto">
-              AI-powered content automation that saves 20+ hours/month while maintaining your brand voice
+              When you start saving 20+ hours every month, you'll wonder how you ever managed without AI-powered content automation
             </p>
           </div>
 
@@ -601,7 +601,7 @@ export default function Home() {
 
           {/* How It Works */}
           <div className="bg-white dark:bg-zinc-950 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-8">
-            <h3 className="text-2xl font-bold text-center mb-8">How Claude Code Automates Your Content</h3>
+            <h3 className="text-2xl font-bold text-center mb-8">How NLP-Powered AI Automates Your Content</h3>
             <div className="grid md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="w-16 h-16 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mx-auto mb-4 text-2xl">
@@ -614,8 +614,8 @@ export default function Home() {
                 <div className="w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mx-auto mb-4 text-2xl">
                   🤖
                 </div>
-                <h4 className="font-semibold mb-2">2. AI Generates</h4>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">Claude Code creates blogs, social posts, and emails matching your voice</p>
+                <h4 className="font-semibold mb-2">2. AI + NLP Creates</h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">Advanced AI trained in persuasion psychology generates blogs, social posts, and emails that convert</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center mx-auto mb-4 text-2xl">
@@ -637,10 +637,10 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link href="/apply">
               <Button size="lg" className="shadow-xl shadow-purple-600/20">
-                Get Content Automation →
+                Yes, I Want to Save 32 Hours Every Month →
               </Button>
             </Link>
-            <p className="text-sm text-zinc-500 mt-4">Available in Growth package and above • $997/month (or $497 for founding clients)</p>
+            <p className="text-sm text-zinc-500 mt-4">Join 3 Hawaii businesses already scaling with AI automation (5 spots left)</p>
           </div>
         </div>
       </section>
@@ -782,16 +782,16 @@ export default function Home() {
                   </div>
                   <h4 className="font-bold">Content Extraction</h4>
                 </div>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">We interview you and extract your unique expertise, processes, and knowledge</p>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">Using advanced NLP elicitation techniques, we extract your unique expertise, processes, and knowledge</p>
               </div>
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center font-bold text-amber-600 dark:text-amber-400">
                     2
                   </div>
-                  <h4 className="font-bold">AI Content Creation</h4>
+                  <h4 className="font-bold">AI + NLP Content Creation</h4>
                 </div>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">Claude Code writes course modules, guides, templates in your voice - you just review</p>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">Advanced AI trained in persuasion patterns writes course modules, guides, templates in your voice - you just review</p>
               </div>
               <div>
                 <div className="flex items-center gap-3 mb-4">
@@ -807,11 +807,11 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <p className="text-zinc-600 dark:text-zinc-400 mb-6">
-              <strong>Setup Fee:</strong> $2,997 one-time + $497/month management (or included in Scale package)
+              <strong>Investment:</strong> $2,997 setup + $497/month (included in Scale package)
             </p>
             <Link href="/apply">
               <Button size="lg" className="shadow-xl shadow-amber-600/20 bg-amber-600 hover:bg-amber-700 text-white">
-                Start Building Passive Income →
+                Yes, I Want to Create $3K+/Month Passive Income →
               </Button>
             </Link>
           </div>
@@ -1067,10 +1067,10 @@ export default function Home() {
       <section className="py-20 px-4 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            8 spots. Then pricing doubles.
+            5 Spots Remaining. Then This Opportunity Closes.
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            I can only take 8-10 businesses because each gets my personal attention. When spots fill, the program closes and pricing goes to $997/month.
+            Because you&apos;ll receive my personal attention on every aspect of your AI automation, I can only work with 8 Hawaii businesses at this founding rate. When these final 5 spots fill, you&apos;ll join the waiting list at standard pricing ($997/month).
           </p>
 
           <div className="space-y-4 mb-10">

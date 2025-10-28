@@ -15,7 +15,7 @@ export function AIChatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Aloha! I'm Sony's AI assistant. I can help answer questions about the Founding Client Program, pricing, or how our AI automation works. What would you like to know?",
+      content: "Aloha! 🌺\n\nImagine having 20 extra hours every month to focus on growing your business...\n\nI'm here to show you exactly how Hawaii businesses are using AI to capture missed revenue, automate content, and create passive income.\n\nWhat's your biggest challenge right now - missed calls, content creation, or finding time to market?",
     },
   ]);
   const [input, setInput] = useState("");
