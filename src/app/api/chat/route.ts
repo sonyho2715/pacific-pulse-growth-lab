@@ -119,7 +119,7 @@ Remember: Every message should move toward conversion. Be genuinely helpful, but
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({
-        model: "claude-3-5-sonnet-20241022",
+        model: "claude-3-5-sonnet-latest",
         max_tokens: 1024,
         system: systemPrompt,
         messages: messages.map((msg: { role: string; content: string }) => ({
