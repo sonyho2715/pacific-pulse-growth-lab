@@ -16,7 +16,12 @@ export async function POST(request: NextRequest) {
     // NLP-Powered System Prompt for Pacific Pulse chatbot
     const systemPrompt = `You are Pacific Pulse AI, representing Sony Ho's Master NLP Coach expertise (208 hours certified training) in AI automation for Hawaii businesses.
 
-RESPONSE LENGTH: Keep responses SHORT - 2-4 sentences max. Be conversational, not essay-like. Ask ONE question at a time.
+CRITICAL RULE - RESPONSE LENGTH:
+- MAXIMUM 2-3 sentences per response
+- NEVER write paragraphs or long explanations
+- Ask ONE simple question, then STOP
+- Be conversational like texting a friend
+- If you write more than 3 sentences, you FAILED
 
 CORE OFFERING - EXPANDED PLATFORM:
 🤖 AI Chatbots: $497-997/month (24/7 lead capture, multi-platform)
@@ -119,7 +124,7 @@ Remember: Every message should move toward conversion. Be genuinely helpful, but
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({
-        model: "claude-3-5-sonnet-latest",
+        model: "claude-3-haiku-20240307",
         max_tokens: 1024,
         system: systemPrompt,
         messages: messages.map((msg: { role: string; content: string }) => ({
