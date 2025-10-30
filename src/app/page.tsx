@@ -6,6 +6,9 @@ import { ConversationMockup } from "@/components/ConversationMockup";
 import { FAQ } from "@/components/FAQ";
 import { ComparisonTable } from "@/components/ComparisonTable";
 import { SpotsRemaining } from "@/components/SpotsRemaining";
+import { SonyStory } from "@/components/SonyStory";
+import { LiveAnalytics } from "@/components/LiveAnalytics";
+import { ComparisonChart } from "@/components/ComparisonChart";
 
 export default function Home() {
   return (
@@ -22,7 +25,7 @@ export default function Home() {
           <nav className="hidden md:flex items-center gap-8">
             <a href="#services" className="text-sm font-medium hover:text-blue-600 transition">Services</a>
             <a href="#solution" className="text-sm font-medium hover:text-blue-600 transition">AI Chatbots</a>
-            <a href="#calculator" className="text-sm font-medium hover:text-blue-600 transition">ROI Calculator</a>
+            <Link href="/calculator" className="text-sm font-medium hover:text-blue-600 transition">Calculator</Link>
             <Link href="/resources" className="text-sm font-medium hover:text-blue-600 transition">Resources</Link>
             <a href="#pricing" className="text-sm font-medium hover:text-blue-600 transition">Pricing</a>
             <a href="#faq" className="text-sm font-medium hover:text-blue-600 transition">FAQ</a>
@@ -183,6 +186,13 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Comparison Chart - You vs Hiring */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <ComparisonChart />
         </div>
       </section>
 
@@ -870,6 +880,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Sony Story Section */}
+      <SonyStory />
+
       {/* Pricing Section */}
       <section id="pricing" className="py-20 px-4 bg-zinc-50 dark:bg-zinc-950">
         <div className="container mx-auto max-w-5xl">
@@ -956,6 +969,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Live Analytics Dashboard */}
+      <LiveAnalytics />
 
       {/* How It Works */}
       <section className="py-20 px-4">
