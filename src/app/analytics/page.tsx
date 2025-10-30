@@ -62,7 +62,7 @@ export default function AnalyticsPage() {
       const conversions = sessions?.filter((s: any) => s.converted).length || 0;
       const conversionRate = totalSessions > 0 ? (conversions / totalSessions) * 100 : 0;
       const avgMessages = totalSessions > 0 && sessions
-        ? sessions.reduce((acc, s) => acc + (s.total_messages || 0), 0) / totalSessions
+        ? sessions.reduce((acc: number, s: any) => acc + (s.total_messages || 0), 0) / totalSessions
         : 0;
 
       setStats({
