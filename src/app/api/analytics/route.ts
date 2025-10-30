@@ -49,12 +49,12 @@ export async function GET() {
     const conversionRate = totalLeads > 0 ? (conversions / totalLeads) * 100 : 0;
 
     const avgMessages = totalSessions > 0 && sessions
-      ? sessions.reduce((acc, s) => acc + (s.total_messages || 0), 0) / totalSessions
+      ? sessions.reduce((acc: number, s: any) => acc + (s.total_messages || 0), 0) / totalSessions
       : 0;
 
     // Business type distribution
     const businessTypes: Record<string, number> = {};
-    leads?.filter(l => l.qualified).forEach((lead) => {
+    leads?.filter((l: any) => l.qualified).forEach((lead: any) => {
       businessTypes[lead.business_type] = (businessTypes[lead.business_type] || 0) + 1;
     });
 
@@ -66,7 +66,7 @@ export async function GET() {
 
     // Revenue distribution
     const revenueRanges: Record<string, number> = {};
-    leads?.filter(l => l.qualified).forEach((lead) => {
+    leads?.filter((l: any) => l.qualified).forEach((lead: any) => {
       revenueRanges[lead.monthly_revenue] = (revenueRanges[lead.monthly_revenue] || 0) + 1;
     });
 
@@ -85,15 +85,15 @@ export async function GET() {
     const thisMonth = new Date(today);
     thisMonth.setMonth(thisMonth.getMonth() - 1);
 
-    const leadsToday = leads?.filter(l => new Date(l.created_at) > yesterday).length || 0;
-    const leadsThisWeek = leads?.filter(l => new Date(l.created_at) > thisWeek).length || 0;
-    const leadsThisMonth = leads?.filter(l => new Date(l.created_at) > thisMonth).length || 0;
+    const leadsToday = leads?.filter((l: any) => new Date(l.created_at) > yesterday).length || 0;
+    const leadsThisWeek = leads?.filter((l: any) => new Date(l.created_at) > thisWeek).length || 0;
+    const leadsThisMonth = leads?.filter((l: any) => new Date(l.created_at) > thisMonth).length || 0;
 
     // Engagement metrics
-    const activeSessions = sessions?.filter(s => !s.completed && new Date(s.last_activity) > yesterday).length || 0;
-    const completedSessions = sessions?.filter(s => s.completed).length || 0;
+    const activeSessions = sessions?.filter((s: any) => !s.completed && new Date(s.last_activity) > yesterday).length || 0;
+    const completedSessions = sessions?.filter((s: any) => s.completed).length || 0;
     const avgSessionDuration = sessions && sessions.length > 0
-      ? sessions.reduce((acc, s) => {
+      ? sessions.reduce((acc: number, s: any) => {
           const start = new Date(s.created_at).getTime();
           const end = new Date(s.last_activity).getTime();
           return acc + (end - start);
