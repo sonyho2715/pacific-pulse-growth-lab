@@ -10,8 +10,24 @@ interface Message {
   content: string;
 }
 
+interface LeadInfo {
+  name: string;
+  email: string;
+  phone: string;
+  businessType: string;
+  monthlyRevenue: string;
+}
+
 export function AIChatbot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showLeadForm, setShowLeadForm] = useState(true);
+  const [leadInfo, setLeadInfo] = useState<LeadInfo>({
+    name: "",
+    email: "",
+    phone: "",
+    businessType: "",
+    monthlyRevenue: "",
+  });
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
@@ -20,6 +36,8 @@ export function AIChatbot() {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [messageCount, setMessageCount] = useState(0);
+  const MESSAGE_LIMIT = 10;
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -30,13 +48,58 @@ export function AIChatbot() {
     scrollToBottom();
   }, [messages]);
 
+  const handleLeadSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Validate form
+    if (!leadInfo.name || !leadInfo.email || !leadInfo.phone || !leadInfo.businessType || !leadInfo.monthlyRevenue) {
+      alert("Please fill in all fields to continue");
+      return;
+    }
+
+    // Qualification filter: Only allow businesses doing $5K+/month
+    const revenueThreshold = leadInfo.monthlyRevenue === "under5k";
+    if (revenueThreshold) {
+      alert("Thank you for your interest! Pacific Pulse focuses on established businesses doing $5K+/month. We recommend revisiting AI automation once you've scaled past this threshold. Contact sony@pacificpulsegrowth.com for future opportunities.");
+      setIsOpen(false);
+      return;
+    }
+
+    // Store lead info (you can send to an API here)
+    console.log("Qualified Lead:", leadInfo);
+
+    // Show chat
+    setShowLeadForm(false);
+
+    // Personalize first message
+    setMessages([
+      {
+        role: "assistant",
+        content: `Aloha ${leadInfo.name.split(" ")[0]}! 🌺 I help Hawaii ${leadInfo.businessType.toLowerCase()} businesses capture missed revenue with AI automation.\n\nWhat's your biggest challenge - missed calls, content creation, or finding time to market?`,
+      },
+    ]);
+  };
+
   const sendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
 
+    // Check message limit
+    if (messageCount >= MESSAGE_LIMIT) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: `You've reached your ${MESSAGE_LIMIT}-message preview limit. Ready to capture those missed calls and automate your content? Apply now to unlock full access: https://pacific-pulse-growth.vercel.app/apply or email Sony: sony@pacificpulsegrowth.com`,
+        },
+      ]);
+      return;
+    }
+
     const userMessage = input.trim();
     setInput("");
     setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
+    setMessageCount((prev) => prev + 1);
     setIsLoading(true);
 
     try {
@@ -55,6 +118,7 @@ export function AIChatbot() {
         ...prev,
         { role: "assistant", content: data.message },
       ]);
+      setMessageCount((prev) => prev + 1);
     } catch (error) {
       console.error("Chat error:", error);
       setMessages((prev) => [
@@ -114,7 +178,10 @@ export function AIChatbot() {
               </div>
             </div>
             <button
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                setShowLeadForm(true);
+              }}
               className="hover:bg-white/20 p-1 rounded transition"
               aria-label="Close chat"
             >
@@ -134,8 +201,112 @@ export function AIChatbot() {
             </button>
           </div>
 
-          {/* Messages */}
-          <CardContent className="flex-1 overflow-y-auto p-4 space-y-4">
+          {/* Lead Capture Form */}
+          {showLeadForm ? (
+            <CardContent className="flex-1 overflow-y-auto p-6">
+              <div className="space-y-4">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold mb-2">Get Your Free AI Consultation 🌺</h3>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                    Tell us about your business to see if you qualify for our Founding Client Program ($497/month, 5 spots left)
+                  </p>
+                </div>
+
+                <form onSubmit={handleLeadSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-1">
+                      Full Name <span className="text-red-500">*</span>
+                    </label>
+                    <Input
+                      type="text"
+                      value={leadInfo.name}
+                      onChange={(e) => setLeadInfo({ ...leadInfo, name: e.target.value })}
+                      placeholder="John Smith"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-1">
+                      Email <span className="text-red-500">*</span>
+                    </label>
+                    <Input
+                      type="email"
+                      value={leadInfo.email}
+                      onChange={(e) => setLeadInfo({ ...leadInfo, email: e.target.value })}
+                      placeholder="john@business.com"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-1">
+                      Phone Number <span className="text-red-500">*</span>
+                    </label>
+                    <Input
+                      type="tel"
+                      value={leadInfo.phone}
+                      onChange={(e) => setLeadInfo({ ...leadInfo, phone: e.target.value })}
+                      placeholder="(808) 555-1234"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-1">
+                      Business Type <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      value={leadInfo.businessType}
+                      onChange={(e) => setLeadInfo({ ...leadInfo, businessType: e.target.value })}
+                      className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-md bg-white dark:bg-zinc-950"
+                      required
+                    >
+                      <option value="">Select your industry</option>
+                      <option value="Spa/Massage">Spa/Massage</option>
+                      <option value="Auto Detail">Auto Detail</option>
+                      <option value="Restaurant">Restaurant</option>
+                      <option value="Retail">Retail</option>
+                      <option value="Tourism">Tourism</option>
+                      <option value="Real Estate">Real Estate</option>
+                      <option value="Professional Services">Professional Services</option>
+                      <option value="Other Service Business">Other Service Business</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-1">
+                      Monthly Revenue <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      value={leadInfo.monthlyRevenue}
+                      onChange={(e) => setLeadInfo({ ...leadInfo, monthlyRevenue: e.target.value })}
+                      className="w-full px-3 py-2 border border-zinc-300 dark:border-zinc-700 rounded-md bg-white dark:bg-zinc-950"
+                      required
+                    >
+                      <option value="">Select monthly revenue</option>
+                      <option value="under5k">Under $5,000/month</option>
+                      <option value="5k-10k">$5,000 - $10,000/month</option>
+                      <option value="10k-25k">$10,000 - $25,000/month</option>
+                      <option value="25k-50k">$25,000 - $50,000/month</option>
+                      <option value="50k+">$50,000+/month</option>
+                    </select>
+                  </div>
+
+                  <Button type="submit" className="w-full" size="lg">
+                    Start Free Consultation →
+                  </Button>
+
+                  <p className="text-xs text-center text-zinc-500">
+                    We focus on established businesses doing $5K+/month
+                  </p>
+                </form>
+              </div>
+            </CardContent>
+          ) : (
+            <>
+              {/* Messages */}
+              <CardContent className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.map((msg, idx) => (
               <div
                 key={idx}
@@ -173,13 +344,13 @@ export function AIChatbot() {
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about the Founding Client Program..."
-                disabled={isLoading}
+                placeholder={messageCount >= MESSAGE_LIMIT ? "Message limit reached" : "Ask about the Founding Client Program..."}
+                disabled={isLoading || messageCount >= MESSAGE_LIMIT}
                 className="flex-1"
               />
               <Button
                 type="submit"
-                disabled={isLoading || !input.trim()}
+                disabled={isLoading || !input.trim() || messageCount >= MESSAGE_LIMIT}
                 size="icon"
               >
                 <svg
@@ -198,9 +369,11 @@ export function AIChatbot() {
               </Button>
             </div>
             <p className="text-xs text-zinc-500 mt-2 text-center">
-              AI-Powered Support
+              {messageCount}/{MESSAGE_LIMIT} messages used
             </p>
           </form>
+          </>
+          )}
         </Card>
       )}
     </>
