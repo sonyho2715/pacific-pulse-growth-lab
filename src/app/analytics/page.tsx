@@ -57,9 +57,9 @@ export default function AnalyticsPage() {
       const { data: sessions } = await supabaseAdmin.from("chat_sessions").select("*");
 
       const totalLeads = leads?.length || 0;
-      const qualifiedLeads = leads?.filter((l) => l.qualified).length || 0;
+      const qualifiedLeads = leads?.filter((l: any) => l.qualified).length || 0;
       const totalSessions = sessions?.length || 0;
-      const conversions = sessions?.filter((s) => s.converted).length || 0;
+      const conversions = sessions?.filter((s: any) => s.converted).length || 0;
       const conversionRate = totalSessions > 0 ? (conversions / totalSessions) * 100 : 0;
       const avgMessages = totalSessions > 0 && sessions
         ? sessions.reduce((acc, s) => acc + (s.total_messages || 0), 0) / totalSessions
