@@ -42,10 +42,10 @@ export async function GET() {
 
     // Calculate stats
     const totalLeads = leads?.length || 0;
-    const qualifiedLeads = leads?.filter((l) => l.qualified).length || 0;
+    const qualifiedLeads = leads?.filter((l: any) => l.qualified).length || 0;
     const disqualifiedLeads = totalLeads - qualifiedLeads;
     const totalSessions = sessions?.length || 0;
-    const conversions = sessions?.filter((s) => s.converted).length || 0;
+    const conversions = sessions?.filter((s: any) => s.converted).length || 0;
     const conversionRate = totalLeads > 0 ? (conversions / totalLeads) * 100 : 0;
 
     const avgMessages = totalSessions > 0 && sessions
