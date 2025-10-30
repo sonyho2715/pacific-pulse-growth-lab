@@ -4,13 +4,16 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
+// Check if URL starts with http to ensure it's valid
+const isValidUrl = supabaseUrl.startsWith('http://') || supabaseUrl.startsWith('https://');
+
 // Client for browser-side operations
-export const supabase = supabaseUrl && supabaseAnonKey
+export const supabase = isValidUrl && supabaseAnonKey
   ? createClient(supabaseUrl, supabaseAnonKey)
   : null as any;
 
 // Admin client for server-side operations (has elevated permissions)
-export const supabaseAdmin = supabaseUrl && supabaseServiceKey
+export const supabaseAdmin = isValidUrl && supabaseServiceKey
   ? createClient(supabaseUrl, supabaseServiceKey)
   : null as any;
 
