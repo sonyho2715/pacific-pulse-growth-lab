@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { supabase } from "@/lib/supabase";
 
 interface Message {
   role: "user" | "assistant";
@@ -37,6 +38,8 @@ export function AIChatbot() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [messageCount, setMessageCount] = useState(0);
+  const [leadId, setLeadId] = useState<string | null>(null);
+  const [sessionId, setSessionId] = useState<string | null>(null);
   const MESSAGE_LIMIT = 20;
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -48,7 +51,7 @@ export function AIChatbot() {
     scrollToBottom();
   }, [messages]);
 
-  const handleLeadSubmit = (e: React.FormEvent) => {
+  const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Validate form
@@ -58,15 +61,70 @@ export function AIChatbot() {
     }
 
     // Qualification filter: Only allow businesses doing $5K+/month
-    const revenueThreshold = leadInfo.monthlyRevenue === "under5k";
-    if (revenueThreshold) {
+    const qualified = leadInfo.monthlyRevenue !== "under5k";
+    if (!qualified) {
+      // Log disqualified lead to analytics
+      try {
+        await supabase.from("chat_leads").insert({
+          name: leadInfo.name,
+          email: leadInfo.email,
+          phone: leadInfo.phone,
+          business_type: leadInfo.businessType,
+          monthly_revenue: leadInfo.monthlyRevenue,
+          qualified: false,
+        });
+      } catch (error) {
+        console.error("Failed to log disqualified lead:", error);
+      }
+
       alert("Thank you for your interest! Pacific Pulse focuses on established businesses doing $5K+/month. We recommend revisiting AI automation once you've scaled past this threshold. Contact sony@pacificpulsegrowth.com for future opportunities.");
       setIsOpen(false);
       return;
     }
 
-    // Store lead info (you can send to an API here)
-    console.log("Qualified Lead:", leadInfo);
+    // Create lead record in Supabase
+    try {
+      const { data: leadData, error: leadError } = await supabase
+        .from("chat_leads")
+        .insert({
+          name: leadInfo.name,
+          email: leadInfo.email,
+          phone: leadInfo.phone,
+          business_type: leadInfo.businessType,
+          monthly_revenue: leadInfo.monthlyRevenue,
+          qualified: true,
+        })
+        .select()
+        .single();
+
+      if (leadError) throw leadError;
+
+      // Create chat session
+      const sessionUuid = crypto.randomUUID();
+      const { data: sessionData, error: sessionError } = await supabase
+        .from("chat_sessions")
+        .insert({
+          lead_id: leadData.id,
+          session_id: sessionUuid,
+          total_messages: 0,
+          completed: false,
+          converted: false,
+        })
+        .select()
+        .single();
+
+      if (sessionError) throw sessionError;
+
+      // Store IDs for analytics tracking
+      setLeadId(leadData.id);
+      setSessionId(sessionData.id);
+
+      console.log("✅ Qualified Lead Created:", leadData);
+      console.log("✅ Session Created:", sessionData);
+    } catch (error) {
+      console.error("Failed to create lead/session:", error);
+      // Continue anyway - don't block the chat
+    }
 
     // Show chat
     setShowLeadForm(false);
@@ -108,6 +166,8 @@ export function AIChatbot() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: [...messages, { role: "user", content: userMessage }],
+          leadId,
+          sessionId,
         }),
       });
 

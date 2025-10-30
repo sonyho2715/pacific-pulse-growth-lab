@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+import { supabaseAdmin } from "@/lib/supabase";
 
 export async function POST(request: NextRequest) {
   try {
-    const { messages } = await request.json();
+    const { messages, leadId, sessionId } = await request.json();
 
     // Validate API key
     const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -145,6 +146,45 @@ Remember: Every message should move toward conversion. Be genuinely helpful, but
 
     const data = await response.json();
     const assistantMessage = data.content[0].text;
+
+    // Log chat messages to Supabase for analytics
+    if (leadId && sessionId) {
+      try {
+        // Get the latest user message
+        const userMessage = messages[messages.length - 1];
+        const messageNumber = messages.length;
+
+        // Log user message
+        await supabaseAdmin.from("chat_messages").insert({
+          lead_id: leadId,
+          session_id: sessionId,
+          role: "user",
+          content: userMessage.content,
+          message_number: messageNumber,
+        });
+
+        // Log assistant response
+        await supabaseAdmin.from("chat_messages").insert({
+          lead_id: leadId,
+          session_id: sessionId,
+          role: "assistant",
+          content: assistantMessage,
+          message_number: messageNumber + 1,
+        });
+
+        // Update session with latest activity and message count
+        await supabaseAdmin
+          .from("chat_sessions")
+          .update({
+            total_messages: messageNumber + 1,
+            last_activity: new Date().toISOString(),
+          })
+          .eq("id", sessionId);
+      } catch (dbError) {
+        // Log error but don't fail the request
+        console.error("Failed to log to Supabase:", dbError);
+      }
+    }
 
     return NextResponse.json({ message: assistantMessage });
   } catch (error) {
