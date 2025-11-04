@@ -95,6 +95,21 @@ export function AIChatbot({ industry = "general" }: AIChatbotProps = {}) {
           } else {
             console.log("✅ Disqualified lead logged");
           }
+
+          // Also log to Google Sheets (disqualified leads too)
+          fetch("/api/sheets-log", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: leadInfo.name,
+              email: leadInfo.email,
+              phone: leadInfo.phone,
+              businessType: leadInfo.businessType,
+              monthlyRevenue: leadInfo.monthlyRevenue,
+              qualified: false,
+              industry,
+            }),
+          }).catch((err) => console.error("Failed to log to Google Sheets:", err));
         }
       } catch (error) {
         console.error("❌ Exception logging disqualified lead:", error);
@@ -155,6 +170,21 @@ export function AIChatbot({ industry = "general" }: AIChatbotProps = {}) {
 
         console.log("✅ Qualified Lead Created:", leadData);
         console.log("✅ Session Created:", sessionData);
+
+        // Also log to Google Sheets (async, don't wait for it)
+        fetch("/api/sheets-log", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: leadInfo.name,
+            email: leadInfo.email,
+            phone: leadInfo.phone,
+            businessType: leadInfo.businessType,
+            monthlyRevenue: leadInfo.monthlyRevenue,
+            qualified: true,
+            industry,
+          }),
+        }).catch((err) => console.error("Failed to log to Google Sheets:", err));
       }
     } catch (error) {
       console.error("❌ Failed to create lead/session:", error);
