@@ -19,7 +19,11 @@ interface LeadInfo {
   monthlyRevenue: string;
 }
 
-export function AIChatbot() {
+interface AIChatbotProps {
+  industry?: "general" | "spa" | "auto-detail";
+}
+
+export function AIChatbot({ industry = "general" }: AIChatbotProps = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const [showLeadForm, setShowLeadForm] = useState(true);
   const [leadInfo, setLeadInfo] = useState<LeadInfo>({
@@ -29,10 +33,22 @@ export function AIChatbot() {
     businessType: "",
     monthlyRevenue: "",
   });
+  // Industry-specific initial messages
+  const getInitialMessage = () => {
+    switch (industry) {
+      case "spa":
+        return "Aloha! 🌺 I help Hawaii spa & massage businesses capture after-hours bookings and turn missed calls into revenue.\n\nAre you losing bookings when you're with clients or after hours?";
+      case "auto-detail":
+        return "Hey! 🚗 I help Hawaii auto detailing shops book more jobs automatically - even when your hands are dirty or you're closed.\n\nHow many detail bookings are you missing each week?";
+      default:
+        return "Aloha! 🌺 I help Hawaii businesses capture missed revenue with AI automation.\n\nWhat's your biggest challenge - missed calls, content creation, or finding time to market?";
+    }
+  };
+
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Aloha! 🌺 I help Hawaii businesses capture missed revenue with AI automation.\n\nWhat's your biggest challenge - missed calls, content creation, or finding time to market?",
+      content: getInitialMessage(),
     },
   ]);
   const [input, setInput] = useState("");
@@ -148,11 +164,23 @@ export function AIChatbot() {
     // Show chat
     setShowLeadForm(false);
 
-    // Personalize first message
+    // Personalize first message based on industry
+    const getPersonalizedMessage = () => {
+      const firstName = leadInfo.name.split(" ")[0];
+      switch (industry) {
+        case "spa":
+          return `Aloha ${firstName}! 🌺 Perfect! I help Hawaii spa & massage businesses like yours capture every booking opportunity.\n\nHow many calls do you typically miss when you're with clients or after hours?`;
+        case "auto-detail":
+          return `Hey ${firstName}! 🚗 Great! I help Hawaii auto detailing shops capture bookings automatically.\n\nWhat's your biggest challenge - answering calls while detailing, giving quotes, or after-hours bookings?`;
+        default:
+          return `Aloha ${firstName}! 🌺 I help Hawaii ${leadInfo.businessType.toLowerCase()} businesses capture missed revenue with AI automation.\n\nWhat's your biggest challenge - missed calls, content creation, or finding time to market?`;
+      }
+    };
+
     setMessages([
       {
         role: "assistant",
-        content: `Aloha ${leadInfo.name.split(" ")[0]}! 🌺 I help Hawaii ${leadInfo.businessType.toLowerCase()} businesses capture missed revenue with AI automation.\n\nWhat's your biggest challenge - missed calls, content creation, or finding time to market?`,
+        content: getPersonalizedMessage(),
       },
     ]);
   };
@@ -187,6 +215,7 @@ export function AIChatbot() {
           messages: [...messages, { role: "user", content: userMessage }],
           leadId,
           sessionId,
+          industry, // Pass industry context to API
         }),
       });
 

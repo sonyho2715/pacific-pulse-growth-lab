@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { AIChatbot } from "@/components/AIChatbot";
 
 export default function SpaLandingPage() {
   const [missedCalls, setMissedCalls] = useState("");
@@ -411,6 +412,9 @@ export default function SpaLandingPage() {
           </p>
         </div>
       </section>
+
+      {/* AI Chatbot with spa-specific context */}
+      <AIChatbot industry="spa" />
     </div>
   );
 }

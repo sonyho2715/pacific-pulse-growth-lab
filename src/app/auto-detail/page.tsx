@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { AIChatbot } from "@/components/AIChatbot";
 
 export default function AutoDetailLandingPage() {
   const [missedCalls, setMissedCalls] = useState("");
@@ -413,6 +414,9 @@ export default function AutoDetailLandingPage() {
           </Link>
         </div>
       </section>
+
+      {/* AI Chatbot with auto-detail specific context */}
+      <AIChatbot industry="auto-detail" />
     </div>
   );
 }
