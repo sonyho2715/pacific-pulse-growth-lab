@@ -53,29 +53,31 @@ export default function Home() {
           </div>
 
           {/* Main Hero */}
-          <div className="text-center max-w-4xl mx-auto mb-16">
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
+          <div className="text-center max-w-4xl mx-auto mb-16 px-4">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
               AI Marketing That
               <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Scales Your Business
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 mb-8 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 mb-8 leading-relaxed max-w-3xl mx-auto px-2">
               Complete AI solutions for Hawaii SMEs: 24/7 chatbots, automated content creation, marketing systems, and passive income streams.
               <strong className="text-zinc-900 dark:text-zinc-100"> Built by a Master NLP Coach</strong> who understands conversion psychology.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Link href="/apply">
-                <Button size="lg" className="text-lg px-8 h-14 shadow-xl shadow-blue-600/20">
-                  Discover How to Capture $3K+/Month in Missed Revenue
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <Button size="lg" className="text-base sm:text-lg px-4 sm:px-8 h-14 shadow-xl shadow-blue-600/20 w-full sm:w-auto">
+                  <span className="hidden sm:inline">Discover How to Capture $3K+/Month in Missed Revenue</span>
+                  <span className="sm:hidden">Capture $3K+/Month in Missed Revenue</span>
+                  <svg className="w-5 h-5 ml-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="text-lg px-8 h-14">
-                See Hawaii Businesses Already Saving 20hrs/Week
+              <Button size="lg" variant="outline" className="text-base sm:text-lg px-4 sm:px-8 h-14 w-full sm:w-auto">
+                <span className="hidden sm:inline">See Hawaii Businesses Already Saving 20hrs/Week</span>
+                <span className="sm:hidden">Hawaii Businesses Saving 20hrs/Week</span>
               </Button>
             </div>
 
