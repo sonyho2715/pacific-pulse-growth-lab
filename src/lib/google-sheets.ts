@@ -21,20 +21,27 @@ export async function appendToGoogleSheet(leadData: LeadData) {
     }
 
     // Parse the private key (handle multiple formats)
-    let privateKey = process.env.GOOGLE_PRIVATE_KEY;
+    let privateKey: string;
 
-    // If the key doesn't start with -----BEGIN, it might be escaped
-    if (!privateKey.startsWith('-----BEGIN')) {
-      // Try unescaping it
-      try {
-        privateKey = JSON.parse(`"${privateKey}"`);
-      } catch {
-        // If that fails, just replace escaped newlines
+    // Check if base64-encoded key is provided (most reliable for Vercel)
+    if (process.env.GOOGLE_PRIVATE_KEY_BASE64) {
+      privateKey = Buffer.from(process.env.GOOGLE_PRIVATE_KEY_BASE64, 'base64').toString('utf-8');
+    } else {
+      privateKey = process.env.GOOGLE_PRIVATE_KEY;
+
+      // If the key doesn't start with -----BEGIN, it might be escaped
+      if (!privateKey.startsWith('-----BEGIN')) {
+        // Try unescaping it
+        try {
+          privateKey = JSON.parse(`"${privateKey}"`);
+        } catch {
+          // If that fails, just replace escaped newlines
+          privateKey = privateKey.replace(/\\n/g, '\n');
+        }
+      } else {
+        // Already properly formatted, just ensure newlines are correct
         privateKey = privateKey.replace(/\\n/g, '\n');
       }
-    } else {
-      // Already properly formatted, just ensure newlines are correct
-      privateKey = privateKey.replace(/\\n/g, '\n');
     }
 
     // Create auth client
@@ -96,20 +103,27 @@ export async function setupGoogleSheetHeaders() {
     }
 
     // Parse the private key (handle multiple formats)
-    let privateKey = process.env.GOOGLE_PRIVATE_KEY;
+    let privateKey: string;
 
-    // If the key doesn't start with -----BEGIN, it might be escaped
-    if (!privateKey.startsWith('-----BEGIN')) {
-      // Try unescaping it
-      try {
-        privateKey = JSON.parse(`"${privateKey}"`);
-      } catch {
-        // If that fails, just replace escaped newlines
+    // Check if base64-encoded key is provided (most reliable for Vercel)
+    if (process.env.GOOGLE_PRIVATE_KEY_BASE64) {
+      privateKey = Buffer.from(process.env.GOOGLE_PRIVATE_KEY_BASE64, 'base64').toString('utf-8');
+    } else {
+      privateKey = process.env.GOOGLE_PRIVATE_KEY;
+
+      // If the key doesn't start with -----BEGIN, it might be escaped
+      if (!privateKey.startsWith('-----BEGIN')) {
+        // Try unescaping it
+        try {
+          privateKey = JSON.parse(`"${privateKey}"`);
+        } catch {
+          // If that fails, just replace escaped newlines
+          privateKey = privateKey.replace(/\\n/g, '\n');
+        }
+      } else {
+        // Already properly formatted, just ensure newlines are correct
         privateKey = privateKey.replace(/\\n/g, '\n');
       }
-    } else {
-      // Already properly formatted, just ensure newlines are correct
-      privateKey = privateKey.replace(/\\n/g, '\n');
     }
 
     const auth = new google.auth.JWT({
