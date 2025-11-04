@@ -120,12 +120,27 @@ export function AIChatbot({ industry = "general" }: AIChatbotProps = {}) {
       return;
     }
 
-    // Create lead record in Supabase
+    // Log to Google Sheets (always do this first, regardless of Supabase status)
+    fetch("/api/sheets-log", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: leadInfo.name,
+        email: leadInfo.email,
+        phone: leadInfo.phone,
+        businessType: leadInfo.businessType,
+        monthlyRevenue: leadInfo.monthlyRevenue,
+        qualified: true,
+        industry,
+      }),
+    }).catch((err) => console.error("Failed to log to Google Sheets:", err));
+
+    // Create lead record in Supabase (optional, don't block if fails)
     try {
       // Check if Supabase client is initialized
       if (!supabase) {
         console.error("❌ Supabase client not initialized - check environment variables");
-        alert("Analytics tracking unavailable. Chat will continue but lead won't be tracked.");
+        console.log("ℹ️ Chat will continue, lead logged to Google Sheets only");
       } else {
         const { data: leadData, error: leadError } = await supabase
           .from("chat_leads")
@@ -170,24 +185,10 @@ export function AIChatbot({ industry = "general" }: AIChatbotProps = {}) {
 
         console.log("✅ Qualified Lead Created:", leadData);
         console.log("✅ Session Created:", sessionData);
-
-        // Also log to Google Sheets (async, don't wait for it)
-        fetch("/api/sheets-log", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: leadInfo.name,
-            email: leadInfo.email,
-            phone: leadInfo.phone,
-            businessType: leadInfo.businessType,
-            monthlyRevenue: leadInfo.monthlyRevenue,
-            qualified: true,
-            industry,
-          }),
-        }).catch((err) => console.error("Failed to log to Google Sheets:", err));
       }
     } catch (error) {
       console.error("❌ Failed to create lead/session:", error);
+      console.log("ℹ️ Chat will continue, lead already logged to Google Sheets");
       // Continue anyway - don't block the chat
     }
 
