@@ -20,8 +20,22 @@ export async function appendToGoogleSheet(leadData: LeadData) {
       return { success: false, error: 'Not configured' };
     }
 
-    // Parse the private key (handle escaped newlines)
-    const privateKey = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n');
+    // Parse the private key (handle multiple formats)
+    let privateKey = process.env.GOOGLE_PRIVATE_KEY;
+
+    // If the key doesn't start with -----BEGIN, it might be escaped
+    if (!privateKey.startsWith('-----BEGIN')) {
+      // Try unescaping it
+      try {
+        privateKey = JSON.parse(`"${privateKey}"`);
+      } catch {
+        // If that fails, just replace escaped newlines
+        privateKey = privateKey.replace(/\\n/g, '\n');
+      }
+    } else {
+      // Already properly formatted, just ensure newlines are correct
+      privateKey = privateKey.replace(/\\n/g, '\n');
+    }
 
     // Create auth client
     const auth = new google.auth.JWT({
@@ -81,7 +95,22 @@ export async function setupGoogleSheetHeaders() {
       return { success: false, error: 'Not configured' };
     }
 
-    const privateKey = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n');
+    // Parse the private key (handle multiple formats)
+    let privateKey = process.env.GOOGLE_PRIVATE_KEY;
+
+    // If the key doesn't start with -----BEGIN, it might be escaped
+    if (!privateKey.startsWith('-----BEGIN')) {
+      // Try unescaping it
+      try {
+        privateKey = JSON.parse(`"${privateKey}"`);
+      } catch {
+        // If that fails, just replace escaped newlines
+        privateKey = privateKey.replace(/\\n/g, '\n');
+      }
+    } else {
+      // Already properly formatted, just ensure newlines are correct
+      privateKey = privateKey.replace(/\\n/g, '\n');
+    }
 
     const auth = new google.auth.JWT({
       email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
