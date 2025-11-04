@@ -1,7 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
+import { chatRateLimiter, getClientIdentifier } from "@/lib/rate-limit";
 
 export async function POST(request: NextRequest) {
+  // Rate limiting check
+  const identifier = getClientIdentifier(request);
+  const rateLimit = await chatRateLimiter.check(identifier);
+
+  if (!rateLimit.success) {
+    return NextResponse.json(
+      { error: "Too many requests. Please wait before sending another message." },
+      {
+        status: 429,
+        headers: {
+          "X-RateLimit-Limit": "10",
+          "X-RateLimit-Remaining": "0",
+          "X-RateLimit-Reset": new Date(rateLimit.reset).toISOString(),
+        }
+      }
+    );
+  }
+
   try {
     const { messages, leadId, sessionId } = await request.json();
 
