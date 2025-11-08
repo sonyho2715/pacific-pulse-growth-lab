@@ -49,6 +49,8 @@ model Contact {
   message   String   @db.Text
   createdAt DateTime @default(now())
   read      Boolean  @default(false)
+
+  @@index([createdAt])
 }
 
 model Booking {
@@ -63,6 +65,8 @@ model Booking {
   status      String   @default("pending")
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  @@index([status, createdAt])
 }
 
 model Application {
