@@ -1,5 +1,4 @@
-import { getServerSession } from "next-auth";
-import { authConfig } from "@/lib/auth";
+import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
@@ -12,7 +11,7 @@ async function getUserData(email: string) {
 }
 
 export default async function DashboardPage() {
-  const session = await getServerSession(authConfig);
+  const session = await auth();
 
   if (!session || !session.user?.email) {
     redirect("/login?callbackUrl=/dashboard");

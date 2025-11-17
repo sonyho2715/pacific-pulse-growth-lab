@@ -1,6 +1,5 @@
-import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { authConfig } from "@/lib/auth";
+import { auth } from "@/lib/auth";
 import AdminNav from "@/components/AdminNav";
 
 export default async function AdminLayout({
@@ -8,7 +7,7 @@ export default async function AdminLayout({
 }: {
   children: React.Node;
 }) {
-  const session = await getServerSession(authConfig);
+  const session = await auth();
 
   if (!session) {
     redirect("/login");
