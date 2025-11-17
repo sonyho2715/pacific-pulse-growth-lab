@@ -2,6 +2,8 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { Eye } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
+
 async function getApplications() {
   return prisma.application.findMany({
     orderBy: { createdAt: "desc" },
