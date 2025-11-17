@@ -67,8 +67,25 @@ export async function POST(request: NextRequest) {
 
     console.log("✅ Founding Client Application saved to database:", application.id);
 
-    // TODO: Send email notification to sony@pacificpulsegrowth.com
-    // TODO: Send confirmation email to applicant
+    // Send email notifications
+    const { sendApplicationConfirmation, sendAdminApplicationNotification } = await import("@/lib/email");
+
+    await Promise.all([
+      sendApplicationConfirmation({
+        name: yourName,
+        email,
+        businessName,
+      }),
+      sendAdminApplicationNotification({
+        businessName,
+        name: yourName,
+        email,
+        phone,
+        businessType,
+        applicationId: application.id,
+      }),
+    ]);
+
     // TODO: Integrate with CRM (e.g., HubSpot, Pipedrive)
 
     return NextResponse.json(

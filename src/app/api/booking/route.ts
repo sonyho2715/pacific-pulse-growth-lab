@@ -28,8 +28,16 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // TODO: Send email notification to admin
-    // TODO: Send confirmation email to user
+    // Send email notifications
+    const { sendBookingConfirmation } = await import("@/lib/email");
+
+    await sendBookingConfirmation({
+      name,
+      email,
+      service,
+      preferredDate: new Date(preferredDate),
+    });
+
     // TODO: Integrate with calendar API (e.g., Google Calendar, Calendly)
 
     return NextResponse.json(
