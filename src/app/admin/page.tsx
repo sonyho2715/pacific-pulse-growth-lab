@@ -2,6 +2,8 @@ import { prisma } from "@/lib/prisma";
 import { FileText, Mail, Calendar, TrendingUp } from "lucide-react";
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic';
+
 async function getDashboardStats() {
   const [applications, contacts, bookings] = await Promise.all([
     prisma.application.count(),

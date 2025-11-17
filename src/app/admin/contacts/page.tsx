@@ -1,5 +1,7 @@
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = 'force-dynamic';
+
 async function getContacts() {
   return prisma.contact.findMany({
     orderBy: { createdAt: "desc" },
