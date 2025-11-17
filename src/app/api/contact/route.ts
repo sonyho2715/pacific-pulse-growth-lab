@@ -24,8 +24,13 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // TODO: Send email notification to admin
-    // TODO: Send confirmation email to user
+    // Send email notifications
+    const { sendContactConfirmation } = await import("@/lib/email");
+
+    await sendContactConfirmation({
+      name,
+      email,
+    });
 
     return NextResponse.json(
       { message: "Contact form submitted successfully", id: contact.id },
