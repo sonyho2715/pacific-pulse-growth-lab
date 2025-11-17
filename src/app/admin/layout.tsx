@@ -5,7 +5,7 @@ import AdminNav from "@/components/AdminNav";
 export default async function AdminLayout({
   children,
 }: {
-  children: React.Node;
+  children: React.ReactNode;
 }) {
   const session = await auth();
 
