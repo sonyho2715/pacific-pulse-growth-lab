@@ -1,14 +1,28 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { CheckCircle } from "lucide-react";
 
-export default function Contact() {
+const PLAN_INFO: Record<string, { name: string; price: { monthly: number; yearly: number }; setup: number }> = {
+  starter: { name: "Starter", price: { monthly: 49, yearly: 39 }, setup: 299 },
+  growth: { name: "Growth", price: { monthly: 99, yearly: 79 }, setup: 499 },
+  professional: { name: "Professional", price: { monthly: 199, yearly: 159 }, setup: 999 },
+  enterprise: { name: "Enterprise", price: { monthly: 499, yearly: 399 }, setup: 2499 },
+};
+
+function ContactForm() {
+  const searchParams = useSearchParams();
+  const selectedPlan = searchParams.get("plan");
+  const billingCycle = searchParams.get("billing") as "monthly" | "yearly" | null;
+  const planDetails = selectedPlan ? PLAN_INFO[selectedPlan] : null;
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,6 +31,18 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
+  // Pre-fill message when plan is selected
+  useEffect(() => {
+    if (planDetails && selectedPlan) {
+      const price = billingCycle === "yearly" ? planDetails.price.yearly : planDetails.price.monthly;
+      const billingText = billingCycle === "yearly" ? "yearly" : "monthly";
+      setFormData(prev => ({
+        ...prev,
+        message: `I'm interested in the ${planDetails.name} plan ($${price}/month, billed ${billingText}).\n\nPlease send me more information about getting started.`
+      }));
+    }
+  }, [planDetails, selectedPlan, billingCycle]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,6 +89,9 @@ export default function Contact() {
             <Link href="/portfolio" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
               Portfolio
             </Link>
+            <Link href="/pricing" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
+              Pricing
+            </Link>
             <Link href="/blog" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
               Blog
             </Link>
@@ -87,6 +116,34 @@ export default function Contact() {
           </p>
         </div>
       </section>
+
+      {/* Plan Selection Banner */}
+      {planDetails && selectedPlan && (
+        <section className="container mx-auto px-4 pb-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 flex items-center gap-4">
+              <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <CheckCircle className="w-5 h-5 text-white" />
+              </div>
+              <div className="flex-1">
+                <p className="font-semibold text-blue-900 dark:text-blue-100">
+                  {planDetails.name} Plan Selected
+                </p>
+                <p className="text-sm text-blue-700 dark:text-blue-300">
+                  ${billingCycle === "yearly" ? planDetails.price.yearly : planDetails.price.monthly}/month
+                  {billingCycle === "yearly" ? " (billed yearly)" : ""} + ${planDetails.setup} setup
+                </p>
+              </div>
+              <Link
+                href="/pricing"
+                className="text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 font-medium"
+              >
+                Change plan
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Contact Form */}
       <section className="container mx-auto px-4 pb-20">
@@ -221,5 +278,17 @@ export default function Contact() {
         </div>
       </footer>
     </div>
+  );
+}
+
+export default function Contact() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-b from-zinc-50 to-white flex items-center justify-center">
+        <div className="animate-pulse text-zinc-400">Loading...</div>
+      </div>
+    }>
+      <ContactForm />
+    </Suspense>
   );
 }

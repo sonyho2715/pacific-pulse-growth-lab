@@ -10,11 +10,13 @@ import {
   Calendar,
   Users,
   LogOut,
-  BarChart3
+  BarChart3,
+  CreditCard
 } from "lucide-react";
 
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/admin/subscriptions", label: "Subscriptions", icon: CreditCard },
   { href: "/admin/applications", label: "Applications", icon: FileText },
   { href: "/admin/contacts", label: "Contacts", icon: Mail },
   { href: "/admin/bookings", label: "Bookings", icon: Calendar },

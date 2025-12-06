@@ -1,25 +1,41 @@
 import { prisma } from "@/lib/prisma";
-import { FileText, Mail, Calendar, TrendingUp } from "lucide-react";
+import { FileText, Mail, Calendar, TrendingUp, DollarSign, Users } from "lucide-react";
 import Link from "next/link";
+import { WEBSITE_PLANS, type WebsitePlan } from "@/lib/stripe";
 
 export const dynamic = 'force-dynamic';
 
 async function getDashboardStats() {
-  const [applications, contacts, bookings] = await Promise.all([
+  const [applications, contacts, bookings, subscribers] = await Promise.all([
     prisma.application.count(),
     prisma.contact.count(),
     prisma.booking.count(),
+    prisma.user.findMany({
+      where: { subscriptionStatus: "active" },
+      select: { subscriptionPlan: true },
+    }),
   ]);
 
   const pendingApplications = await prisma.application.count({
     where: { status: "pending" },
   });
 
+  // Calculate MRR
+  let mrr = 0;
+  for (const sub of subscribers) {
+    const plan = sub.subscriptionPlan as WebsitePlan | null;
+    if (plan && WEBSITE_PLANS[plan]) {
+      mrr += WEBSITE_PLANS[plan].price.monthly;
+    }
+  }
+
   return {
     applications,
     contacts,
     bookings,
     pendingApplications,
+    activeSubscribers: subscribers.length,
+    mrr,
   };
 }
 
@@ -44,11 +60,25 @@ export default async function AdminDashboard() {
 
   const statCards = [
     {
+      title: "Monthly Revenue",
+      value: `$${stats.mrr.toLocaleString()}`,
+      icon: DollarSign,
+      href: "/admin/subscriptions",
+      color: "bg-green-500",
+    },
+    {
+      title: "Active Subscribers",
+      value: stats.activeSubscribers,
+      icon: Users,
+      href: "/admin/subscriptions",
+      color: "bg-blue-500",
+    },
+    {
       title: "Total Applications",
       value: stats.applications,
       icon: FileText,
       href: "/admin/applications",
-      color: "bg-blue-500",
+      color: "bg-indigo-500",
     },
     {
       title: "Pending Applications",
@@ -62,7 +92,7 @@ export default async function AdminDashboard() {
       value: stats.contacts,
       icon: Mail,
       href: "/admin/contacts",
-      color: "bg-green-500",
+      color: "bg-teal-500",
     },
     {
       title: "Bookings",
@@ -80,7 +110,7 @@ export default async function AdminDashboard() {
         <p className="text-gray-600 mt-1">Welcome to your admin dashboard</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 mb-8">
         {statCards.map((stat) => {
           const Icon = stat.icon;
           return (

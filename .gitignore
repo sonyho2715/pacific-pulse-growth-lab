@@ -33,6 +33,9 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# secrets (Google service accounts, API keys, etc.)
+.secrets/
+
 # vercel
 .vercel
 
@@ -41,3 +44,16 @@ yarn-error.log*
 next-env.d.ts
 
 /src/generated/prisma
+
+# claude code - exclude sensitive data
+.claude/file-history/
+.claude/debug/
+.claude/history.jsonl
+.claude/session-env/
+.claude/shell-snapshots/
+.claude/settings.local.json
+.claude/plans/
+.claude/todos/
+.claude/statsig/
+.claude/projects/
+.claude/ide/
