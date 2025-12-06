@@ -2,7 +2,10 @@ import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
-import { CheckCircle2, XCircle, Clock } from "lucide-react";
+import { CheckCircle2, XCircle, Clock, CreditCard, ExternalLink } from "lucide-react";
+import { WEBSITE_PLANS, type WebsitePlan } from "@/lib/stripe";
+import { PortalButton } from "./PortalButton";
+import { SuccessBanner } from "./SuccessBanner";
 
 async function getUserData(email: string) {
   return prisma.user.findUnique({
@@ -10,7 +13,11 @@ async function getUserData(email: string) {
   });
 }
 
-export default async function DashboardPage() {
+export default async function DashboardPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ success?: string }>;
+}) {
   const session = await auth();
 
   if (!session || !session.user?.email) {
@@ -23,12 +30,20 @@ export default async function DashboardPage() {
     redirect("/login");
   }
 
+  const params = await searchParams;
+  const showSuccess = params.success === "true";
   const hasActiveSubscription = user.subscriptionStatus === "active";
   const isPastDue = user.subscriptionStatus === "past_due";
+  const planDetails = user.subscriptionPlan
+    ? WEBSITE_PLANS[user.subscriptionPlan as WebsitePlan]
+    : null;
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Success Banner */}
+        {showSuccess && <SuccessBanner />}
+
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">
@@ -89,16 +104,23 @@ export default async function DashboardPage() {
               </div>
             )}
 
+            {planDetails && hasActiveSubscription && (
+              <div className="pt-4 border-t border-gray-200">
+                <h3 className="text-sm font-medium text-gray-700 mb-2">Plan Features:</h3>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  {planDetails.features.slice(0, 5).map((feature, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-green-500" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             <div className="flex gap-4 pt-4">
               {hasActiveSubscription || isPastDue ? (
-                <form action="/api/stripe/portal" method="POST">
-                  <button
-                    type="submit"
-                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-                  >
-                    Manage Subscription
-                  </button>
-                </form>
+                <PortalButton />
               ) : (
                 <Link
                   href="/pricing"
