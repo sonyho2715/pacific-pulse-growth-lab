@@ -5,7 +5,7 @@ Growth lab platform with comprehensive testing infrastructure. Full-featured Nex
 
 ## Tech Stack
 - **Framework:** Next.js 15 (App Router)
-- **Database:** PostgreSQL on Railway + Prisma
+- **Database:** PostgreSQL on Railway + Prisma 6.19
 - **Auth:** @auth/prisma-adapter
 - **Styling:** Tailwind CSS
 - **UI:** Radix UI components
