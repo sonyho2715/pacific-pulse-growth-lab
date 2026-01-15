@@ -4,6 +4,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 const FROM_EMAIL = "Pacific Pulse AI <noreply@pacificpulseai.com>";
 const ADMIN_EMAIL = "sony@pacificpulseai.com";
+const REPLY_TO_EMAIL = "mrsonyho@gmail.com";
 
 export async function sendApplicationConfirmation(data: {
   name: string;
@@ -14,6 +15,7 @@ export async function sendApplicationConfirmation(data: {
     await resend.emails.send({
       from: FROM_EMAIL,
       to: data.email,
+      replyTo: REPLY_TO_EMAIL,
       subject: "Application Received - Pacific Pulse AI",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -45,6 +47,7 @@ export async function sendAdminApplicationNotification(data: {
     await resend.emails.send({
       from: FROM_EMAIL,
       to: ADMIN_EMAIL,
+      replyTo: REPLY_TO_EMAIL,
       subject: `New Application: ${data.businessName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -76,6 +79,7 @@ export async function sendContactConfirmation(data: {
     await resend.emails.send({
       from: FROM_EMAIL,
       to: data.email,
+      replyTo: REPLY_TO_EMAIL,
       subject: "Message Received - Pacific Pulse AI",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -103,6 +107,7 @@ export async function sendBookingConfirmation(data: {
     await resend.emails.send({
       from: FROM_EMAIL,
       to: data.email,
+      replyTo: REPLY_TO_EMAIL,
       subject: "Booking Request Received - Pacific Pulse AI",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
