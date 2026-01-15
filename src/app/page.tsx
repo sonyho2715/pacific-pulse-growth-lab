@@ -1,123 +1,131 @@
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Check, Zap, Globe, Code, Smartphone, Bot, BarChart3, Mail, Calendar, ShoppingCart, Users, Star, ExternalLink } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, Sparkles, Zap, Globe, Bot, Calendar, ShoppingCart, Mail, BarChart3, Star, Play } from "lucide-react";
 
-// Portfolio projects data
-const projects = [
+// Featured projects - lead with your best work
+const featuredProjects = [
   {
     name: "VietHawaii",
-    description: "Community directory connecting people with Vietnamese-owned businesses across Hawaii",
+    category: "Community Platform",
+    description: "Directory connecting 50,000+ people with Vietnamese-owned businesses across Hawaii. Multilingual, map-integrated, SEO-optimized.",
     url: "https://viethawaii.com",
     image: "/projects/viethawaii.png",
-    tags: ["Directory", "Maps", "Multilingual"],
-    color: "from-red-500 to-orange-500",
+    stats: "50K+ users",
+    gradient: "from-rose-500 via-orange-500 to-amber-500",
   },
   {
     name: "Aloha Coaches",
-    description: "Transformational coaching platform with AI-powered sessions and subscription billing",
+    category: "AI-Powered SaaS",
+    description: "Transformational coaching platform with Claude AI-powered sessions, Stripe subscriptions, and automated booking.",
     url: "https://www.alohacoaches.com",
     image: "/projects/alohacoaches.png",
-    tags: ["SaaS", "AI", "Subscriptions"],
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    name: "Aloha Massage Spa",
-    description: "Spa booking and service management with online scheduling system",
-    url: "https://aloha-massage-spa.vercel.app",
-    image: "/projects/aloha-spa.png",
-    tags: ["Booking", "Services", "Gallery"],
-    color: "from-teal-500 to-emerald-500",
+    stats: "AI + Stripe",
+    gradient: "from-cyan-500 via-blue-500 to-indigo-500",
   },
   {
     name: "Bo's Auto Detail",
-    description: "Premium auto detailing service with luxury design and smooth animations",
+    category: "Service Business",
+    description: "Premium auto detailing with luxury animations, online booking, and conversion-optimized landing pages.",
     url: "https://bos-auto-detail-frontend.vercel.app",
     image: "/projects/bos-auto.png",
-    tags: ["Luxury", "Animation", "Booking"],
-    color: "from-amber-500 to-yellow-500",
+    stats: "40% more bookings",
+    gradient: "from-amber-400 via-yellow-500 to-orange-500",
+  },
+];
+
+// All projects for the grid
+const allProjects = [
+  {
+    name: "Aloha Massage Spa",
+    category: "Booking System",
+    url: "https://aloha-massage-spa.vercel.app",
+    gradient: "from-teal-500 to-emerald-500",
   },
   {
     name: "Benefits Resource Group",
-    description: "Employee benefits management platform with analytics and PDF generation",
+    category: "Dashboard + Analytics",
     url: "https://benefits-resource-group.vercel.app",
-    image: "/projects/benefits.png",
-    tags: ["Dashboard", "Analytics", "PDF"],
-    color: "from-purple-500 to-pink-500",
+    gradient: "from-purple-500 to-pink-500",
   },
   {
     name: "Truong Viet Ngu",
-    description: "Vietnamese language school platform for community education",
+    category: "Education Platform",
     url: "https://truong-viet-ngu.vercel.app",
-    image: "/projects/truong.png",
-    tags: ["Education", "Community", "Bilingual"],
-    color: "from-indigo-500 to-violet-500",
+    gradient: "from-indigo-500 to-violet-500",
   },
 ];
 
 const services = [
   {
     icon: Globe,
-    title: "Custom Websites",
-    description: "Modern, fast websites built with Next.js that convert visitors into customers",
+    title: "Custom Web Applications",
+    description: "Next.js applications built for speed, SEO, and conversion. From landing pages to full SaaS platforms.",
+    features: ["Lightning-fast performance", "Mobile-first design", "SEO optimized"],
   },
   {
     icon: Bot,
-    title: "AI Integration",
-    description: "24/7 AI chatbots trained on your business to capture leads while you sleep",
+    title: "AI Automation",
+    description: "24/7 AI chatbots and automation that capture leads, answer questions, and book appointments while you sleep.",
+    features: ["Trained on your business", "Natural conversations", "Lead capture"],
   },
   {
     icon: Calendar,
-    title: "Booking Systems",
-    description: "Online scheduling that syncs with your calendar and sends confirmations",
+    title: "Booking & Scheduling",
+    description: "Online booking systems that sync with your calendar, send confirmations, and reduce no-shows.",
+    features: ["Calendar sync", "Automated reminders", "Payment integration"],
   },
   {
     icon: ShoppingCart,
-    title: "E-Commerce",
-    description: "Sell products and services online with Stripe payment processing",
-  },
-  {
-    icon: Mail,
-    title: "Email Marketing",
-    description: "Automated email sequences and newsletters that nurture leads",
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics",
-    description: "Real-time dashboards showing your business performance",
+    title: "E-Commerce & Payments",
+    description: "Sell products and services online with Stripe. Subscriptions, one-time payments, invoicing.",
+    features: ["Stripe integration", "Subscription billing", "Secure checkout"],
   },
 ];
 
-const stats = [
-  { value: "30+", label: "Projects Delivered" },
-  { value: "99.9%", label: "Uptime" },
-  { value: "< 1s", label: "Load Time" },
-  { value: "24/7", label: "Support" },
+const testimonials = [
+  {
+    quote: "The booking system increased our appointments by 40%. Customers can book 24/7 now, even when we're closed.",
+    author: "Sarah K.",
+    role: "Aloha Massage Spa",
+    avatar: "S",
+  },
+  {
+    quote: "Pacific Pulse understood exactly what we needed. The VietHawaii platform has connected our entire community.",
+    author: "Linh N.",
+    role: "Community Organizer",
+    avatar: "L",
+  },
+  {
+    quote: "Professional, fast, and they actually deliver. Our new site converts twice as many visitors into customers.",
+    author: "Mike T.",
+    role: "Bo's Auto Detail",
+    avatar: "M",
+  },
 ];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
+            <Link href="/" className="flex items-center gap-2">
+              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center">
                 <Zap className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold">Pacific Pulse</span>
+              <span className="text-lg font-bold text-slate-900">Pacific Pulse</span>
             </Link>
 
             <div className="hidden md:flex items-center gap-8">
-              <a href="#work" className="text-sm text-zinc-400 hover:text-white transition">Work</a>
-              <a href="#services" className="text-sm text-zinc-400 hover:text-white transition">Services</a>
-              <Link href="/pricing" className="text-sm text-zinc-400 hover:text-white transition">Pricing</Link>
-              <a href="#contact" className="text-sm text-zinc-400 hover:text-white transition">Contact</a>
+              <a href="#work" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Work</a>
+              <a href="#services" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Services</a>
+              <Link href="/pricing" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Pricing</Link>
+              <a href="#contact" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Contact</a>
             </div>
 
             <Link
               href="/apply"
-              className="px-5 py-2.5 bg-white text-black text-sm font-semibold rounded-full hover:bg-zinc-200 transition"
+              className="px-5 py-2 bg-slate-900 text-white text-sm font-semibold rounded-lg hover:bg-slate-800 transition"
             >
               Start a Project
             </Link>
@@ -125,156 +133,292 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 relative overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-violet-500/10 via-transparent to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 rounded-full blur-3xl" />
-
-        <div className="max-w-7xl mx-auto relative">
-          <div className="text-center max-w-4xl mx-auto">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8">
+      {/* Hero - Portfolio Led */}
+      <section className="pt-24 pb-8 px-4">
+        <div className="max-w-7xl mx-auto">
+          {/* Mini intro */}
+          <div className="text-center mb-12 pt-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-50 border border-sky-200 mb-6">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span className="text-sm text-zinc-400">Available for new projects</span>
+              <span className="text-sm font-medium text-sky-700">Available for new projects</span>
             </div>
 
-            {/* Main headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
-              We build
-              <span className="block bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent">
-                digital products
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 tracking-tight mb-4">
+              We build digital products
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600">
+                that grow businesses
               </span>
-              that scale
             </h1>
 
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-10">
-              Full-stack web applications, AI integrations, and marketing automation for businesses ready to grow. Based in Hawaii, serving clients worldwide.
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Full-stack web applications and AI automation for businesses ready to scale.
+              Based in Hawaii, serving clients worldwide.
             </p>
+          </div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Link
-                href="/apply"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-zinc-200 transition group"
-              >
-                Start Your Project
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <a
-                href="#work"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 border border-white/10 font-semibold rounded-full hover:bg-white/10 transition"
-              >
-                View Our Work
-              </a>
-            </div>
+          {/* Featured Project - Large Showcase */}
+          <div className="mb-8">
+            <a
+              href={featuredProjects[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block relative rounded-2xl overflow-hidden bg-slate-100 aspect-[16/9] md:aspect-[21/9]"
+            >
+              {/* Gradient background */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${featuredProjects[0].gradient} opacity-90`} />
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
-                  <div className="text-sm text-zinc-500">{stat.label}</div>
+              {/* Content overlay */}
+              <div className="absolute inset-0 flex items-end p-6 md:p-10">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="px-2 py-1 bg-white/20 backdrop-blur-sm rounded text-xs font-medium text-white">
+                      {featuredProjects[0].category}
+                    </span>
+                    <span className="px-2 py-1 bg-white/20 backdrop-blur-sm rounded text-xs font-medium text-white">
+                      {featuredProjects[0].stats}
+                    </span>
+                  </div>
+                  <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 group-hover:underline">
+                    {featuredProjects[0].name}
+                  </h2>
+                  <p className="text-white/90 text-sm md:text-base max-w-xl hidden md:block">
+                    {featuredProjects[0].description}
+                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Logos / Trust Bar */}
-      <section className="py-12 border-y border-white/10">
-        <div className="max-w-7xl mx-auto px-4">
-          <p className="text-center text-sm text-zinc-500 mb-8">Trusted by businesses across Hawaii</p>
-          <div className="flex flex-wrap justify-center items-center gap-12 opacity-50">
-            <span className="text-xl font-bold">VietHawaii</span>
-            <span className="text-xl font-bold">Aloha Coaches</span>
-            <span className="text-xl font-bold">Benefits Resource Group</span>
-            <span className="text-xl font-bold">Bo&apos;s Auto Detail</span>
-            <span className="text-xl font-bold">Live Safe Hawaii</span>
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio Section */}
-      <section id="work" className="py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured Work</h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Real projects delivering real results for real businesses
-            </p>
+                <ArrowUpRight className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+            </a>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
+          {/* Two more featured projects */}
+          <div className="grid md:grid-cols-2 gap-4 mb-4">
+            {featuredProjects.slice(1).map((project) => (
               <a
                 key={project.name}
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative bg-zinc-900 rounded-2xl overflow-hidden border border-white/5 hover:border-white/20 transition-all hover:-translate-y-1"
+                className="group relative rounded-xl overflow-hidden bg-slate-100 aspect-[16/10]"
               >
-                {/* Project Image Placeholder */}
-                <div className={`aspect-video bg-gradient-to-br ${project.color} opacity-80 group-hover:opacity-100 transition flex items-center justify-center`}>
-                  <Globe className="w-16 h-16 text-white/50" />
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xl font-bold group-hover:text-violet-400 transition">{project.name}</h3>
-                    <ExternalLink className="w-4 h-4 text-zinc-500 group-hover:text-white transition" />
-                  </div>
-                  <p className="text-zinc-400 text-sm mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="text-xs px-2 py-1 bg-white/5 rounded-full text-zinc-400">
-                        {tag}
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-90`} />
+                <div className="absolute inset-0 flex items-end p-5">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="px-2 py-1 bg-white/20 backdrop-blur-sm rounded text-xs font-medium text-white">
+                        {project.category}
                       </span>
-                    ))}
+                      <span className="px-2 py-1 bg-white/20 backdrop-blur-sm rounded text-xs font-medium text-white">
+                        {project.stats}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-bold text-white group-hover:underline">
+                      {project.name}
+                    </h3>
+                  </div>
+                  <ArrowUpRight className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              </a>
+            ))}
+          </div>
+
+          {/* More projects grid */}
+          <div className="grid grid-cols-3 gap-4">
+            {allProjects.map((project) => (
+              <a
+                key={project.name}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative rounded-lg overflow-hidden bg-slate-100 aspect-[4/3]"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-85`} />
+                <div className="absolute inset-0 flex items-end p-4">
+                  <div>
+                    <span className="text-xs font-medium text-white/80">{project.category}</span>
+                    <h3 className="text-sm font-bold text-white group-hover:underline">{project.name}</h3>
                   </div>
                 </div>
               </a>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          {/* View all link */}
+          <div className="text-center mt-8">
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 text-violet-400 hover:text-violet-300 font-medium"
+              className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium transition"
             >
-              View All Projects
+              View all projects
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
 
+      {/* Stats Bar */}
+      <section className="py-12 border-y border-slate-200 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { value: "30+", label: "Projects Delivered" },
+              { value: "99.9%", label: "Uptime Guarantee" },
+              { value: "< 1s", label: "Average Load Time" },
+              { value: "24/7", label: "AI Support Available" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-slate-900">{stat.value}</div>
+                <div className="text-sm text-slate-500 mt-1">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
-      <section id="services" className="py-24 px-4 bg-zinc-950">
+      <section id="services" className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">What We Build</h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              End-to-end solutions from concept to deployment
+            <span className="text-sm font-semibold text-sky-600 uppercase tracking-wider">Services</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
+              Everything you need to grow online
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              From custom web applications to AI automation. End-to-end solutions built with modern technology.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {services.map((service) => (
               <div
                 key={service.title}
-                className="p-8 bg-zinc-900 rounded-2xl border border-white/5 hover:border-violet-500/50 transition group"
+                className="p-8 rounded-2xl bg-white border border-slate-200 hover:border-sky-300 hover:shadow-lg transition-all group"
               >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 flex items-center justify-center mb-6 group-hover:from-violet-500/30 group-hover:to-fuchsia-500/30 transition">
-                  <service.icon className="w-7 h-7 text-violet-400" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center mb-5">
+                  <service.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                <p className="text-zinc-400">{service.description}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{service.title}</h3>
+                <p className="text-slate-600 mb-4">{service.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {service.features.map((feature) => (
+                    <span
+                      key={feature}
+                      className="inline-flex items-center gap-1 px-2 py-1 bg-slate-100 rounded text-xs font-medium text-slate-600"
+                    >
+                      <Check className="w-3 h-3 text-emerald-500" />
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Highlight Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-500/20 border border-sky-500/30 mb-6">
+                <Sparkles className="w-4 h-4 text-sky-400" />
+                <span className="text-sm font-medium text-sky-300">AI Automation</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Never miss another lead.
+                <span className="block text-sky-400">Even at 2am.</span>
+              </h2>
+              <p className="text-slate-300 text-lg mb-6">
+                Our AI chatbots are trained on your business, answer questions naturally,
+                capture leads, and book appointments while you sleep.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  "24/7 lead capture and qualification",
+                  "Natural conversations that sound human",
+                  "Appointment booking with calendar sync",
+                  "Instant answers to common questions",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-slate-300">
+                    <Check className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/apply"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-400 transition"
+              >
+                See it in action
+                <Play className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="relative">
+              {/* Chat mockup */}
+              <div className="bg-white rounded-2xl shadow-2xl p-4 max-w-sm mx-auto">
+                <div className="flex items-center gap-3 pb-4 border-b border-slate-200">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center">
+                    <Bot className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-900 text-sm">Business Assistant</div>
+                    <div className="text-xs text-emerald-500 flex items-center gap-1">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                      Online 24/7
+                    </div>
+                  </div>
+                </div>
+                <div className="py-4 space-y-3">
+                  <div className="bg-slate-100 rounded-lg p-3 max-w-[80%]">
+                    <p className="text-sm text-slate-700">Hi! Do you have any openings this Saturday?</p>
+                  </div>
+                  <div className="bg-sky-500 rounded-lg p-3 max-w-[80%] ml-auto">
+                    <p className="text-sm text-white">Yes! We have slots at 10am, 2pm, and 4pm. Would you like me to book one for you?</p>
+                  </div>
+                  <div className="bg-slate-100 rounded-lg p-3 max-w-[80%]">
+                    <p className="text-sm text-slate-700">2pm works. Can I also ask about your prices?</p>
+                  </div>
+                  <div className="bg-sky-500 rounded-lg p-3 max-w-[80%] ml-auto">
+                    <p className="text-sm text-white">Perfect! I'll book you for 2pm Saturday. Our services start at $75. I'll send you a confirmation with full pricing.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="text-sm font-semibold text-sky-600 uppercase tracking-wider">Testimonials</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">
+              Trusted by Hawaii businesses
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, i) => (
+              <div key={i} className="p-6 rounded-xl bg-white border border-slate-200">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="text-slate-600 mb-6">&ldquo;{testimonial.quote}&rdquo;</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center text-white font-semibold">
+                    {testimonial.avatar}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-900">{testimonial.author}</div>
+                    <div className="text-sm text-slate-500">{testimonial.role}</div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -282,181 +426,40 @@ export default function Home() {
       </section>
 
       {/* Tech Stack */}
-      <section className="py-24 px-4">
+      <section className="py-16 px-4 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Tech Stack</h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Modern tools for modern businesses
-            </p>
+          <div className="text-center mb-10">
+            <h2 className="text-xl font-bold text-slate-900">Built with modern technology</h2>
           </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {[
-              { name: "Next.js 15", desc: "React Framework" },
-              { name: "TypeScript", desc: "Type Safety" },
-              { name: "Tailwind", desc: "Styling" },
-              { name: "Prisma", desc: "Database ORM" },
-              { name: "PostgreSQL", desc: "Database" },
-              { name: "Vercel", desc: "Hosting" },
-              { name: "Railway", desc: "Infrastructure" },
-              { name: "Stripe", desc: "Payments" },
-              { name: "Resend", desc: "Email" },
-              { name: "Claude AI", desc: "AI Integration" },
-              { name: "Zod", desc: "Validation" },
-              { name: "GitHub", desc: "Version Control" },
-            ].map((tech) => (
-              <div key={tech.name} className="text-center p-6 bg-zinc-900 rounded-xl border border-white/5">
-                <div className="text-lg font-semibold mb-1">{tech.name}</div>
-                <div className="text-sm text-zinc-500">{tech.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Preview */}
-      <section className="py-24 px-4 bg-zinc-950">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Simple Pricing</h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Transparent pricing for businesses of all sizes
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {[
-              {
-                name: "Starter",
-                price: "$49",
-                desc: "Perfect for small businesses",
-                features: ["5-page website", "Mobile responsive", "Contact form", "Basic SEO", "48hr support"],
-              },
-              {
-                name: "Growth",
-                price: "$99",
-                desc: "For businesses ready to scale",
-                features: ["10+ pages", "Booking system", "Blog", "Email marketing", "24hr support"],
-                popular: true,
-              },
-              {
-                name: "Professional",
-                price: "$199",
-                desc: "Full-featured solution",
-                features: ["Unlimited pages", "E-commerce", "AI chatbot", "Analytics", "Priority support"],
-              },
-            ].map((plan) => (
-              <div
-                key={plan.name}
-                className={`p-8 rounded-2xl border ${
-                  plan.popular
-                    ? "bg-gradient-to-b from-violet-500/10 to-transparent border-violet-500/50"
-                    : "bg-zinc-900 border-white/5"
-                }`}
-              >
-                {plan.popular && (
-                  <div className="text-xs font-bold text-violet-400 uppercase tracking-wider mb-4">Most Popular</div>
-                )}
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-4xl font-bold">{plan.price}</span>
-                  <span className="text-zinc-500">/month</span>
-                </div>
-                <p className="text-zinc-400 mb-6">{plan.desc}</p>
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-3 text-sm">
-                      <Check className="w-4 h-4 text-violet-400" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/pricing"
-                  className={`block text-center py-3 rounded-full font-semibold transition ${
-                    plan.popular
-                      ? "bg-white text-black hover:bg-zinc-200"
-                      : "bg-white/5 hover:bg-white/10"
-                  }`}
-                >
-                  Get Started
-                </Link>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/pricing" className="text-violet-400 hover:text-violet-300 font-medium">
-              View full pricing details →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">What Clients Say</h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                quote: "Pacific Pulse delivered a beautiful website that perfectly captures our brand. The booking system has increased our appointments by 40%.",
-                author: "Sarah K.",
-                role: "Owner, Aloha Massage Spa",
-              },
-              {
-                quote: "The AI chatbot answers questions 24/7. We're capturing leads even at 2am when tourists can't sleep and want to book tours.",
-                author: "Mike T.",
-                role: "Tour Operator, Maui",
-              },
-              {
-                quote: "Professional, fast, and they understand Hawaii businesses. The VietHawaii platform has connected our entire community.",
-                author: "Linh N.",
-                role: "Community Organizer",
-              },
-            ].map((testimonial, i) => (
-              <div key={i} className="p-8 bg-zinc-900 rounded-2xl border border-white/5">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-4 h-4 fill-yellow-500 text-yellow-500" />
-                  ))}
-                </div>
-                <p className="text-zinc-300 mb-6">&ldquo;{testimonial.quote}&rdquo;</p>
-                <div>
-                  <div className="font-semibold">{testimonial.author}</div>
-                  <div className="text-sm text-zinc-500">{testimonial.role}</div>
-                </div>
-              </div>
+          <div className="flex flex-wrap justify-center gap-8 text-slate-500">
+            {["Next.js 15", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Vercel", "Stripe", "Claude AI"].map((tech) => (
+              <span key={tech} className="text-sm font-medium">{tech}</span>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="p-12 rounded-3xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+      <section id="contact" className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center p-10 md:p-16 rounded-3xl bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-600">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Ready to build something great?
             </h2>
-            <p className="text-xl text-zinc-400 mb-10 max-w-2xl mx-auto">
-              Let&apos;s discuss your project. We typically respond within 24 hours.
+            <p className="text-sky-100 text-lg mb-8 max-w-xl mx-auto">
+              Tell us about your project. We typically respond within 24 hours with a detailed proposal.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/apply"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-zinc-200 transition"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg hover:bg-slate-100 transition"
               >
-                Start a Project
+                Start Your Project
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 border border-white/10 font-semibold rounded-full hover:bg-white/10 transition"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition border border-white/20"
               >
                 Schedule a Call
               </Link>
@@ -466,53 +469,53 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 border-t border-white/10">
+      <footer className="py-12 px-4 border-t border-slate-200">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center">
                   <Zap className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-xl font-bold">Pacific Pulse</span>
+                <span className="text-lg font-bold text-slate-900">Pacific Pulse</span>
               </div>
-              <p className="text-zinc-500 text-sm">
-                Building digital products that scale businesses.
+              <p className="text-slate-500 text-sm">
+                Building digital products that grow businesses. Based in Hawaii, serving clients worldwide.
               </p>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-sm text-zinc-500">
-                <li><a href="#" className="hover:text-white transition">Web Development</a></li>
-                <li><a href="#" className="hover:text-white transition">AI Integration</a></li>
-                <li><a href="#" className="hover:text-white transition">E-Commerce</a></li>
-                <li><a href="#" className="hover:text-white transition">Marketing</a></li>
+              <h4 className="font-semibold text-slate-900 mb-4">Services</h4>
+              <ul className="space-y-2 text-sm text-slate-500">
+                <li><a href="#services" className="hover:text-slate-900 transition">Web Applications</a></li>
+                <li><a href="#services" className="hover:text-slate-900 transition">AI Automation</a></li>
+                <li><a href="#services" className="hover:text-slate-900 transition">E-Commerce</a></li>
+                <li><a href="#services" className="hover:text-slate-900 transition">Booking Systems</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-sm text-zinc-500">
-                <li><Link href="/portfolio" className="hover:text-white transition">Portfolio</Link></li>
-                <li><Link href="/pricing" className="hover:text-white transition">Pricing</Link></li>
-                <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
-                <li><Link href="/apply" className="hover:text-white transition">Start Project</Link></li>
+              <h4 className="font-semibold text-slate-900 mb-4">Company</h4>
+              <ul className="space-y-2 text-sm text-slate-500">
+                <li><Link href="/portfolio" className="hover:text-slate-900 transition">Portfolio</Link></li>
+                <li><Link href="/pricing" className="hover:text-slate-900 transition">Pricing</Link></li>
+                <li><Link href="/contact" className="hover:text-slate-900 transition">Contact</Link></li>
+                <li><Link href="/apply" className="hover:text-slate-900 transition">Start Project</Link></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-sm text-zinc-500">
+              <h4 className="font-semibold text-slate-900 mb-4">Contact</h4>
+              <ul className="space-y-2 text-sm text-slate-500">
                 <li>sony@pacificpulseai.com</li>
                 <li>Hawaii, USA</li>
               </ul>
             </div>
           </div>
 
-          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
-            <p>© 2025 Pacific Pulse. All rights reserved.</p>
-            <p>Built with ❤️ in Hawaii 🌺</p>
+          <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+            <p>&copy; 2025 Pacific Pulse Growth Lab LLC. All rights reserved.</p>
+            <p>Built with aloha in Hawaii</p>
           </div>
         </div>
       </footer>
