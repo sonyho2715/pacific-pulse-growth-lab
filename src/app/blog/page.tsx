@@ -1,157 +1,305 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from 'next/link';
+import { Zap, Calendar, User, Eye, ArrowRight, Tag } from 'lucide-react';
 
-// This would come from the database in a real implementation
 const blogPosts = [
   {
-    id: "1",
-    title: "10 Growth Hacking Strategies That Actually Work in 2025",
-    slug: "growth-hacking-strategies-2025",
-    excerpt: "Discover the most effective growth hacking strategies that top marketers are using to scale businesses rapidly in today's competitive landscape.",
-    author: "Pacific Pulse Team",
-    createdAt: "2025-01-15",
-    tags: ["Growth Hacking", "Marketing Strategy", "Scaling"],
-    views: 1234
+    id: '1',
+    title: 'Why Your Business Needs a Custom Web App (Not Just a Website)',
+    slug: 'custom-web-app-vs-website',
+    excerpt: 'Discover the key differences between a static website and a custom web application, and why investing in the right solution can transform your business operations.',
+    author: 'Sony Ho',
+    createdAt: '2026-01-15',
+    category: 'Web Development',
+    tags: ['Web Apps', 'Business Strategy', 'Technology'],
+    readTime: '5 min read',
+    featured: true,
   },
   {
-    id: "2",
-    title: "How to Build a High-Converting Landing Page in 24 Hours",
-    slug: "high-converting-landing-page",
-    excerpt: "Learn the exact framework we use to create landing pages that convert visitors into customers at rates above 5%.",
-    author: "Pacific Pulse Team",
-    createdAt: "2025-01-10",
-    tags: ["Conversion Optimization", "Landing Pages", "CRO"],
-    views: 987
+    id: '2',
+    title: 'How AI Chatbots Are Revolutionizing Customer Service for Small Businesses',
+    slug: 'ai-chatbots-small-business',
+    excerpt: 'Learn how AI-powered chatbots can handle customer inquiries 24/7, book appointments, and capture leads while you focus on running your business.',
+    author: 'Sony Ho',
+    createdAt: '2026-01-12',
+    category: 'AI Automation',
+    tags: ['AI', 'Customer Service', 'Automation'],
+    readTime: '7 min read',
+    featured: true,
   },
   {
-    id: "3",
-    title: "The Future of Digital Marketing: AI and Automation",
-    slug: "future-digital-marketing-ai",
-    excerpt: "Explore how artificial intelligence and marketing automation are transforming the way businesses connect with customers.",
-    author: "Pacific Pulse Team",
-    createdAt: "2025-01-05",
-    tags: ["AI", "Marketing Automation", "Future Trends"],
-    views: 1567
+    id: '3',
+    title: 'The Complete Guide to Online Booking Systems for Service Businesses',
+    slug: 'online-booking-systems-guide',
+    excerpt: 'Everything you need to know about implementing an online booking system that reduces no-shows, saves time, and increases revenue.',
+    author: 'Sony Ho',
+    createdAt: '2026-01-10',
+    category: 'Booking Systems',
+    tags: ['Booking', 'Scheduling', 'Service Business'],
+    readTime: '8 min read',
+    featured: false,
   },
   {
-    id: "4",
-    title: "From $0 to $1M: A Case Study in B2B SaaS Marketing",
-    slug: "b2b-saas-marketing-case-study",
-    excerpt: "An in-depth look at how we helped a B2B SaaS startup reach their first million in ARR through strategic marketing.",
-    author: "Pacific Pulse Team",
-    createdAt: "2025-01-01",
-    tags: ["Case Study", "B2B", "SaaS Marketing"],
-    views: 2103
+    id: '4',
+    title: 'Next.js vs WordPress: Which is Right for Your Business in 2026?',
+    slug: 'nextjs-vs-wordpress-2026',
+    excerpt: 'A detailed comparison of modern web frameworks versus traditional CMS platforms. Find out which technology stack will serve your business best.',
+    author: 'Sony Ho',
+    createdAt: '2026-01-08',
+    category: 'Web Development',
+    tags: ['Next.js', 'WordPress', 'Technology'],
+    readTime: '6 min read',
+    featured: false,
+  },
+  {
+    id: '5',
+    title: '5 Ways to Reduce No-Shows and Last-Minute Cancellations',
+    slug: 'reduce-no-shows-cancellations',
+    excerpt: 'Practical strategies and automated solutions to minimize no-shows and protect your revenue, including SMS reminders, deposits, and waitlist management.',
+    author: 'Sony Ho',
+    createdAt: '2026-01-05',
+    category: 'Business Tips',
+    tags: ['No-Shows', 'Revenue', 'Automation'],
+    readTime: '5 min read',
+    featured: false,
+  },
+  {
+    id: '6',
+    title: 'How VietHawaii Increased Online Orders by 300% with a Custom Web App',
+    slug: 'viethawaii-case-study',
+    excerpt: 'A deep dive into how we helped a local Hawaiian restaurant transform their business with a custom ordering system, resulting in a 3x increase in online orders.',
+    author: 'Sony Ho',
+    createdAt: '2026-01-03',
+    category: 'Case Study',
+    tags: ['Case Study', 'Restaurant', 'E-Commerce'],
+    readTime: '10 min read',
+    featured: true,
+  },
+  {
+    id: '7',
+    title: 'Setting Up Stripe Payments: A Step-by-Step Guide for Service Businesses',
+    slug: 'stripe-payments-guide',
+    excerpt: 'Learn how to integrate Stripe payments into your business, including subscriptions, deposits, and automated invoicing.',
+    author: 'Sony Ho',
+    createdAt: '2026-01-01',
+    category: 'E-Commerce',
+    tags: ['Payments', 'Stripe', 'E-Commerce'],
+    readTime: '8 min read',
+    featured: false,
+  },
+  {
+    id: '8',
+    title: 'The ROI of Professional Web Design: What the Data Shows',
+    slug: 'web-design-roi-data',
+    excerpt: 'Real statistics and case studies showing how professional web design impacts conversion rates, customer trust, and business growth.',
+    author: 'Sony Ho',
+    createdAt: '2025-12-28',
+    category: 'Business Tips',
+    tags: ['ROI', 'Web Design', 'Conversions'],
+    readTime: '6 min read',
+    featured: false,
   },
 ];
 
-export default function Blog() {
+const categories = ['All', 'Web Development', 'AI Automation', 'Booking Systems', 'E-Commerce', 'Business Tips', 'Case Study'];
+
+export default function BlogPage() {
+  const featuredPosts = blogPosts.filter(post => post.featured);
+  const recentPosts = blogPosts.filter(post => !post.featured);
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-black">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="border-b border-zinc-200 dark:border-zinc-800">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Pacific Pulse Growth Lab
+      <nav className="border-b border-slate-200 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <Link href="/" className="flex items-center gap-2">
+              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center">
+                <Zap className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-lg font-bold text-slate-900">Pacific Pulse</span>
+            </Link>
+            <div className="hidden md:flex items-center gap-6">
+              <Link href="/#services" className="text-sm text-slate-600 hover:text-slate-900 transition">
+                Services
+              </Link>
+              <Link href="/portfolio" className="text-sm text-slate-600 hover:text-slate-900 transition">
+                Portfolio
+              </Link>
+              <Link href="/pricing" className="text-sm text-slate-600 hover:text-slate-900 transition">
+                Pricing
+              </Link>
+              <Link href="/blog" className="text-sm font-medium text-sky-600">
+                Blog
+              </Link>
             </div>
-          </Link>
-          <div className="hidden md:flex gap-6">
-            <Link href="/#services" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
-              Services
-            </Link>
-            <Link href="/portfolio" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
-              Portfolio
-            </Link>
-            <Link href="/blog" className="text-zinc-900 font-medium dark:text-zinc-100">
-              Blog
-            </Link>
-            <Link href="/contact" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
-              Contact
+            <Link
+              href="/apply"
+              className="px-5 py-2 bg-slate-900 text-white text-sm font-semibold rounded-lg hover:bg-slate-800 transition"
+            >
+              Start a Project
             </Link>
           </div>
-          <Link href="/booking">
-            <Button>Book a Call</Button>
-          </Link>
         </div>
       </nav>
 
       {/* Header */}
-      <section className="container mx-auto px-4 py-20">
+      <div className="bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-600 py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Growth Insights
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Insights & Resources
           </h1>
-          <p className="text-xl text-zinc-600 dark:text-zinc-400">
-            Expert strategies, tips, and insights to accelerate your business growth
+          <p className="text-lg text-sky-100">
+            Tips, tutorials, and case studies to help grow your business online
           </p>
         </div>
-      </section>
+      </div>
 
-      {/* Blog Posts */}
-      <section className="container mx-auto px-4 pb-20">
-        <div className="max-w-4xl mx-auto space-y-6">
-          {blogPosts.map((post) => (
-            <Card key={post.id} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="flex items-center gap-4 text-sm text-zinc-600 dark:text-zinc-400 mb-2">
-                  <span>{new Date(post.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-                  <span>•</span>
-                  <span>{post.author}</span>
-                  <span>•</span>
-                  <span>{post.views} views</span>
+      {/* Categories */}
+      <div className="border-b border-slate-200 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex flex-wrap gap-2 justify-center">
+            {categories.map((category) => (
+              <button
+                key={category}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+                  category === 'All'
+                    ? 'bg-sky-500 text-white'
+                    : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Featured Posts */}
+      <section className="max-w-7xl mx-auto px-4 py-12">
+        <h2 className="text-2xl font-bold text-slate-900 mb-8">Featured Articles</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {featuredPosts.map((post) => (
+            <article
+              key={post.id}
+              className="group bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow"
+            >
+              <div className="h-48 bg-gradient-to-br from-sky-100 to-indigo-100 flex items-center justify-center">
+                <Tag className="w-12 h-12 text-sky-500" />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="px-2 py-1 bg-sky-100 text-sky-700 text-xs font-medium rounded">
+                    {post.category}
+                  </span>
+                  <span className="text-xs text-slate-500">{post.readTime}</span>
                 </div>
-                <CardTitle className="text-2xl hover:text-blue-600 transition-colors">
+                <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors line-clamp-2">
                   <Link href={`/blog/${post.slug}`}>
                     {post.title}
                   </Link>
-                </CardTitle>
-                <CardDescription className="text-base">
+                </h3>
+                <p className="text-sm text-slate-600 mb-4 line-clamp-2">
                   {post.excerpt}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-xs rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                </p>
+                <div className="flex items-center justify-between text-xs text-slate-500">
+                  <div className="flex items-center gap-1">
+                    <User className="w-3 h-3" />
+                    {post.author}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-3 h-3" />
+                    {new Date(post.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                  </div>
                 </div>
-                <Link href={`/blog/${post.slug}`}>
-                  <Button variant="outline">Read More →</Button>
-                </Link>
-              </CardContent>
-            </Card>
+              </div>
+            </article>
           ))}
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="container mx-auto px-4 py-20 bg-zinc-100 dark:bg-zinc-900 -mx-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-          <p className="text-zinc-600 dark:text-zinc-400 mb-6">
-            Get the latest growth strategies and insights delivered to your inbox
+      {/* All Posts */}
+      <section className="max-w-7xl mx-auto px-4 pb-16">
+        <h2 className="text-2xl font-bold text-slate-900 mb-8">All Articles</h2>
+        <div className="space-y-4">
+          {recentPosts.map((post) => (
+            <article
+              key={post.id}
+              className="group flex flex-col md:flex-row gap-6 p-6 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow"
+            >
+              <div className="md:w-48 h-32 bg-gradient-to-br from-slate-100 to-slate-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Tag className="w-8 h-8 text-slate-400" />
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded">
+                    {post.category}
+                  </span>
+                  <span className="text-xs text-slate-500">{post.readTime}</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors">
+                  <Link href={`/blog/${post.slug}`}>
+                    {post.title}
+                  </Link>
+                </h3>
+                <p className="text-slate-600 mb-4">
+                  {post.excerpt}
+                </p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4 text-sm text-slate-500">
+                    <div className="flex items-center gap-1">
+                      <User className="w-4 h-4" />
+                      {post.author}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      {new Date(post.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                    </div>
+                  </div>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="inline-flex items-center gap-1 text-sm font-medium text-sky-600 hover:text-sky-700 transition"
+                  >
+                    Read More
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Newsletter CTA */}
+      <section className="bg-slate-50 border-y border-slate-200 py-16">
+        <div className="max-w-2xl mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3">
+            Get Business Growth Tips
+          </h2>
+          <p className="text-slate-600 mb-6">
+            Subscribe to our newsletter for weekly insights on web development, automation, and growing your business online.
           </p>
-          <div className="flex gap-4 max-w-md mx-auto">
+          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950"
+              className="flex-1 px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition"
             />
-            <Button>Subscribe</Button>
-          </div>
+            <button
+              type="submit"
+              className="px-6 py-3 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition"
+            >
+              Subscribe
+            </button>
+          </form>
+          <p className="text-xs text-slate-500 mt-3">
+            No spam. Unsubscribe anytime.
+          </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-zinc-200 dark:border-zinc-800 py-8">
-        <div className="container mx-auto px-4 text-center text-zinc-600 dark:text-zinc-400">
+      <footer className="py-8 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 text-center text-sm text-slate-500">
           <p>&copy; 2026 Pacific Pulse Growth Lab LLC. All rights reserved.</p>
         </div>
       </footer>
