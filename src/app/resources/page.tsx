@@ -262,7 +262,7 @@ export default function ResourcesPage() {
               <Link href="mailto:sony@pacificpulsegrowth.com" className="hover:text-blue-600 transition">Contact</Link>
             </div>
             <p className="text-xs text-zinc-500 dark:text-zinc-500 mt-6">
-              © 2025 Pacific Pulse Growth Lab. AI Automation + 208 Hours Master NLP Coach Training.
+              © 2026 Pacific Pulse Growth Lab. AI Automation + 208 Hours Master NLP Coach Training.
             </p>
           </div>
         </div>
