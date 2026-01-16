@@ -132,7 +132,7 @@ export default function PricingPage() {
       {/* Footer */}
       <footer className="py-8 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 text-center text-sm text-slate-500">
-          <p>&copy; 2025 Pacific Pulse Growth Lab LLC. All rights reserved.</p>
+          <p>&copy; 2026 Pacific Pulse Growth Lab LLC. All rights reserved.</p>
         </div>
       </footer>
     </div>

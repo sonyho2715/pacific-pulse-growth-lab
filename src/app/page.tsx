@@ -514,7 +514,7 @@ export default function Home() {
           </div>
 
           <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-            <p>&copy; 2025 Pacific Pulse Growth Lab LLC. All rights reserved.</p>
+            <p>&copy; 2026 Pacific Pulse Growth Lab LLC. All rights reserved.</p>
             <p>Built with aloha in Hawaii</p>
           </div>
         </div>
