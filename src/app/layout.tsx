@@ -17,22 +17,22 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Pacific Pulse Growth Lab | AI Automation for Hawaii Service Businesses",
+    default: "Pacific Pulse Growth Lab | Web Applications & AI Automation",
     template: "%s | Pacific Pulse Growth Lab",
   },
   description:
-    "Stop losing money to missed calls. Get AI that answers 24/7. Founding client program for Hawaii service businesses - custom AI systems built by a Master NLP Coach. $497/month (50% off).",
+    "We build digital products that grow businesses. Full-stack web applications, AI automation, booking systems, and e-commerce solutions. Based in Hawaii, serving clients worldwide.",
   keywords: [
-    "AI automation Hawaii",
-    "AI chatbot Hawaii",
-    "customer service automation",
-    "24/7 answering service",
-    "AI for service businesses",
-    "Hawaii business automation",
-    "NLP coach",
-    "conversational AI",
-    "appointment booking automation",
-    "lead capture automation",
+    "web development Hawaii",
+    "custom web applications",
+    "AI automation",
+    "booking system",
+    "e-commerce development",
+    "Next.js developer",
+    "full-stack developer Hawaii",
+    "business automation",
+    "AI chatbot",
+    "digital agency Hawaii",
   ],
   authors: [{ name: "Sony Ho" }],
   creator: "Sony Ho",
@@ -40,17 +40,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://pacificpulsegrowth.com",
-    title: "Stop Losing Money to Missed Calls | AI That Answers 24/7",
+    url: "https://pacificpulseai.com",
+    title: "Pacific Pulse Growth Lab | Web Applications & AI Automation",
     description:
-      "Founding client program for Hawaii service businesses. Custom AI automation built by a Master NLP Coach. Capture every lead. Book appointments 24/7. $497/month.",
+      "We build digital products that grow businesses. Custom web applications, AI automation, booking systems, and e-commerce. Based in Hawaii, serving clients worldwide.",
     siteName: "Pacific Pulse Growth Lab",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stop Losing Money to Missed Calls | AI That Answers 24/7",
+    title: "Pacific Pulse Growth Lab | Web Applications & AI Automation",
     description:
-      "Founding client program for Hawaii service businesses. Custom AI automation that sounds human, built by a Master NLP Coach. 8 spots remaining.",
+      "We build digital products that grow businesses. Custom web applications, AI automation, and booking systems for service businesses.",
     creator: "@pacificpulselab",
   },
   robots: {
