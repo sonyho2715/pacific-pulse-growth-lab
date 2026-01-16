@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Zap, Calendar, User, ArrowRight, Tag } from 'lucide-react';
+import Image from 'next/image';
+import { Zap, Calendar, User, ArrowRight } from 'lucide-react';
 import { blogPosts, categories } from './data';
 
 export default function BlogPage() {
@@ -83,8 +84,14 @@ export default function BlogPage() {
               key={post.id}
               className="group bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow"
             >
-              <div className="h-48 bg-gradient-to-br from-sky-100 to-indigo-100 flex items-center justify-center">
-                <Tag className="w-12 h-12 text-sky-500" />
+              <div className="h-48 relative overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
@@ -126,8 +133,14 @@ export default function BlogPage() {
               key={post.id}
               className="group flex flex-col md:flex-row gap-6 p-6 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow"
             >
-              <div className="md:w-48 h-32 bg-gradient-to-br from-slate-100 to-slate-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Tag className="w-8 h-8 text-slate-400" />
+              <div className="md:w-48 h-32 relative overflow-hidden rounded-lg flex-shrink-0">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, 192px"
+                />
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">

@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { Zap, Calendar, User, ArrowLeft, Tag, Clock, Share2 } from 'lucide-react';
+import { Zap, ArrowLeft, Tag, Clock, Share2 } from 'lucide-react';
 import { getBlogPostBySlug, getAllBlogSlugs, blogPosts } from '../data';
 import type { Metadata } from 'next';
 
@@ -103,6 +104,20 @@ export default async function BlogPostPage({ params }: PageProps) {
           <ArrowLeft className="w-4 h-4" />
           Back to Blog
         </Link>
+      </div>
+
+      {/* Hero Image */}
+      <div className="max-w-4xl mx-auto px-4 pt-8">
+        <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden">
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 896px"
+            priority
+          />
+        </div>
       </div>
 
       {/* Article Header */}
@@ -217,8 +232,14 @@ export default async function BlogPostPage({ params }: PageProps) {
                 key={relatedPost.id}
                 className="group bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow"
               >
-                <div className="h-40 bg-gradient-to-br from-sky-100 to-indigo-100 flex items-center justify-center">
-                  <Tag className="w-10 h-10 text-sky-500" />
+                <div className="h-40 relative overflow-hidden">
+                  <Image
+                    src={relatedPost.image}
+                    alt={relatedPost.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
                 <div className="p-5">
                   <div className="flex items-center gap-2 mb-2">

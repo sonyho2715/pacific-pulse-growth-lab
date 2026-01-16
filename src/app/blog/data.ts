@@ -10,6 +10,7 @@ export interface BlogPost {
   tags: string[];
   readTime: string;
   featured: boolean;
+  image: string;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -148,6 +149,7 @@ The choice is yours.
     tags: ['Web Apps', 'Business Strategy', 'Technology'],
     readTime: '5 min read',
     featured: true,
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
   },
   {
     id: '2',
@@ -288,6 +290,7 @@ But if you're still having staff answer "What time do you open?" in 2026, you're
     tags: ['AI', 'Customer Service', 'Automation'],
     readTime: '7 min read',
     featured: true,
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
   },
   {
     id: '3',
@@ -458,6 +461,7 @@ No fluff. No BS. Just the math.
     tags: ['Booking', 'Scheduling', 'Service Business'],
     readTime: '8 min read',
     featured: false,
+    image: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&q=80',
   },
   {
     id: '4',
@@ -636,6 +640,7 @@ The future is fast, secure, and custom. That's not WordPress.
     tags: ['Next.js', 'WordPress', 'Technology'],
     readTime: '6 min read',
     featured: false,
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80',
   },
   {
     id: '5',
@@ -823,6 +828,7 @@ Stop tolerating no-shows. Start collecting revenue.
     tags: ['No-Shows', 'Revenue', 'Automation'],
     readTime: '5 min read',
     featured: false,
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
   },
   {
     id: '6',
@@ -1011,6 +1017,7 @@ It's whether you can afford not to.
     tags: ['Case Study', 'Restaurant', 'E-Commerce'],
     readTime: '10 min read',
     featured: true,
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
   },
   {
     id: '7',
@@ -1251,6 +1258,7 @@ Stop chasing payments. Start receiving them automatically.
     tags: ['Payments', 'Stripe', 'E-Commerce'],
     readTime: '8 min read',
     featured: false,
+    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
   },
   {
     id: '8',
@@ -1489,6 +1497,820 @@ Which one is yours doing?
     tags: ['ROI', 'Web Design', 'Conversions'],
     readTime: '6 min read',
     featured: false,
+    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80',
+  },
+  {
+    id: '9',
+    title: 'Your 4.2 Star Rating Is Destroying Your Business (The Math Is Brutal)',
+    slug: 'google-reviews-strategy',
+    excerpt: 'The difference between 4.2 and 4.8 stars is a 28% difference in revenue. You\'re leaving six figures on the table because you\'re too lazy to ask for reviews.',
+    content: `
+## The Review Math That Should Terrify You
+
+Here's what Google knows that you don't:
+
+**4.0-4.2 stars:** You might as well not exist
+**4.5-4.7 stars:** You're in the game
+**4.8-5.0 stars:** You're printing money
+
+The difference between 4.2 and 4.8 stars?
+
+**28% more revenue.**
+
+For a business doing $300K/year, that's **$84,000** you're leaving on the table.
+
+Because you didn't ask.
+
+## Why Most Businesses Are Stuck at 4.2
+
+Here's the pattern I see:
+
+**Happy customers:** Say nothing
+**Unhappy customers:** Write novels
+
+The math is stacked against you.
+
+If you don't ACTIVELY get reviews, you're letting the angry 5% define your business.
+
+## The System That Actually Works
+
+### Step 1: The Timing Window
+
+Don't ask for reviews randomly. Ask at the **peak moment**.
+
+- Spa: Right after the massage (endorphins are flowing)
+- Restaurant: When they're paying (food coma satisfaction)
+- Service business: The moment you deliver results
+
+**The window is 2-4 hours.** After that, life gets in the way.
+
+### Step 2: Make It Stupid Easy
+
+Nobody's going to:
+- Go to Google
+- Search your business
+- Click reviews
+- Write something
+
+Too many steps. **You'll get nothing.**
+
+Instead:
+- Text them a direct link
+- One tap to review
+- Pre-fill with "I loved my experience at..."
+
+### Step 3: The Ask That Works
+
+Bad: "Could you leave us a review?"
+Good: "We'd love your feedback. Here's a 10-second way to share your experience."
+
+Better: "Your review helps other [their situation] find us. Would you mind sharing what you liked?"
+
+**Make them the hero.** They're helping others, not doing you a favor.
+
+## The Automation That Changes Everything
+
+Here's what smart businesses do:
+
+1. Customer completes service
+2. System waits 2 hours
+3. Sends personalized text with direct link
+4. If no response, gentle reminder 24 hours later
+5. If they review, thank you message
+6. If negative, private feedback form first
+
+**This runs automatically. You do nothing.**
+
+## The Numbers After 6 Months
+
+One of our clients implemented this:
+
+**Before:**
+- 47 reviews
+- 4.1 stars
+- Page 2 of Google
+
+**After 6 months:**
+- 284 reviews
+- 4.8 stars
+- Position 3 on Google
+- 34% increase in new customers
+
+All from asking at the right time, in the right way.
+
+## Your Next Move
+
+Stop hoping customers will remember to review you.
+
+**Build the system.** Make it automatic. Watch the stars climb.
+
+**[Let's build your review system](/apply).** It takes 2 weeks and pays for itself in the first month.
+    `,
+    author: 'Sony Ho',
+    createdAt: '2025-12-25',
+    category: 'Business Tips',
+    tags: ['Google Reviews', 'Reputation', 'Automation'],
+    readTime: '6 min read',
+    featured: false,
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80',
+  },
+  {
+    id: '10',
+    title: 'The Follow-Up Fortune: Why 80% of Sales Happen After the 5th Contact',
+    slug: 'crm-follow-up-automation',
+    excerpt: 'You talked to a lead once. They didn\'t buy. You moved on. Meanwhile, 80% of sales happen between contacts 5-12. You\'re quitting at the 1-yard line.',
+    content: `
+## You're Quitting Right Before the Money
+
+Here's the stat that should make you sick:
+
+**48% of salespeople never follow up.**
+**80% of sales happen after 5+ contacts.**
+
+You're doing all the work to get the lead, then abandoning them right before they're ready to buy.
+
+That's not marketing. That's insanity.
+
+## The Follow-Up Math
+
+Let's say you get 100 leads per month:
+
+**Without follow-up:**
+- 2-3% buy immediately
+- You get 2-3 sales
+- 97 leads forgotten
+
+**With proper follow-up:**
+- 2-3% buy immediately
+- 15-20% buy within 90 days
+- You get 17-23 sales
+
+**Same leads. 5-7X the revenue.**
+
+## Why You're Not Following Up
+
+I know why you don't do it:
+
+1. **"I don't want to be annoying"** - You're not. They inquired. They want to hear from you.
+2. **"I forgot"** - That's what CRMs are for.
+3. **"I don't have time"** - That's what automation is for.
+4. **"They would have bought if they were interested"** - Wrong. Timing matters more than interest.
+
+## The Follow-Up System That Prints Money
+
+### Day 1: Immediate Response
+Lead comes in. Respond within 5 minutes.
+
+**Why 5 minutes?** Studies show contacting a lead in the first 5 minutes is 21X more effective than waiting 30 minutes.
+
+21X. Just by being fast.
+
+### Day 2-3: Value Follow-Up
+Don't ask "Are you ready to buy?"
+
+Send something useful:
+- Case study relevant to their situation
+- Answer to a common question
+- Helpful resource
+
+### Day 7: Social Proof
+Send a testimonial or review from someone similar to them.
+
+"Thought you might relate to this. [Customer name] was in a similar situation..."
+
+### Day 14: Objection Handling
+Address the most common objection:
+- "I know timing is tricky..."
+- "Budget can be a concern..."
+- "Wondering if it's worth it? Here's what clients see..."
+
+### Day 30: Check-In
+"Just checking in. Has anything changed? Happy to answer questions."
+
+### Day 60: Last Chance
+"I'm cleaning up my list. Should I keep you on it or remove you?"
+
+**This email has a 40% response rate.** Nobody wants to be removed.
+
+## The CRM That Actually Works
+
+You don't need Salesforce. You need:
+
+1. **One place for all leads**
+2. **Automated follow-up sequences**
+3. **Reminders for manual touches**
+4. **Pipeline visibility**
+
+That's it. We set this up in a week.
+
+## The Results Speak
+
+Client case study:
+
+**Before CRM + Follow-Up:**
+- 40 leads/month
+- 4 sales/month
+- $16,000/month revenue
+
+**After CRM + Follow-Up:**
+- 40 leads/month (same)
+- 14 sales/month
+- $56,000/month revenue
+
+**Same leads. 3.5X revenue.**
+
+The leads were always there. They just needed follow-up.
+
+## Your Fortune Is in the Follow-Up
+
+Every lead you don't follow up with is money you're burning.
+
+**[Let's build your follow-up system](/apply).** Stop leaving 80% of your revenue on the table.
+    `,
+    author: 'Sony Ho',
+    createdAt: '2025-12-22',
+    category: 'AI Automation',
+    tags: ['CRM', 'Follow-Up', 'Sales'],
+    readTime: '7 min read',
+    featured: false,
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
+  },
+  {
+    id: '11',
+    title: 'Freelancer vs Agency vs Us: The Real Cost Breakdown (With Receipts)',
+    slug: 'freelancer-vs-agency-comparison',
+    excerpt: 'Freelancers ghost. Agencies overcharge. Neither understands your business. Here\'s what each option ACTUALLY costs when you factor in the hidden expenses.',
+    content: `
+## Let's Talk About What Things Really Cost
+
+You're trying to figure out who to hire for your web project.
+
+You've seen the options:
+- **Freelancer on Fiverr:** $500-2,000
+- **Local agency:** $15,000-50,000
+- **Us:** $8,000-25,000
+
+Seems like an easy choice, right? Go cheap.
+
+**Wrong.**
+
+Let me show you what things ACTUALLY cost.
+
+## The Real Cost of a Freelancer
+
+### The Visible Cost
+$1,500 for a "custom website"
+
+### The Hidden Costs
+
+**Round 1:** They deliver. It's not what you wanted. But you approved the mockup, so no free revisions. Another $300.
+
+**Round 2:** You need changes 3 months later. They're "busy with other projects." You wait 6 weeks or find someone else. Another $500 to fix their code.
+
+**Round 3:** Something breaks. They've disappeared. New developer says "I need to rebuild this." $2,000.
+
+**Round 4:** Google update. Site isn't mobile-friendly anymore. $800 to fix.
+
+**Round 5:** You want to add booking. "That'll be a whole new build." $3,000.
+
+### The Real Total
+$1,500 + $300 + $500 + $2,000 + $800 + $3,000 = **$8,100**
+
+Plus 18 months of frustration. Plus lost revenue while your site was broken.
+
+## The Real Cost of a Big Agency
+
+### The Visible Cost
+$35,000 for a "comprehensive web solution"
+
+### The Hidden Costs
+
+**Month 1-3:** Discovery, research, meetings about meetings. You're paying for their overhead.
+
+**Month 4-6:** Design revisions. Each round takes 2 weeks because it has to go through "the process."
+
+**Month 7-9:** Development. Smooth, but slow.
+
+**Month 10:** Launch. Looks beautiful. Works great.
+
+**Month 11:** You need a change. "That's out of scope. Here's a change order for $2,500."
+
+**Month 12:** Hosting and maintenance contract. $500/month minimum.
+
+**Year 2:** "Your site needs an upgrade to stay current." $15,000.
+
+### The Real Total
+$35,000 + $2,500 + $6,000 + $15,000 = **$58,500** over 2 years
+
+Plus 10 months to launch. Plus death by committee.
+
+## What We Do Different
+
+### Our Model
+
+**Fixed scope, fixed price:** You know exactly what you're getting and what you're paying.
+
+**Fast delivery:** 4-8 weeks, not 10 months.
+
+**We own the outcome:** If something breaks, we fix it. No "out of scope" BS.
+
+**Built to grow:** Need to add features later? The architecture supports it.
+
+**Training included:** You can make basic changes yourself.
+
+### The Real Cost
+
+$15,000 for a custom web application with:
+- Online booking/ordering
+- Payment processing
+- Mobile responsive
+- SEO optimized
+- 3 months of support
+- Training for your team
+
+### Year 2 and Beyond
+- Hosting: $20/month
+- Updates as needed: $2,000-5,000/year (if any)
+
+**2-Year Total:** $19,000-25,000
+
+## The Comparison Table
+
+| | Freelancer | Big Agency | Pacific Pulse |
+|---|---|---|---|
+| Initial Cost | $1,500 | $35,000 | $15,000 |
+| Timeline | 4 weeks | 10 months | 6 weeks |
+| 2-Year Total | $8,100+ | $58,500+ | $19,000 |
+| Support | Ghost risk | Expensive | Included |
+| Scalability | Rebuild | Expensive | Built-in |
+
+## The Question Isn't Price. It's Value.
+
+You can pay $1,500 for something that costs you $8,000 and years of headaches.
+
+You can pay $35,000 for something that costs you $60,000 and takes forever.
+
+Or you can pay $15,000 for something that works, scales, and pays for itself.
+
+**[Let's talk about your project](/apply).** Get the real numbers for your specific situation.
+    `,
+    author: 'Sony Ho',
+    createdAt: '2025-12-18',
+    category: 'Business Tips',
+    tags: ['Hiring', 'Web Development', 'Cost Analysis'],
+    readTime: '8 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
+  },
+  {
+    id: '12',
+    title: 'The Landing Page Formula That Converts at 12% (Most Get 2%)',
+    slug: 'high-converting-landing-pages',
+    excerpt: 'Your landing page converts at 2%. Industry average. Congratulations on being average. Here\'s the exact formula that gets us 12%+ for clients.',
+    content: `
+## Your Landing Page Sucks. Here's Why.
+
+Average landing page conversion rate: **2.35%**
+
+That means for every 100 visitors, you get 2 leads.
+
+Our clients? **12-18%**
+
+Same traffic. 6-8X the leads.
+
+The difference isn't design. It's structure.
+
+## The Formula: Problem → Agitate → Solution → Proof → CTA
+
+This isn't creative. This is science.
+
+### Section 1: The Hook (Above the Fold)
+
+You have 3 seconds. Make them count.
+
+**Bad:** "Welcome to XYZ Spa"
+**Good:** "Stop Living With Chronic Back Pain"
+
+**Bad:** "Quality services at competitive prices"
+**Good:** "Get 3 Hours of Your Week Back. Guaranteed."
+
+The hook answers one question: **"Is this for me?"**
+
+### Section 2: The Problem (Make It Hurt)
+
+Don't describe your solution yet. Describe their pain.
+
+"You're working 60-hour weeks. Your back is killing you. You've tried everything. Heating pads. Stretching. That $200 massage chair that collects dust.
+
+Nothing works. And the pain keeps getting worse."
+
+**Make them feel understood.** They need to know you GET IT before they'll trust your solution.
+
+### Section 3: The Agitation (Make It Worse)
+
+Twist the knife. Show them what happens if they do nothing.
+
+"Without treatment, chronic back pain leads to:
+- Reduced mobility (goodbye, active lifestyle)
+- Sleep problems (hello, exhaustion)
+- Compensation injuries (your neck is next)
+- Lost productivity (that's money)
+
+This doesn't get better on its own. It gets worse."
+
+### Section 4: The Solution (Finally, Talk About You)
+
+NOW you can talk about your offer.
+
+"Our deep tissue therapy targets the specific muscle groups causing your pain. In 3-5 sessions, most clients experience:
+- 70% reduction in daily pain
+- Improved sleep quality
+- Increased range of motion
+- No drugs, no surgery"
+
+### Section 5: The Proof (Make It Undeniable)
+
+Testimonials. Case studies. Numbers.
+
+"★★★★★ 'I went from popping ibuprofen daily to pain-free in 4 weeks.' - Sarah K.
+
+★★★★★ 'My golf swing is better at 55 than it was at 45.' - Mike T.
+
+**347 clients** helped in 2025. **4.9 star** Google rating."
+
+### Section 6: The CTA (Make It Easy)
+
+One clear action. Remove all friction.
+
+**Bad:** "Contact us to learn more"
+**Good:** "Book Your First Session - $49 (Regular $89)"
+
+Add urgency: "Only 3 spots available this week"
+Add safety: "100% satisfaction guarantee or your money back"
+
+## The Elements That 10X Conversion
+
+### 1. One Page, One Goal
+Don't link to other pages. Don't offer options. One action.
+
+### 2. Specific Numbers
+"Increase revenue" → "Add $2,847/month"
+"Fast results" → "See results in 14 days"
+"Affordable" → "$49/session"
+
+### 3. Risk Reversal
+Guarantee everything. "Love it or it's free."
+
+### 4. Social Proof Everywhere
+Testimonials after every section. Not just at the end.
+
+### 5. Mobile First
+70% of traffic is mobile. If it sucks on phone, you lose.
+
+## The Test That Proves Everything
+
+Take your current landing page. Show it to someone for 5 seconds.
+
+Ask them:
+1. What does this company do?
+2. Who is it for?
+3. What should I do next?
+
+If they can't answer all three, your page fails.
+
+## Your Next Step
+
+Stop settling for 2% conversion rates.
+
+**[Let's build a landing page that actually converts](/apply).** We'll show you the formula in action.
+    `,
+    author: 'Sony Ho',
+    createdAt: '2025-12-15',
+    category: 'Web Development',
+    tags: ['Landing Pages', 'Conversion', 'Marketing'],
+    readTime: '7 min read',
+    featured: false,
+    image: 'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&q=80',
+  },
+  {
+    id: '13',
+    title: 'The 5-Email Sequence That Turns Strangers Into Buyers',
+    slug: 'email-sequence-formula',
+    excerpt: 'You collected 500 emails and made $0. Because you have a list, not a system. Here\'s the exact 5-email sequence that generates $18+ per subscriber.',
+    content: `
+## Your Email List Is Worthless (Until You Do This)
+
+"I have 2,000 email subscribers!"
+
+Great. How much money have they made you?
+
+"Well... I send a newsletter sometimes..."
+
+So zero. Got it.
+
+Here's the truth: **An email list without a sequence is just a database of people ignoring you.**
+
+## The Economics of Email Done Right
+
+Average email marketing ROI: **$36 for every $1 spent**
+
+That's 3,600% return. Nothing else comes close.
+
+But here's the thing. That's the AVERAGE. Some people get $0. Some get $100 per dollar.
+
+The difference? **The sequence.**
+
+## The 5-Email Welcome Sequence
+
+When someone joins your list, they're at peak interest. You have about 48 hours before they forget you exist.
+
+Here's exactly what to send:
+
+### Email 1: The Delivery (Immediately)
+
+**Subject:** Here's your [thing they signed up for]
+
+**Content:**
+- Deliver what you promised (lead magnet, discount, whatever)
+- Set expectations ("Over the next few days, I'll share...")
+- One line about who you are
+- CTA: Use/read what you sent
+
+**Length:** Short. 100 words max.
+
+### Email 2: The Story (Day 1)
+
+**Subject:** Why I started [your business]
+
+**Content:**
+- Your origin story (problem you faced)
+- The transformation you experienced
+- Why you do what you do now
+- CTA: Reply and tell me about your situation
+
+**This email builds connection.** People buy from people they relate to.
+
+### Email 3: The Value Bomb (Day 2)
+
+**Subject:** The #1 mistake [audience] makes with [topic]
+
+**Content:**
+- The common mistake
+- Why it's so damaging
+- What to do instead
+- Quick win they can implement today
+- CTA: Quick tip or resource
+
+**This email proves you know your stuff.**
+
+### Email 4: The Proof (Day 4)
+
+**Subject:** How [Client] went from [bad state] to [good state]
+
+**Content:**
+- Client's starting situation
+- What they tried before
+- What you did together
+- The results (specific numbers)
+- CTA: See more case studies / Book a call
+
+**This email shows you get results.**
+
+### Email 5: The Offer (Day 5)
+
+**Subject:** Ready to [achieve desire]?
+
+**Content:**
+- Recap the problem and solution
+- Present your offer clearly
+- What's included
+- What results to expect
+- The price (with context on value)
+- Strong CTA with deadline or scarcity
+
+**This email makes the sale.**
+
+## The Psychology Behind Each Email
+
+**Email 1:** Fulfill the promise. Build trust.
+**Email 2:** Create emotional connection.
+**Email 3:** Establish authority.
+**Email 4:** Provide social proof.
+**Email 5:** Convert interest to action.
+
+Skip any step, and conversion drops dramatically.
+
+## The Numbers From Real Campaigns
+
+Our client's sequence performance:
+
+**Email 1:** 65% open rate, 45% click rate
+**Email 2:** 52% open rate, 12% reply rate
+**Email 3:** 48% open rate, 28% click rate
+**Email 4:** 44% open rate, 18% click rate
+**Email 5:** 42% open rate, 8% conversion rate
+
+**8% of list converts to paying customers.**
+
+With a $200 service, a 500-person list = $8,000 from one sequence.
+
+That sequence runs forever. New subscriber? Same sequence. Automatic revenue.
+
+## The Subject Lines That Get Opens
+
+Your sequence is worthless if nobody opens.
+
+**What works:**
+- Numbers: "The 3-step system..."
+- Questions: "Are you making this mistake?"
+- Curiosity: "This surprised me..."
+- Specificity: "How Sarah added $4,200/month"
+
+**What doesn't:**
+- "Newsletter #47"
+- "Monthly update"
+- "Check this out"
+- ALL CAPS ANYTHING
+
+## Your Implementation Plan
+
+1. **Day 1:** Write Email 1 (15 minutes)
+2. **Day 2:** Write Email 2 (30 minutes)
+3. **Day 3:** Write Email 3 (30 minutes)
+4. **Day 4:** Write Email 4 (30 minutes)
+5. **Day 5:** Write Email 5 (30 minutes)
+6. **Day 6:** Set up in your email tool
+7. **Day 7:** Test and launch
+
+One week of work. Revenue forever.
+
+**[Want us to build your email sequence?](/apply)** We'll write, design, and automate the whole thing.
+    `,
+    author: 'Sony Ho',
+    createdAt: '2025-12-10',
+    category: 'AI Automation',
+    tags: ['Email Marketing', 'Automation', 'Sales'],
+    readTime: '8 min read',
+    featured: false,
+    image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&q=80',
+  },
+  {
+    id: '14',
+    title: 'Why Your Competitor Is Outranking You (It\'s Not What You Think)',
+    slug: 'local-seo-secrets',
+    excerpt: 'They\'re not smarter. Their website isn\'t better. They\'re just doing 3 things you\'re not. Here\'s exactly what and how to steal their playbook.',
+    content: `
+## You Googled Yourself. You're on Page 3.
+
+Your competitor, who started 2 years after you, is position 1.
+
+Their website looks worse. Their service isn't better. But they're getting all the clicks.
+
+What do they know that you don't?
+
+**Three things.** And none of them are complicated.
+
+## Secret #1: They Optimized Their Google Business Profile (You Didn't)
+
+Your Google Business Profile is responsible for **46% of your local search visibility.**
+
+Most businesses set it up once and forget it. That's a mistake.
+
+### What Winners Do:
+
+**Complete every field**
+- Business description (use keywords naturally)
+- Services with descriptions
+- Products if applicable
+- Attributes (wheelchair accessible, etc.)
+
+**Post weekly**
+Google Business has posts. Nobody uses them. That's why they work.
+
+- Offers: "20% off this week only"
+- Updates: "New service available"
+- Events: "Join us Saturday"
+
+**Photos. Lots of photos.**
+Businesses with 100+ photos get 520% more calls than those with fewer.
+
+Upload:
+- Interior shots
+- Exterior shots
+- Team photos
+- Product/service photos
+- Customer photos (with permission)
+
+**Answer every question**
+The Q&A section is a ranking factor. Seed it yourself with common questions.
+
+## Secret #2: They Have NAP Consistency (You Don't)
+
+NAP = Name, Address, Phone Number
+
+Google cross-references your NAP across the internet. If it's inconsistent, you look untrustworthy.
+
+### Where Your NAP Needs to Match EXACTLY:
+
+- Google Business Profile
+- Website header and footer
+- Facebook
+- Yelp
+- Yellow Pages
+- Industry directories
+- Chamber of Commerce
+- BBB
+
+"Pacific Pulse Growth Lab" ≠ "Pacific Pulse LLC"
+"Suite 100" ≠ "Ste 100"
+"(808) 555-1234" ≠ "808-555-1234"
+
+**Every variation hurts you.**
+
+### The Fix:
+
+1. Google your business name
+2. Click every result
+3. Update NAP to match exactly
+4. Takes 2 hours. Worth 10 positions.
+
+## Secret #3: They Get Reviews (You Hope for Them)
+
+We covered reviews in another post. But here's the local SEO angle:
+
+**Google prioritizes businesses with:**
+- More reviews
+- More recent reviews
+- Higher star ratings
+- Reviews with keywords
+
+"Great massage" is fine.
+"Great deep tissue massage for lower back pain in Honolulu" is SEO gold.
+
+### How to Get Keyword-Rich Reviews:
+
+Don't ask "Can you leave us a review?"
+
+Ask "Could you mention what service you got and what you liked about it?"
+
+Now they naturally include keywords.
+
+## The Audit You Need to Do Today
+
+### Step 1: Search Your Main Keyword
+"[Service] + [City]" - Example: "massage therapy honolulu"
+
+Where are you? Where are competitors?
+
+### Step 2: Look at Position 1's Profile
+- How complete is it?
+- How many photos?
+- How many reviews?
+- How often do they post?
+
+### Step 3: Count Your Gap
+They have 200 photos. You have 12. Gap = 188 photos needed.
+They have 150 reviews. You have 30. Gap = 120 reviews needed.
+
+### Step 4: Close the Gap
+This isn't magic. It's math.
+
+## The 90-Day Local SEO Sprint
+
+**Month 1: Foundation**
+- Complete Google Business Profile 100%
+- Fix NAP everywhere
+- Add 50 photos
+
+**Month 2: Reviews**
+- Implement review system
+- Get 30+ new reviews
+- Respond to all existing reviews
+
+**Month 3: Content**
+- Weekly Google posts
+- Add 30 more photos
+- Get 30 more reviews
+
+**Result:** Position 1-3 for your main keywords.
+
+## It's Not Complicated. It's Just Work.
+
+Your competitor isn't a genius. They're just consistent.
+
+They post weekly. You don't.
+They ask for reviews. You hope.
+They update their profile. You forgot the password.
+
+**[Want us to do your local SEO?](/apply)** We'll audit, optimize, and manage the whole thing.
+    `,
+    author: 'Sony Ho',
+    createdAt: '2025-12-05',
+    category: 'Business Tips',
+    tags: ['Local SEO', 'Google', 'Search Rankings'],
+    readTime: '9 min read',
+    featured: false,
+    image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80',
   },
 ];
 
