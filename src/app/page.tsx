@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ArrowUpRight, Check, Sparkles, Zap, Globe, Bot, Calendar, ShoppingCart, Mail, BarChart3, Star, Play } from "lucide-react";
+import { blogPosts } from "./blog/data";
 
 // Featured projects - lead with your best work
 const featuredProjects = [
@@ -120,6 +122,7 @@ export default function Home() {
               <a href="#work" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Work</a>
               <a href="#services" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Services</a>
               <Link href="/pricing" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Pricing</Link>
+              <Link href="/blog" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Blog</Link>
               <a href="#contact" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Contact</a>
             </div>
 
@@ -439,6 +442,75 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Blog Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
+                Latest Insights
+              </h2>
+              <p className="text-slate-600">
+                Business growth strategies that actually work
+              </p>
+            </div>
+            <Link
+              href="/blog"
+              className="hidden md:inline-flex items-center gap-2 text-sky-600 font-semibold hover:text-sky-700 transition"
+            >
+              View All Articles
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {blogPosts.slice(0, 3).map((post) => (
+              <Link
+                key={post.id}
+                href={`/blog/${post.slug}`}
+                className="group"
+              >
+                <article className="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="h-48 relative overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="px-2 py-1 bg-sky-100 text-sky-700 text-xs font-medium rounded">
+                        {post.category}
+                      </span>
+                      <span className="text-xs text-slate-500">{post.readTime}</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 line-clamp-2">
+                      {post.excerpt}
+                    </p>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center md:hidden">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-sky-600 font-semibold hover:text-sky-700 transition"
+            >
+              View All Articles
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section id="contact" className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
@@ -499,6 +571,7 @@ export default function Home() {
               <ul className="space-y-2 text-sm text-slate-500">
                 <li><Link href="/portfolio" className="hover:text-slate-900 transition">Portfolio</Link></li>
                 <li><Link href="/pricing" className="hover:text-slate-900 transition">Pricing</Link></li>
+                <li><Link href="/blog" className="hover:text-slate-900 transition">Blog</Link></li>
                 <li><Link href="/contact" className="hover:text-slate-900 transition">Contact</Link></li>
                 <li><Link href="/apply" className="hover:text-slate-900 transition">Start Project</Link></li>
               </ul>
