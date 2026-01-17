@@ -27,7 +27,7 @@ const featuredProjects = [
     name: "Bo's Auto Detail",
     category: "Service Business",
     description: "Premium auto detailing with luxury animations, online booking, and conversion-optimized landing pages.",
-    url: "https://bos-auto-detail-frontend.vercel.app",
+    url: "https://www.bosautodetail.com",
     image: "/projects/bos-auto.png",
     stats: "40% more bookings",
     gradient: "from-amber-400 via-yellow-500 to-orange-500",
