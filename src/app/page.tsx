@@ -121,6 +121,15 @@ const industryDemos = [
     color: "amber",
     gradient: "from-amber-700 to-amber-950",
   },
+  {
+    name: "Happy Tails Pet Spa",
+    industry: "Pet Grooming",
+    description: "Friendly design with services, team bios, pet gallery, and online booking",
+    url: "/pet-demo",
+    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=400&fit=crop",
+    color: "teal",
+    gradient: "from-teal-500 to-teal-700",
+  },
 ];
 
 const services = [
