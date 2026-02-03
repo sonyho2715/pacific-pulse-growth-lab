@@ -148,6 +148,15 @@ const industryDemos = [
     color: "indigo",
     gradient: "from-indigo-600 to-indigo-900",
   },
+  {
+    name: "Island Auto Works",
+    industry: "Auto Repair",
+    description: "Service menu with pricing, online appointments, team bios, and facility showcase",
+    url: "/auto-repair-demo",
+    image: "https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=600&h=400&fit=crop",
+    color: "red",
+    gradient: "from-slate-800 to-red-900",
+  },
 ];
 
 const services = [
