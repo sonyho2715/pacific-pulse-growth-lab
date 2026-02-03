@@ -139,6 +139,15 @@ const industryDemos = [
     color: "slate",
     gradient: "from-slate-700 to-slate-900",
   },
+  {
+    name: "Summit Financial",
+    industry: "Financial Advisor",
+    description: "Tax planning, bookkeeping, financial advisory with team bios and resources",
+    url: "/financial-demo",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=400&fit=crop",
+    color: "indigo",
+    gradient: "from-indigo-600 to-indigo-900",
+  },
 ];
 
 const services = [
