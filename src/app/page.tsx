@@ -130,6 +130,15 @@ const industryDemos = [
     color: "teal",
     gradient: "from-teal-500 to-teal-700",
   },
+  {
+    name: "Malia Realty",
+    industry: "Real Estate Agent",
+    description: "Luxury property listings, neighborhood guides, agent bio, and valuation requests",
+    url: "/realestate-demo",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop",
+    color: "slate",
+    gradient: "from-slate-700 to-slate-900",
+  },
 ];
 
 const services = [
