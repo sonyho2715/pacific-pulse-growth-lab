@@ -157,6 +157,15 @@ const industryDemos = [
     color: "red",
     gradient: "from-slate-800 to-red-900",
   },
+  {
+    name: "Little Explorers",
+    industry: "Daycare / Childcare",
+    description: "Age-based programs, staff profiles, enrollment forms, and tour scheduling",
+    url: "/daycare-demo",
+    image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&h=400&fit=crop",
+    color: "sky",
+    gradient: "from-sky-400 to-emerald-500",
+  },
 ];
 
 const services = [
