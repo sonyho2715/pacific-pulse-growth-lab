@@ -112,6 +112,15 @@ const industryDemos = [
     color: "orange",
     gradient: "from-orange-500 to-red-600",
   },
+  {
+    name: "Kona Brew Coffee",
+    industry: "Coffee Shop",
+    description: "Warm artisanal vibe with full menu, multiple locations, and loyalty program",
+    url: "/coffee-demo",
+    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=400&fit=crop",
+    color: "amber",
+    gradient: "from-amber-700 to-amber-950",
+  },
 ];
 
 const services = [
