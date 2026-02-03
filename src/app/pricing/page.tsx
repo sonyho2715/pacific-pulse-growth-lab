@@ -2,14 +2,60 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Script from 'next/script';
 import { Check, X, Sparkles, ArrowRight, Zap } from 'lucide-react';
 import { PLANS, getMonthlyPrice, getYearlySavingsPercent, getTotalFirstYear, type Plan, type PlanTier } from '@/lib/plans';
+
+// FAQ Schema for SEO featured snippets
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does the project fee cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The one-time project fee covers the complete design and development of your website or application. This includes discovery calls, custom design, development, content setup, domain configuration, and launch support. You own everything we build."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the monthly fee cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your monthly fee covers hosting, SSL certificate, analytics, ongoing support, and content updates. Think of it as your complete digital presence package - everything you need to stay online and growing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to build a website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Starter sites typically launch in 2-3 weeks. Growth and Professional projects take 4-6 weeks. Enterprise projects are scoped individually. We will give you a timeline during our discovery call."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I own my website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you own all your content, design assets, and data. If you ever leave, we provide a full export of everything."
+      }
+    }
+  ]
+};
 
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
 
   return (
     <div className="min-h-screen bg-white">
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Navigation */}
       <nav className="border-b border-slate-200 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,20 +70,36 @@ export default function PricingPage() {
               href="/apply"
               className="px-5 py-2 bg-slate-900 text-white text-sm font-semibold rounded-lg hover:bg-slate-800 transition"
             >
-              Start a Project
+              Free Strategy Call
             </Link>
           </div>
         </div>
       </nav>
 
       {/* Header */}
-      <div className="pt-16 pb-12 text-center px-4">
+      <div className="pt-16 pb-8 text-center px-4">
+        {/* Anchor Pricing */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 mb-6">
+          <Check className="w-4 h-4 text-emerald-600" />
+          <span className="text-sm font-medium text-emerald-800">Save $10K+ compared to traditional agencies</span>
+        </div>
+
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
           Simple, Transparent Pricing
         </h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">
           One-time project fee to build your solution, plus affordable monthly for hosting, support, and updates.
         </p>
+
+        {/* ROI Guarantee */}
+        <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-xl max-w-2xl mx-auto">
+          <p className="text-amber-900 font-semibold">
+            90-Day ROI Guarantee
+          </p>
+          <p className="text-amber-800 text-sm mt-1">
+            If you don&apos;t get at least 10 new bookings in your first 90 days, we&apos;ll refund your setup fee. No questions asked.
+          </p>
+        </div>
 
         {/* Billing Toggle */}
         <div className="mt-8 flex items-center justify-center gap-4">
@@ -60,6 +122,13 @@ export default function PricingPage() {
             Yearly
             <span className="ml-1.5 text-xs text-emerald-600 font-semibold">Save ~17%</span>
           </span>
+        </div>
+      </div>
+
+      {/* ROI Calculator Teaser */}
+      <div className="max-w-3xl mx-auto px-4 pb-8">
+        <div className="text-center text-slate-600 text-sm">
+          <span className="font-medium">Quick math:</span> At $100 average booking value, our Starter plan pays for itself with just <span className="font-bold text-slate-900">15 bookings</span> in year one.
         </div>
       </div>
 
@@ -110,22 +179,60 @@ export default function PricingPage() {
       {/* FAQ Section */}
       <FAQ />
 
+      {/* Trust & Guarantee Section */}
+      <div className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="p-6">
+              <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-4">
+                <Check className="w-6 h-6 text-emerald-600" />
+              </div>
+              <h3 className="font-bold text-slate-900 mb-2">90-Day ROI Guarantee</h3>
+              <p className="text-sm text-slate-600">10+ new bookings or your setup fee back</p>
+            </div>
+            <div className="p-6">
+              <div className="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center mx-auto mb-4">
+                <Sparkles className="w-6 h-6 text-sky-600" />
+              </div>
+              <h3 className="font-bold text-slate-900 mb-2">No Long-Term Contracts</h3>
+              <p className="text-sm text-slate-600">Cancel monthly plans anytime with 30 days notice</p>
+            </div>
+            <div className="p-6">
+              <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-4">
+                <Zap className="w-6 h-6 text-amber-600" />
+              </div>
+              <h3 className="font-bold text-slate-900 mb-2">You Own Everything</h3>
+              <p className="text-sm text-slate-600">Full ownership of design, code, and content</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* CTA Section */}
       <div className="bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-600 py-16">
         <div className="max-w-4xl mx-auto text-center px-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-300 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+            </span>
+            <span className="text-sm font-medium text-white">Only 3 spots left for February</span>
+          </div>
+
           <h2 className="text-3xl font-bold text-white mb-4">
             Not sure which plan is right for you?
           </h2>
           <p className="text-sky-100 mb-8">
-            Schedule a free consultation and we&apos;ll help you choose the perfect plan for your business.
+            Schedule a free 30-minute consultation. We&apos;ll audit your current setup and recommend the best path forward.
           </p>
           <Link
-            href="/contact?source=pricing"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg hover:bg-slate-100 transition"
+            href="/apply"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg hover:bg-slate-100 transition shadow-lg"
           >
-            Schedule Free Consultation
+            Get Your Free Strategy Call
             <ArrowRight className="w-4 h-4" />
           </Link>
+          <p className="text-sky-200 text-sm mt-4">No obligation. We&apos;ll tell you honestly if we&apos;re a good fit.</p>
         </div>
       </div>
 
