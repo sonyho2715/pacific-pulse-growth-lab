@@ -56,6 +56,64 @@ const allProjects = [
   },
 ];
 
+// Industry demo sites
+const industryDemos = [
+  {
+    name: "Aloha Weddings",
+    industry: "Wedding Planner",
+    description: "Romantic elegance with planning packages, portfolio gallery, and detailed inquiry forms",
+    url: "/wedding-demo",
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=400&fit=crop",
+    color: "rose",
+    gradient: "from-rose-400 to-pink-500",
+  },
+  {
+    name: "Luxe Salon",
+    industry: "Hair Salon",
+    description: "Modern dark theme with service menu, team profiles, and filterable gallery",
+    url: "/salon-demo",
+    image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop",
+    color: "rose",
+    gradient: "from-rose-500 to-pink-600",
+  },
+  {
+    name: "Harrison Law Group",
+    industry: "Law Firm",
+    description: "Professional authority with practice areas, attorney bios, and case results",
+    url: "/law-firm-demo",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop",
+    color: "amber",
+    gradient: "from-slate-700 to-slate-900",
+  },
+  {
+    name: "Sunset Shores",
+    industry: "Restaurant",
+    description: "Warm inviting design with full menu, reservations, and ambiance gallery",
+    url: "/restaurant-demo",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop",
+    color: "amber",
+    gradient: "from-amber-500 to-orange-600",
+  },
+  {
+    name: "Bright Smile Dental",
+    industry: "Dental Practice",
+    description: "Clean trustworthy design with services, team, and online booking",
+    url: "/dental-demo",
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=400&fit=crop",
+    color: "sky",
+    gradient: "from-sky-500 to-blue-600",
+  },
+  {
+    name: "Peak Performance",
+    industry: "Fitness Studio",
+    description: "Energetic bold design with class schedules, trainers, and membership plans",
+    url: "/fitness-demo",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop",
+    color: "orange",
+    gradient: "from-orange-500 to-red-600",
+  },
+];
+
 const services = [
   {
     icon: Globe,
@@ -132,6 +190,7 @@ export default function Home() {
 
             <div className="hidden md:flex items-center gap-8">
               <a href="#work" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Work</a>
+              <a href="#demos" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Demos</a>
               <Link href="/services" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Services</Link>
               <Link href="/pricing" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Pricing</Link>
               <Link href="/blog" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Blog</Link>
@@ -283,6 +342,72 @@ export default function Home() {
               className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium transition"
             >
               View all projects
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Demos Section */}
+      <section id="demos" className="py-20 px-4 bg-slate-50 border-y border-slate-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-50 border border-sky-200 mb-4">
+              <Sparkles className="w-4 h-4 text-sky-500" />
+              <span className="text-sm font-medium text-sky-700">Interactive Demos</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              See What We Can Build For Your Industry
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Explore fully functional demo sites built for different industries. Click any demo to see the complete multi-page experience.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {industryDemos.map((demo) => (
+              <Link
+                key={demo.name}
+                href={demo.url}
+                className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={demo.image}
+                    alt={demo.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${demo.gradient} opacity-60`} />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-slate-800">
+                      {demo.industry}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-xl font-bold text-white">{demo.name}</h3>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <p className="text-slate-600 text-sm mb-4">{demo.description}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium text-sky-600 group-hover:text-sky-700 transition">
+                      View Demo
+                    </span>
+                    <ArrowUpRight className="w-4 h-4 text-sky-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-slate-500 mb-4">Don&apos;t see your industry? We build custom solutions for any business.</p>
+            <Link
+              href="/apply"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition"
+            >
+              Request a Custom Demo
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -643,6 +768,7 @@ export default function Home() {
               <h4 className="font-semibold text-slate-900 mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-slate-500">
                 <li><Link href="/portfolio" className="hover:text-slate-900 transition">Portfolio</Link></li>
+                <li><a href="#demos" className="hover:text-slate-900 transition">Industry Demos</a></li>
                 <li><Link href="/pricing" className="hover:text-slate-900 transition">Pricing</Link></li>
                 <li><Link href="/blog" className="hover:text-slate-900 transition">Blog</Link></li>
                 <li><Link href="/contact" className="hover:text-slate-900 transition">Contact</Link></li>
