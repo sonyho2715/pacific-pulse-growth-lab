@@ -16,8 +16,91 @@ import {
   BarChart3,
   MessageSquare,
   Mail,
-  Phone
+  Phone,
+  Star,
+  TrendingUp,
+  Megaphone,
+  HeadphonesIcon
 } from "lucide-react";
+
+// Retainer Tiers
+const retainerTiers = [
+  {
+    name: "Starter",
+    price: "$1,500",
+    description: "Essential maintenance & support",
+    features: [
+      "Website hosting & security",
+      "Monthly maintenance & updates",
+      "Basic analytics reporting",
+      "Email support (48hr response)",
+      "2 content updates/month",
+    ],
+    notIncluded: [
+      "Social media management",
+      "SEO optimization",
+      "Strategy calls",
+    ],
+    color: "slate",
+    popular: false,
+  },
+  {
+    name: "Growth",
+    price: "$2,500",
+    description: "Marketing + maintenance",
+    features: [
+      "Everything in Starter, plus:",
+      "Social media posting (3x/week)",
+      "Monthly analytics & insights",
+      "Priority support (24hr response)",
+      "5 content updates/month",
+      "Basic SEO optimization",
+    ],
+    notIncluded: [
+      "AI chatbot",
+      "Weekly strategy calls",
+    ],
+    color: "sky",
+    popular: true,
+  },
+  {
+    name: "Scale",
+    price: "$3,500",
+    description: "Full digital growth partner",
+    features: [
+      "Everything in Growth, plus:",
+      "Social media posting (5x/week)",
+      "Advanced SEO & content strategy",
+      "A/B testing & optimization",
+      "Bi-weekly strategy calls",
+      "Unlimited content updates",
+      "Conversion rate optimization",
+    ],
+    notIncluded: [
+      "AI chatbot (add $500/mo)",
+    ],
+    color: "indigo",
+    popular: false,
+  },
+  {
+    name: "Full-Service",
+    price: "$5,000+",
+    description: "Your outsourced digital team",
+    features: [
+      "Everything in Scale, plus:",
+      "AI chatbot included",
+      "Paid ads management",
+      "Weekly strategy calls",
+      "Dedicated account manager",
+      "Custom integrations",
+      "Priority development queue",
+      "Quarterly business reviews",
+    ],
+    notIncluded: [],
+    color: "violet",
+    popular: false,
+  },
+];
 
 const services = [
   {
@@ -257,15 +340,96 @@ export default function ServicesPage() {
               Get Your Free Strategy Call
               <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link
-              href="/pricing"
+            <a
+              href="#retainer-tiers"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg border border-slate-200 hover:bg-slate-50 transition"
             >
-              View Pricing
-            </Link>
+              View Retainer Plans
+            </a>
           </div>
         </div>
       </section>
+
+      {/* Retainer Tiers Section */}
+      {pricingType === 'retainer' && (
+        <section id="retainer-tiers" className="py-16 px-4 bg-gradient-to-br from-slate-50 to-sky-50">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                Monthly Retainer Plans
+              </h2>
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                Predictable monthly investment. Continuous growth. No surprises.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {retainerTiers.map((tier) => (
+                <div
+                  key={tier.name}
+                  className={`relative bg-white rounded-2xl p-6 border-2 transition-all hover:shadow-xl ${
+                    tier.popular
+                      ? 'border-sky-500 shadow-lg'
+                      : 'border-slate-200 hover:border-sky-300'
+                  }`}
+                >
+                  {tier.popular && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <span className="px-3 py-1 bg-sky-500 text-white text-xs font-semibold rounded-full">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="text-center mb-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-1">{tier.name}</h3>
+                    <p className="text-sm text-slate-500 mb-4">{tier.description}</p>
+                    <div className="flex items-baseline justify-center gap-1">
+                      <span className="text-4xl font-bold text-slate-900">{tier.price}</span>
+                      <span className="text-slate-500">/mo</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 mb-6">
+                    {tier.features.map((feature, i) => (
+                      <div key={i} className="flex items-start gap-2">
+                        <Check className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-slate-700">{feature}</span>
+                      </div>
+                    ))}
+                    {tier.notIncluded.map((feature, i) => (
+                      <div key={i} className="flex items-start gap-2 opacity-50">
+                        <span className="w-5 h-5 flex items-center justify-center text-slate-400">—</span>
+                        <span className="text-sm text-slate-500">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Link
+                    href="/apply"
+                    className={`block w-full py-3 text-center font-semibold rounded-lg transition ${
+                      tier.popular
+                        ? 'bg-sky-500 text-white hover:bg-sky-600'
+                        : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
+                    }`}
+                  >
+                    Get Started
+                  </Link>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <p className="text-slate-600 mb-2">
+                All retainer plans include a <span className="font-semibold">90-day performance guarantee</span>.
+              </p>
+              <p className="text-sm text-slate-500">
+                Not sure which plan? Book a free call and we&apos;ll recommend the best fit for your business.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Services Detail */}
       <section className="py-16 px-4">
@@ -304,22 +468,38 @@ export default function ServicesPage() {
 
                   {/* Pricing */}
                   <div className="mb-8 p-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl border border-slate-200">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-slate-600">
-                        {pricingType === 'oneTime' ? 'One-Time Investment' : 'Monthly Retainer'}
-                      </span>
-                      {pricingType === 'retainer' && (
-                        <span className="px-2 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">
-                          Best Value
-                        </span>
-                      )}
-                    </div>
-                    <div className="text-3xl font-bold text-slate-900 mb-1">
-                      {pricingType === 'oneTime' ? service.pricing.oneTime.price : service.pricing.retainer.price}
-                    </div>
-                    <p className="text-sm text-slate-600">
-                      {pricingType === 'oneTime' ? service.pricing.oneTime.description : service.pricing.retainer.description}
-                    </p>
+                    {pricingType === 'oneTime' ? (
+                      <>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm font-medium text-slate-600">One-Time Investment</span>
+                        </div>
+                        <div className="text-3xl font-bold text-slate-900 mb-1">
+                          {service.pricing.oneTime.price}
+                        </div>
+                        <p className="text-sm text-slate-600">
+                          {service.pricing.oneTime.description}
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm font-medium text-slate-600">Included in Retainer</span>
+                          <span className="px-2 py-1 bg-sky-100 text-sky-700 text-xs font-medium rounded-full">
+                            Best Value
+                          </span>
+                        </div>
+                        <p className="text-slate-700 mb-3">
+                          This service is included in our monthly retainer plans starting at <span className="font-bold">$1,500/mo</span>.
+                        </p>
+                        <a
+                          href="#retainer-tiers"
+                          className="inline-flex items-center text-sky-600 font-medium text-sm hover:text-sky-700"
+                        >
+                          View retainer plans above
+                          <ArrowRight className="w-4 h-4 ml-1" />
+                        </a>
+                      </>
+                    )}
                   </div>
 
                   {/* Results */}
