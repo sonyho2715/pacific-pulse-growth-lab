@@ -47,8 +47,12 @@ const faqs = [
     answer: "One-time projects typically range from $3,000-$15,000 depending on complexity. We also offer monthly retainer plans: Starter ($1,500/mo) for maintenance and support, Growth ($2,500/mo) adds social media and SEO, Scale ($3,500/mo) for full digital marketing, and Full-Service ($5,000+/mo) for a complete outsourced digital team. Every project starts with a free strategy call where we provide a detailed quote.",
   },
   {
-    question: "How long does it take to build a website?",
-    answer: "Most websites launch in 2-4 weeks. More complex projects with custom features, booking systems, or AI integration typically take 4-6 weeks. We'll give you a specific timeline during our strategy call.",
+    question: "What technology do you use to build websites?",
+    answer: "We build with Next.js 15, React, and TypeScript for blazing-fast, SEO-friendly websites. For databases, we use PostgreSQL with Prisma ORM, hosted on Railway for reliability. Payments go through Stripe. Everything deploys on Vercel with automatic SSL, global CDN, and 99.99% uptime. This modern stack means your site loads in under 1 second and ranks well on Google.",
+  },
+  {
+    question: "How does your AI chatbot work?",
+    answer: "We integrate Claude AI (by Anthropic) to create intelligent chatbots trained on your specific business. The AI understands context, answers complex questions naturally, captures lead information, and can book appointments directly into your calendar. It works 24/7, handles multiple conversations simultaneously, and escalates to you when needed. Setup includes custom training on your services, FAQs, and brand voice.",
   },
   {
     question: "Do you only work with Hawaii businesses?",
@@ -56,15 +60,19 @@ const faqs = [
   },
   {
     question: "What's included in ongoing support?",
-    answer: "Our retainer plans include hosting, security updates, regular backups, content updates, performance monitoring, and priority support. Higher tiers include monthly strategy calls, A/B testing, and continuous optimization.",
+    answer: "Our retainer plans include hosting on Vercel, PostgreSQL database management, security updates, automated backups, content updates, uptime monitoring, and priority support. Higher tiers add social media management, SEO optimization, A/B testing, and strategy calls. We handle all the technical maintenance so you can focus on your business.",
   },
   {
     question: "Can you help with an existing website?",
-    answer: "Absolutely! We can audit your current site, optimize for conversions, add booking systems, integrate AI chat, or rebuild entirely. We'll recommend the best approach based on your goals and budget.",
+    answer: "Absolutely! We can audit your current site, optimize for conversions, add booking systems, integrate AI chat, migrate to a modern tech stack, or rebuild entirely. If you're on WordPress or Wix and want better performance, we can migrate you to Next.js. We'll recommend the best approach based on your goals and budget.",
+  },
+  {
+    question: "How secure is my data?",
+    answer: "Very secure. We use PostgreSQL databases with encrypted connections, Stripe for PCI-compliant payments (we never store card data), HTTPS everywhere, and follow OWASP security best practices. Your customer data is backed up daily and stored in secure, SOC 2 compliant infrastructure. We can also implement HIPAA-compliant setups for healthcare businesses.",
   },
   {
     question: "What makes you different from other agencies?",
-    answer: "We specialize in service businesses and understand your unique needs. We're not a huge agency. You work directly with senior developers. Plus our 90-day ROI guarantee means we're invested in your success.",
+    answer: "We specialize in service businesses and understand your unique needs. We're not a huge agency. You work directly with senior developers who use the same modern tech stack as companies like Netflix and Airbnb. Plus our 90-day ROI guarantee means we're invested in your success.",
   },
 ];
 
