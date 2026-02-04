@@ -166,6 +166,15 @@ const industryDemos = [
     color: "sky",
     gradient: "from-sky-400 to-emerald-500",
   },
+  {
+    name: "Aloha Pet Hospital",
+    industry: "Veterinary Clinic",
+    description: "Pet services, emergency care, staff profiles, resources, and appointment booking",
+    url: "/vet-demo",
+    image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=400&fit=crop",
+    color: "teal",
+    gradient: "from-teal-500 to-cyan-600",
+  },
 ];
 
 const services = [
