@@ -44,7 +44,7 @@ const features = [
 const faqs = [
   {
     question: "How much does a website cost?",
-    answer: "Our projects typically range from $3,000-$15,000 depending on complexity. We also offer monthly retainer plans starting at $500/month that include hosting, maintenance, and ongoing improvements. Every project starts with a free strategy call where we provide a detailed quote.",
+    answer: "Our projects typically range from $3,000-$15,000 depending on complexity. We also offer monthly retainer plans from $1,500-$3,000/month that include hosting, maintenance, ongoing improvements, and priority support. Every project starts with a free strategy call where we provide a detailed quote.",
   },
   {
     question: "How long does it take to build a website?",
