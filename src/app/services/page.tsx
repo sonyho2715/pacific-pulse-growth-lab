@@ -36,7 +36,7 @@ const services = [
     ],
     pricing: {
       oneTime: { price: "$5,000 - $15,000", description: "Complete website build with 30 days support" },
-      retainer: { price: "$800/month", description: "Includes hosting, updates, SEO, and unlimited changes" },
+      retainer: { price: "$1,500 - $3,000/mo", description: "Includes hosting, updates, SEO, unlimited changes, and priority support" },
     },
     results: [
       { metric: "2x", label: "Average conversion increase" },
@@ -66,7 +66,7 @@ const services = [
     ],
     pricing: {
       oneTime: { price: "$3,000 - $8,000", description: "AI setup, training, and integration" },
-      retainer: { price: "$500/month", description: "Ongoing training, optimization, and API costs included" },
+      retainer: { price: "$1,500 - $3,000/mo", description: "Ongoing training, optimization, API costs, and dedicated support" },
     },
     results: [
       { metric: "24/7", label: "Lead capture" },
@@ -96,7 +96,7 @@ const services = [
     ],
     pricing: {
       oneTime: { price: "$2,500 - $6,000", description: "Full booking system setup and integration" },
-      retainer: { price: "$300/month", description: "Maintenance, SMS credits, and priority support" },
+      retainer: { price: "$1,500 - $3,000/mo", description: "Maintenance, SMS credits, optimization, and priority support" },
     },
     results: [
       { metric: "40%", label: "More appointments" },
@@ -126,7 +126,7 @@ const services = [
     ],
     pricing: {
       oneTime: { price: "$4,000 - $12,000", description: "Complete e-commerce setup with payment integration" },
-      retainer: { price: "$400/month", description: "Maintenance, transaction monitoring, and support" },
+      retainer: { price: "$1,500 - $3,000/mo", description: "Maintenance, transaction monitoring, optimization, and priority support" },
     },
     results: [
       { metric: "99.9%", label: "Payment success rate" },
