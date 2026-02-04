@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Link from "next/link";
 import {
   ArrowRight,
@@ -16,11 +19,6 @@ import {
   Phone
 } from "lucide-react";
 
-export const metadata = {
-  title: "Services | Pacific Pulse Growth Lab",
-  description: "Web applications, AI automation, booking systems, and e-commerce solutions for Hawaii businesses. See how we help service businesses grow.",
-};
-
 const services = [
   {
     id: "web-apps",
@@ -36,6 +34,10 @@ const services = [
       "Analytics and tracking built-in",
       "Easy content management",
     ],
+    pricing: {
+      oneTime: { price: "$5,000 - $15,000", description: "Complete website build with 30 days support" },
+      retainer: { price: "$800/month", description: "Includes hosting, updates, SEO, and unlimited changes" },
+    },
     results: [
       { metric: "2x", label: "Average conversion increase" },
       { metric: "<1s", label: "Page load time" },
@@ -62,6 +64,10 @@ const services = [
       "Instant answers to common questions",
       "Escalation to human when needed",
     ],
+    pricing: {
+      oneTime: { price: "$3,000 - $8,000", description: "AI setup, training, and integration" },
+      retainer: { price: "$500/month", description: "Ongoing training, optimization, and API costs included" },
+    },
     results: [
       { metric: "24/7", label: "Lead capture" },
       { metric: "90%", label: "Questions answered instantly" },
@@ -88,6 +94,10 @@ const services = [
       "Multi-service and multi-staff support",
       "Custom booking rules and availability",
     ],
+    pricing: {
+      oneTime: { price: "$2,500 - $6,000", description: "Full booking system setup and integration" },
+      retainer: { price: "$300/month", description: "Maintenance, SMS credits, and priority support" },
+    },
     results: [
       { metric: "40%", label: "More appointments" },
       { metric: "60%", label: "Fewer no-shows" },
@@ -114,6 +124,10 @@ const services = [
       "Multiple currency support",
       "PCI-compliant security",
     ],
+    pricing: {
+      oneTime: { price: "$4,000 - $12,000", description: "Complete e-commerce setup with payment integration" },
+      retainer: { price: "$400/month", description: "Maintenance, transaction monitoring, and support" },
+    },
     results: [
       { metric: "99.9%", label: "Payment success rate" },
       { metric: "2.9%", label: "Transaction fees" },
@@ -156,6 +170,8 @@ const processSteps = [
 ];
 
 export default function ServicesPage() {
+  const [pricingType, setPricingType] = useState<'oneTime' | 'retainer'>('oneTime');
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -205,6 +221,33 @@ export default function ServicesPage() {
           <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-8">
             From custom websites to AI automation. We build the digital infrastructure that helps Hawaii service businesses attract more customers and book more appointments.
           </p>
+
+          {/* Pricing Toggle */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-slate-100 p-1 rounded-full inline-flex">
+              <button
+                onClick={() => setPricingType('oneTime')}
+                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
+                  pricingType === 'oneTime'
+                    ? 'bg-white text-slate-900 shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                One-Time Project
+              </button>
+              <button
+                onClick={() => setPricingType('retainer')}
+                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
+                  pricingType === 'retainer'
+                    ? 'bg-white text-slate-900 shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Monthly Retainer
+                <span className="ml-2 px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs rounded-full">Save 20%</span>
+              </button>
+            </div>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -259,6 +302,26 @@ export default function ServicesPage() {
                     ))}
                   </div>
 
+                  {/* Pricing */}
+                  <div className="mb-8 p-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl border border-slate-200">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-medium text-slate-600">
+                        {pricingType === 'oneTime' ? 'One-Time Investment' : 'Monthly Retainer'}
+                      </span>
+                      {pricingType === 'retainer' && (
+                        <span className="px-2 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">
+                          Best Value
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-3xl font-bold text-slate-900 mb-1">
+                      {pricingType === 'oneTime' ? service.pricing.oneTime.price : service.pricing.retainer.price}
+                    </div>
+                    <p className="text-sm text-slate-600">
+                      {pricingType === 'oneTime' ? service.pricing.oneTime.description : service.pricing.retainer.description}
+                    </p>
+                  </div>
+
                   {/* Results */}
                   <div className="flex gap-8 mb-8">
                     {service.results.map((result) => (
@@ -271,9 +334,9 @@ export default function ServicesPage() {
 
                   <Link
                     href="/apply"
-                    className="inline-flex items-center gap-2 text-sky-600 font-semibold hover:text-sky-700 transition"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition"
                   >
-                    Get started with {service.title.toLowerCase()}
+                    Get started with {service.title.split(' ')[0].toLowerCase()}
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>

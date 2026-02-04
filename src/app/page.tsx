@@ -1,7 +1,72 @@
+'use client';
+
+import { useState } from 'react';
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Check, Sparkles, Zap, Globe, Bot, Calendar, ShoppingCart, Mail, BarChart3, Star, Play } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, Sparkles, Zap, Globe, Bot, Calendar, ShoppingCart, Mail, BarChart3, Star, Play, Rocket, Shield, Clock, Users, ChevronDown, ChevronUp } from "lucide-react";
 import { blogPosts } from "./blog/data";
+
+// Features for the homepage
+const features = [
+  {
+    icon: Rocket,
+    title: "Launch in Weeks, Not Months",
+    description: "Our streamlined process gets your business online fast. Most projects launch in 2-6 weeks.",
+  },
+  {
+    icon: Bot,
+    title: "AI That Works 24/7",
+    description: "Smart chatbots capture leads and book appointments while you sleep. Never miss an opportunity.",
+  },
+  {
+    icon: Shield,
+    title: "90-Day ROI Guarantee",
+    description: "See results in 90 days or we work for free until you do. We only win when you win.",
+  },
+  {
+    icon: Users,
+    title: "Local Hawaii Support",
+    description: "Based in Honolulu, available during your hours. No overseas call centers or timezone confusion.",
+  },
+  {
+    icon: BarChart3,
+    title: "Data-Driven Growth",
+    description: "Track every visitor, lead, and conversion. Make decisions based on real numbers.",
+  },
+  {
+    icon: Clock,
+    title: "Save 10+ Hours Weekly",
+    description: "Automate bookings, reminders, and follow-ups. Focus on what you do best.",
+  },
+];
+
+// FAQs for the homepage
+const faqs = [
+  {
+    question: "How much does a website cost?",
+    answer: "Our projects typically range from $3,000-$15,000 depending on complexity. We also offer monthly retainer plans starting at $500/month that include hosting, maintenance, and ongoing improvements. Every project starts with a free strategy call where we provide a detailed quote.",
+  },
+  {
+    question: "How long does it take to build a website?",
+    answer: "Most websites launch in 2-4 weeks. More complex projects with custom features, booking systems, or AI integration typically take 4-6 weeks. We'll give you a specific timeline during our strategy call.",
+  },
+  {
+    question: "Do you only work with Hawaii businesses?",
+    answer: "While we're based in Hawaii and love working with local businesses, we work with clients nationwide. Our expertise in service businesses translates across locations. The aloha spirit travels well!",
+  },
+  {
+    question: "What's included in ongoing support?",
+    answer: "Our retainer plans include hosting, security updates, regular backups, content updates, performance monitoring, and priority support. Higher tiers include monthly strategy calls, A/B testing, and continuous optimization.",
+  },
+  {
+    question: "Can you help with an existing website?",
+    answer: "Absolutely! We can audit your current site, optimize for conversions, add booking systems, integrate AI chat, or rebuild entirely. We'll recommend the best approach based on your goals and budget.",
+  },
+  {
+    question: "What makes you different from other agencies?",
+    answer: "We specialize in service businesses and understand your unique needs. We're not a huge agency. You work directly with senior developers. Plus our 90-day ROI guarantee means we're invested in your success.",
+  },
+];
 
 // Featured projects - lead with your best work
 const featuredProjects = [
@@ -238,6 +303,8 @@ const testimonials = [
 ];
 
 export default function Home() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -270,46 +337,127 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero - Portfolio Led */}
-      <section className="pt-24 pb-8 px-4">
+      {/* Hero - Parallax Hawaii Background */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Parallax Background Image */}
+        <div
+          className="absolute inset-0 bg-fixed bg-cover bg-center"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1507876466758-bc54f384809c?w=1920&h=1080&fit=crop')",
+            backgroundAttachment: "fixed",
+          }}
+        />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/50 to-slate-900/80" />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center pt-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+            </span>
+            <span className="text-sm font-medium text-white">February: Only 3 spots remaining</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6">
+            Turn Website Visitors Into
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400">
+              Booked Appointments
+            </span>
+          </h1>
+
+          <p className="text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto mb-10">
+            AI-powered booking systems for Hawaii service businesses. Your website works 24/7,
+            capturing leads and booking clients while you sleep.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <Link
+              href="/apply"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-full hover:from-amber-600 hover:to-orange-600 transition shadow-lg shadow-amber-500/25"
+            >
+              Get Your Free Strategy Call
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <a
+              href="#work"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full border border-white/30 hover:bg-white/20 transition"
+            >
+              See Our Work
+            </a>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap justify-center items-center gap-8 text-white/70">
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-2">
+                {[1,2,3,4].map((i) => (
+                  <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-sky-400 to-indigo-500 border-2 border-white/20" />
+                ))}
+              </div>
+              <span className="text-sm">50+ Happy Clients</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
+              <span className="text-sm">5.0 Rating</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Shield className="w-5 h-5 text-emerald-400" />
+              <span className="text-sm">90-Day Guarantee</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <ChevronDown className="w-8 h-8 text-white/50" />
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          {/* Mini intro */}
-          <div className="text-center mb-12 pt-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-300 mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-              </span>
-              <span className="text-sm font-medium text-amber-800">February: Only 3 spots remaining</span>
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-50 border border-sky-200 mb-4">
+              <Sparkles className="w-4 h-4 text-sky-600" />
+              <span className="text-sm font-medium text-sky-700">Why Choose Us</span>
             </div>
-
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 tracking-tight mb-4">
-              Turn Website Visitors Into
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600">
-                Booked Appointments
-              </span>
-            </h1>
-
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-6">
-              AI-powered booking systems for Hawaii service businesses. Your website works 24/7,
-              capturing leads and booking clients while you sleep.
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Everything You Need to Grow Online
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              We handle the tech so you can focus on your business. From beautiful websites to AI automation.
             </p>
+          </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/apply"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition"
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="p-8 rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-slate-200 hover:shadow-xl hover:border-sky-200 transition-all duration-300 group"
               >
-                Get Your Free Strategy Call
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a
-                href="#work"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg border border-slate-200 hover:bg-slate-50 transition"
-              >
-                See Our Work
-              </a>
-            </div>
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <feature.icon className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
+                <p className="text-slate-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section Header */}
+      <section id="work" className="pt-20 pb-8 px-4 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Our Work Speaks for Itself
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Real results for real businesses. See what we&apos;ve built for Hawaii companies.
+            </p>
           </div>
 
           {/* Featured Project - Large Showcase */}
@@ -345,6 +493,12 @@ export default function Home() {
               </div>
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Rest of Portfolio */}
+      <section className="pb-16 px-4 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
 
           {/* Two more featured projects */}
           <div className="grid md:grid-cols-2 gap-4 mb-4">
@@ -690,6 +844,64 @@ export default function Home() {
             {["Next.js 15", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Vercel", "Stripe", "Claude AI"].map((tech) => (
               <span key={tech} className="text-sm font-medium">{tech}</span>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs Section */}
+      <section id="faqs" className="py-20 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200 mb-4">
+              <span className="text-sm font-medium text-amber-700">Common Questions</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-slate-600">
+              Everything you need to know about working with us.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden hover:border-sky-200 transition-colors"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full px-6 py-5 flex items-center justify-between text-left"
+                >
+                  <span className="font-semibold text-slate-900 pr-4">{faq.question}</span>
+                  <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
+                    openFaq === index ? 'bg-sky-100' : 'bg-slate-200'
+                  }`}>
+                    {openFaq === index ? (
+                      <ChevronUp className="w-5 h-5 text-sky-600" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-slate-500" />
+                    )}
+                  </div>
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-5">
+                    <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-slate-600 mb-4">Still have questions?</p>
+            <Link
+              href="/apply"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition"
+            >
+              Book a Free Strategy Call
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
