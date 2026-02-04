@@ -79,20 +79,11 @@ const faqs = [
 // Featured projects - lead with your best work
 const featuredProjects = [
   {
-    name: "VietHawaii",
-    category: "Community Platform",
-    description: "Directory connecting 50,000+ people with Vietnamese-owned businesses across Hawaii. Multilingual, map-integrated, SEO-optimized.",
-    url: "https://viethawaii.com",
-    image: "/projects/viethawaii.png",
-    stats: "50K+ users",
-    gradient: "from-rose-500 via-orange-500 to-amber-500",
-  },
-  {
     name: "Aloha Coaches",
     category: "AI-Powered SaaS",
     description: "Transformational coaching platform with Claude AI-powered sessions, Stripe subscriptions, and automated booking.",
     url: "https://www.alohacoaches.com",
-    image: "/projects/alohacoaches.png",
+    image: "/portfolio/aloha-coaches.png",
     stats: "AI + Stripe",
     gradient: "from-cyan-500 via-blue-500 to-indigo-500",
   },
@@ -101,7 +92,7 @@ const featuredProjects = [
     category: "Service Business",
     description: "Premium auto detailing with luxury animations, online booking, and conversion-optimized landing pages.",
     url: "https://www.bosautodetail.com",
-    image: "/projects/bos-auto.png",
+    image: "/portfolio/bos-auto-detail.png",
     stats: "40% more bookings",
     gradient: "from-amber-400 via-yellow-500 to-orange-500",
   },
@@ -113,18 +104,21 @@ const allProjects = [
     name: "Aloha Massage Spa",
     category: "Booking System",
     url: "https://aloha-massage-spa.vercel.app",
+    image: "/portfolio/aloha-massage-spa.png",
     gradient: "from-teal-500 to-emerald-500",
   },
   {
     name: "Benefits Resource Group",
     category: "Dashboard + Analytics",
     url: "https://benefits-resource-group.vercel.app",
+    image: "/portfolio/benefits-resource-group.png",
     gradient: "from-purple-500 to-pink-500",
   },
   {
     name: "Truong Viet Ngu",
     category: "Education Platform",
     url: "https://truong-viet-ngu.vercel.app",
+    image: "/portfolio/truong-viet-ngu.png",
     gradient: "from-indigo-500 to-violet-500",
   },
 ];
@@ -480,8 +474,16 @@ export default function Home() {
               rel="noopener noreferrer"
               className="group block relative rounded-2xl overflow-hidden bg-slate-100 aspect-[16/9] md:aspect-[21/9]"
             >
-              {/* Gradient background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${featuredProjects[0].gradient} opacity-90`} />
+              {/* Project screenshot */}
+              <Image
+                src={featuredProjects[0].image}
+                alt={featuredProjects[0].name}
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 1280px"
+              />
+              {/* Gradient overlay for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
               {/* Content overlay */}
               <div className="absolute inset-0 flex items-end p-6 md:p-10">
@@ -522,7 +524,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="group relative rounded-xl overflow-hidden bg-slate-100 aspect-[16/10]"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-90`} />
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, 640px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute inset-0 flex items-end p-5">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
@@ -544,7 +553,7 @@ export default function Home() {
           </div>
 
           {/* More projects grid */}
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {allProjects.map((project) => (
               <a
                 key={project.name}
@@ -553,7 +562,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="group relative rounded-lg overflow-hidden bg-slate-100 aspect-[4/3]"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-85`} />
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute inset-0 flex items-end p-4">
                   <div>
                     <span className="text-xs font-medium text-white/80">{project.category}</span>
