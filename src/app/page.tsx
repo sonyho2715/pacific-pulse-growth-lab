@@ -72,7 +72,7 @@ const faqs = [
   },
   {
     question: "What makes you different from other agencies?",
-    answer: "We specialize in service businesses and understand your unique needs. We're not a huge agency. You work directly with senior developers who use the same modern tech stack as companies like Netflix and Airbnb. Plus our 90-day ROI guarantee means we're invested in your success.",
+    answer: "We're AI-first. While traditional agencies build websites, we build AI-powered booking automation systems. You work directly with senior Hawaii-based developers (no offshore teams) using the same modern tech as Netflix and Airbnb. Plus our 90-day ROI guarantee means we're invested in your success—not just delivering a site and disappearing.",
   },
 ];
 
@@ -247,21 +247,21 @@ const industryDemos = [
 const services = [
   {
     icon: Globe,
-    title: "Revenue-Generating Web Apps",
-    description: "Next.js applications built for speed, SEO, and conversion. From landing pages to full SaaS platforms.",
-    features: ["Lightning-fast performance", "Mobile-first design", "SEO optimized"],
+    title: "AI-Powered Revenue Systems",
+    description: "Next.js applications integrated with AI automation for maximum conversions. Transform visitors into customers automatically.",
+    features: ["Lightning-fast performance", "AI-driven optimization", "SEO-optimized for local search"],
   },
   {
     icon: Bot,
     title: "24/7 AI Sales Assistant",
-    description: "AI chatbots and automation that capture leads, answer questions, and book appointments while you sleep.",
-    features: ["Trained on your business", "Natural conversations", "Lead capture"],
+    description: "Claude AI-powered chatbots that capture leads, answer questions, and book appointments automatically—even at 2am.",
+    features: ["Trained on your business", "Natural conversations", "Instant lead qualification"],
   },
   {
     icon: Calendar,
-    title: "Automated Booking Systems",
-    description: "Online booking systems that sync with your calendar, send confirmations, and reduce no-shows.",
-    features: ["Calendar sync", "Automated reminders", "Payment integration"],
+    title: "AI-Driven Booking Automation",
+    description: "Intelligent booking systems that sync calendars, send smart reminders, and optimize scheduling automatically.",
+    features: ["AI scheduling optimization", "Automated confirmations", "Payment integration"],
   },
   {
     icon: ShoppingCart,
@@ -367,15 +367,15 @@ export default function Home() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6">
-            Turn Website Visitors Into
+            AI-Powered Booking Automation
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400">
-              Booked Appointments
+              That Never Sleeps
             </span>
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto mb-10">
-            AI-powered booking systems for Hawaii service businesses. Your website works 24/7,
-            capturing leads and booking clients while you sleep.
+            Transform your website into a 24/7 revenue-generating system. Our AI captures leads,
+            books appointments, and handles payments—even at 2am. Built for Hawaii service businesses ready to scale.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">

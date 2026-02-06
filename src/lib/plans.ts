@@ -1,7 +1,7 @@
 // Pacific Pulse Service Plans Configuration
 // Productized service model: Project fee + Monthly retainer
 
-export type PlanTier = 'starter' | 'growth' | 'professional' | 'enterprise';
+export type PlanTier = 'starter' | 'ai-starter' | 'growth' | 'professional' | 'enterprise';
 
 export interface PlanFeature {
   name: string;
@@ -72,16 +72,57 @@ export const PLANS: Plan[] = [
     cta: 'Get Started',
   },
   {
+    id: 'ai-starter',
+    name: 'AI Starter',
+    tagline: 'Try AI-powered automation',
+    description: 'Perfect entry point for businesses wanting AI chatbot automation without the full investment.',
+    price: {
+      project: 2500,
+      monthly: 199,
+      yearlyMonthly: 165,
+    },
+    recommended: true,
+    features: {
+      website: [
+        { name: 'Custom Website', included: true, description: 'Up to 8 pages' },
+        { name: 'Mobile Responsive', included: true },
+        { name: 'SSL Certificate', included: true },
+        { name: 'Custom Domain Setup', included: true },
+        { name: 'Advanced SEO', included: true },
+        { name: 'Contact Form', included: true },
+        { name: 'Google Maps', included: true },
+        { name: 'Blog', included: false },
+        { name: 'Booking System', included: true, description: 'Basic calendar sync' },
+        { name: 'E-commerce', included: false },
+      ],
+      automation: [
+        { name: 'AI Chatbot', included: true, description: 'Basic training' },
+        { name: 'Email Marketing', included: false },
+        { name: 'Lead Capture Forms', included: true, description: 'Smart forms' },
+        { name: 'Analytics Dashboard', included: true, description: 'Google Analytics' },
+        { name: 'Automated Notifications', included: true, description: 'Basic reminders' },
+      ],
+      support: [
+        { name: 'Hosting Included', included: true },
+        { name: 'Email Support', included: true, description: '24hr response' },
+        { name: 'Phone Support', included: false },
+        { name: 'Content Updates', included: true, limit: '3/month' },
+        { name: 'Monthly Check-ins', included: false },
+        { name: 'Priority Support', included: false },
+      ],
+    },
+    cta: 'Try AI Now',
+  },
+  {
     id: 'growth',
     name: 'Growth',
     tagline: 'Scale your bookings',
-    description: 'For service businesses ready to automate bookings and grow their customer base.',
+    description: 'For service businesses ready to automate bookings and grow their customer base with marketing.',
     price: {
       project: 3500,
       monthly: 149,
       yearlyMonthly: 125,
     },
-    recommended: true,
     features: {
       website: [
         { name: 'Custom Website', included: true, description: 'Up to 15 pages' },
@@ -244,6 +285,7 @@ export function getFeatureComparison() {
     featureNames.forEach(name => {
       const planValues: Record<PlanTier, string | number | boolean> = {
         starter: false,
+        'ai-starter': false,
         growth: false,
         professional: false,
         enterprise: false,
