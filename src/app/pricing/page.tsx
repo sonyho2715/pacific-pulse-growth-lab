@@ -72,6 +72,13 @@ export default function PricingPage() {
               />
               <span className="text-lg font-bold text-slate-900">Pacific Pulse</span>
             </Link>
+
+            <div className="hidden md:flex items-center gap-8">
+              <Link href="/services" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Services</Link>
+              <Link href="/pricing" className="text-sm font-medium text-sky-600">Pricing</Link>
+              <Link href="/comparison" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Compare</Link>
+            </div>
+
             <Link
               href="/apply"
               className="px-5 py-2 bg-slate-900 text-white text-sm font-semibold rounded-lg hover:bg-slate-800 transition"
