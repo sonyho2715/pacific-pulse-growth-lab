@@ -61,9 +61,9 @@ const services = [
     icon: Bot,
     title: "24/7 AI Sales Assistant",
     tagline: "Never miss another lead, even at 2am",
-    description: "Powered by Claude AI (Anthropic), our chatbots understand context, handle complex conversations, and feel genuinely human. We train the AI on your services, pricing, FAQs, and brand voice so it represents your business accurately.",
+    description: "Powered by advanced AI technology, our chatbots understand context, handle complex conversations, and feel genuinely human. We train the AI on your services, pricing, FAQs, and brand voice so it represents your business accurately.",
     features: [
-      "Claude AI (Anthropic) - trained specifically on your business",
+      "Advanced AI - trained specifically on your business",
       "Natural conversation flow (feels genuinely human)",
       "Instant responses 24/7 (no more missed after-hours leads)",
       "Lead capture with automatic CRM integration",

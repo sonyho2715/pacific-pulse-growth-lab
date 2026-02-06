@@ -22,7 +22,7 @@ const customBenefits = [
   'Fully custom design (no templates)',
   'You own all code - leave anytime',
   'All-inclusive pricing ($199-997/mo)',
-  'Claude AI trained on your business',
+  'Advanced AI trained on your business',
   'Full booking automation + calendar sync',
   'Built for SEO from ground up',
   'Custom integrations with any tool',
