@@ -170,23 +170,26 @@ export default function OutgrownBasicWebsitePage() {
                 </span>
               </div>
               <h3 className="text-sm font-semibold text-emerald-700 uppercase mb-2">Upgrade To</h3>
-              <h4 className="text-2xl font-bold text-slate-900 mb-4">AI Starter</h4>
+              <h4 className="text-2xl font-bold text-slate-900 mb-4">Growth Plan</h4>
               <ul className="space-y-3 mb-6 text-slate-700 font-medium">
                 <li className="flex items-center gap-2">
-                  <span className="text-emerald-600">✓</span> AI chatbot 24/7
+                  <span className="text-emerald-600">✓</span> SEO optimization
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-emerald-600">✓</span> Booking automation
+                  <span className="text-emerald-600">✓</span> Social media posting (3x/week)
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-emerald-600">✓</span> Full analytics
+                  <span className="text-emerald-600">✓</span> Email marketing automation
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-emerald-600">✓</span> Capture more revenue
+                  <span className="text-emerald-600">✓</span> Full analytics & insights
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-emerald-600">✓</span> Monthly strategy calls
                 </li>
               </ul>
-              <p className="text-lg font-bold text-slate-900">$2,500 + $199/month</p>
-              <p className="text-sm text-emerald-700 font-semibold">Revenue-generating machine</p>
+              <p className="text-lg font-bold text-slate-900">$2,500/month</p>
+              <p className="text-sm text-emerald-700 font-semibold">Revenue-generating growth partner</p>
             </div>
           </div>
 

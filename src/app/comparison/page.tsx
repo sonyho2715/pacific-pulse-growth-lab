@@ -284,7 +284,7 @@ export default function ComparisonPage() {
                 90-Day ROI Guarantee
               </h3>
               <p className="text-slate-600">
-                If you don't get at least 10 new bookings in your first 90 days, we'll refund your setup fee. No other agency offers this.
+                If you don't get at least 10 new bookings in your first 90 days, we'll refund your first three months. No other agency offers this guarantee.
               </p>
             </div>
 
