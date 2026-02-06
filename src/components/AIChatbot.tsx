@@ -115,7 +115,7 @@ export function AIChatbot({ industry = "general" }: AIChatbotProps = {}) {
         console.error("❌ Exception logging disqualified lead:", error);
       }
 
-      alert("Thank you for your interest! Pacific Pulse focuses on established businesses doing $5K+/month. We recommend revisiting AI automation once you've scaled past this threshold. Contact sony@pacificpulsegrowth.com for future opportunities.");
+      alert("Mahalo for your interest! 🌺 Our retainer plans ($1,500-5,000/mo) work best for businesses already doing $5K+/month. Once you hit that milestone, we'd love to help you scale with AI automation. Reach out to sony@pacificpulsegrowth.com when you're ready!");
       setIsOpen(false);
       return;
     }
@@ -226,7 +226,7 @@ export function AIChatbot({ industry = "general" }: AIChatbotProps = {}) {
         ...prev,
         {
           role: "assistant",
-          content: `You've reached your ${MESSAGE_LIMIT}-message preview limit. Ready to capture those missed calls and automate your content? Apply now to unlock full access: https://pacific-pulse-growth.vercel.app/apply or email Sony: sony@pacificpulsegrowth.com`,
+          content: `You've hit your ${MESSAGE_LIMIT}-message preview. Here's what happens next: Book a free strategy call where we'll map out exactly how much revenue you're missing and how to capture it. Most clients see ROI in 30 days. Ready? Apply here: https://pacific-pulse-growth.vercel.app/apply or text Sony: sony@pacificpulsegrowth.com`,
         },
       ]);
       return;
@@ -345,9 +345,9 @@ export function AIChatbot({ industry = "general" }: AIChatbotProps = {}) {
             <CardContent className="flex-1 overflow-y-auto p-6">
               <div className="space-y-4">
                 <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold mb-2">Get Your Free AI Consultation 🌺</h3>
+                  <h3 className="text-xl font-bold mb-2">Ready to Stop Missing Revenue? 🌺</h3>
                   <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                    Tell us about your business to see if you qualify for our Founding Client Program ($497/month, 5 spots left)
+                    Most Hawaii businesses lose 15-30 bookings monthly to missed calls and slow follow-ups. Let's see how much you're actually leaving on the table (and fix it).
                   </p>
                 </div>
 
@@ -483,7 +483,7 @@ export function AIChatbot({ industry = "general" }: AIChatbotProps = {}) {
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder={messageCount >= MESSAGE_LIMIT ? "Message limit reached" : "Ask about the Founding Client Program..."}
+                placeholder={messageCount >= MESSAGE_LIMIT ? "Message limit reached" : "What's your biggest revenue leak right now?"}
                 disabled={isLoading || messageCount >= MESSAGE_LIMIT}
                 className="flex-1"
               />
