@@ -1,5 +1,6 @@
 // Stripe Plan Configuration for Pacific Pulse
 // Maps internal plans to Stripe Price IDs
+// Note: Retainer-only pricing model (no setup fees)
 
 import Stripe from 'stripe';
 import { PlanTier } from './plans';
@@ -12,31 +13,18 @@ export const STRIPE_PRICES: Record<PlanTier, { monthly: string; yearly: string }
     monthly: process.env.STRIPE_PRICE_STARTER_MONTHLY || 'price_starter_monthly',
     yearly: process.env.STRIPE_PRICE_STARTER_YEARLY || 'price_starter_yearly',
   },
-  'ai-starter': {
-    monthly: process.env.STRIPE_PRICE_AI_STARTER_MONTHLY || 'price_ai_starter_monthly',
-    yearly: process.env.STRIPE_PRICE_AI_STARTER_YEARLY || 'price_ai_starter_yearly',
-  },
   growth: {
     monthly: process.env.STRIPE_PRICE_GROWTH_MONTHLY || 'price_growth_monthly',
     yearly: process.env.STRIPE_PRICE_GROWTH_YEARLY || 'price_growth_yearly',
   },
-  professional: {
-    monthly: process.env.STRIPE_PRICE_PRO_MONTHLY || 'price_pro_monthly',
-    yearly: process.env.STRIPE_PRICE_PRO_YEARLY || 'price_pro_yearly',
+  scale: {
+    monthly: process.env.STRIPE_PRICE_SCALE_MONTHLY || 'price_scale_monthly',
+    yearly: process.env.STRIPE_PRICE_SCALE_YEARLY || 'price_scale_yearly',
   },
-  enterprise: {
-    monthly: process.env.STRIPE_PRICE_ENTERPRISE_MONTHLY || 'price_enterprise_monthly',
-    yearly: process.env.STRIPE_PRICE_ENTERPRISE_YEARLY || 'price_enterprise_yearly',
+  'full-service': {
+    monthly: process.env.STRIPE_PRICE_FULL_SERVICE_MONTHLY || 'price_full_service_monthly',
+    yearly: process.env.STRIPE_PRICE_FULL_SERVICE_YEARLY || 'price_full_service_yearly',
   },
-};
-
-// Setup fee product IDs
-export const STRIPE_SETUP_FEES: Record<PlanTier, string> = {
-  starter: process.env.STRIPE_PRICE_SETUP_STARTER || 'price_setup_starter',
-  'ai-starter': process.env.STRIPE_PRICE_SETUP_AI_STARTER || 'price_setup_ai_starter',
-  growth: process.env.STRIPE_PRICE_SETUP_GROWTH || 'price_setup_growth',
-  professional: process.env.STRIPE_PRICE_SETUP_PRO || 'price_setup_pro',
-  enterprise: process.env.STRIPE_PRICE_SETUP_ENTERPRISE || 'price_setup_enterprise',
 };
 
 // Create a checkout session for new subscriptions
@@ -47,7 +35,6 @@ export async function createCheckoutSession({
   successUrl,
   cancelUrl,
   clientReferenceId,
-  includeSetupFee = true,
 }: {
   plan: PlanTier;
   billingCycle: 'monthly' | 'yearly';
@@ -55,7 +42,6 @@ export async function createCheckoutSession({
   successUrl: string;
   cancelUrl: string;
   clientReferenceId?: string;
-  includeSetupFee?: boolean;
 }): Promise<Stripe.Checkout.Session> {
   const priceId = STRIPE_PRICES[plan][billingCycle];
 
@@ -65,14 +51,6 @@ export async function createCheckoutSession({
       quantity: 1,
     },
   ];
-
-  // Add setup fee as one-time charge
-  if (includeSetupFee) {
-    lineItems.push({
-      price: STRIPE_SETUP_FEES[plan],
-      quantity: 1,
-    });
-  }
 
   const session = await stripe.checkout.sessions.create({
     mode: 'subscription',
@@ -165,7 +143,7 @@ export async function updateSubscription({
 // Get plan from Stripe subscription
 export function getPlanFromSubscription(subscription: Stripe.Subscription): PlanTier | null {
   const plan = subscription.metadata?.plan as PlanTier;
-  if (plan && ['starter', 'ai-starter', 'growth', 'professional', 'enterprise'].includes(plan)) {
+  if (plan && ['starter', 'growth', 'scale', 'full-service'].includes(plan)) {
     return plan;
   }
   return null;
@@ -207,20 +185,40 @@ export async function handleSubscriptionDeleted(subscription: Stripe.Subscriptio
 }
 
 // Helper to create all products and prices in Stripe (run once during setup)
+// Updated for retainer-only pricing (no setup fees)
 export async function setupStripeProducts(): Promise<void> {
   const plans = [
-    { id: 'starter', name: 'Starter', monthlyPrice: 7900, yearlyPrice: 78000, setupFee: 150000 },
-    { id: 'ai-starter', name: 'AI Starter', monthlyPrice: 19900, yearlyPrice: 198000, setupFee: 250000 },
-    { id: 'growth', name: 'Growth', monthlyPrice: 14900, yearlyPrice: 150000, setupFee: 350000 },
-    { id: 'professional', name: 'Professional', monthlyPrice: 39700, yearlyPrice: 396000, setupFee: 600000 },
-    { id: 'enterprise', name: 'Enterprise', monthlyPrice: 99700, yearlyPrice: 996000, setupFee: 1000000 },
+    {
+      id: 'starter',
+      name: 'Starter',
+      monthlyPrice: 150000, // $1,500/month
+      yearlyPrice: 125000,  // $1,250/month when billed yearly
+    },
+    {
+      id: 'growth',
+      name: 'Growth',
+      monthlyPrice: 250000, // $2,500/month
+      yearlyPrice: 210000,  // $2,100/month when billed yearly
+    },
+    {
+      id: 'scale',
+      name: 'Scale',
+      monthlyPrice: 350000, // $3,500/month
+      yearlyPrice: 290000,  // $2,900/month when billed yearly
+    },
+    {
+      id: 'full-service',
+      name: 'Full-Service',
+      monthlyPrice: 500000, // $5,000/month
+      yearlyPrice: 420000,  // $4,200/month when billed yearly
+    },
   ];
 
   for (const plan of plans) {
     // Create product
     const product = await stripe.products.create({
       name: `Pacific Pulse ${plan.name}`,
-      description: `${plan.name} plan subscription`,
+      description: `${plan.name} monthly retainer`,
       metadata: { planId: plan.id },
     });
 
@@ -233,32 +231,17 @@ export async function setupStripeProducts(): Promise<void> {
       metadata: { planId: plan.id, billingCycle: 'monthly' },
     });
 
-    // Create yearly price
+    // Create yearly price (billed yearly but shown as monthly rate)
     const yearlyPrice = await stripe.prices.create({
       product: product.id,
-      unit_amount: plan.yearlyPrice,
+      unit_amount: plan.yearlyPrice * 12, // Total yearly amount
       currency: 'usd',
       recurring: { interval: 'year' },
       metadata: { planId: plan.id, billingCycle: 'yearly' },
     });
 
-    // Create setup fee product and price
-    const setupProduct = await stripe.products.create({
-      name: `Pacific Pulse ${plan.name} Setup Fee`,
-      description: `One-time setup fee for ${plan.name} plan`,
-      metadata: { planId: plan.id, type: 'setup' },
-    });
-
-    const setupPrice = await stripe.prices.create({
-      product: setupProduct.id,
-      unit_amount: plan.setupFee,
-      currency: 'usd',
-      metadata: { planId: plan.id, type: 'setup' },
-    });
-
     console.log(`Created ${plan.name} plan:`);
     console.log(`  Monthly Price ID: ${monthlyPrice.id}`);
     console.log(`  Yearly Price ID: ${yearlyPrice.id}`);
-    console.log(`  Setup Fee Price ID: ${setupPrice.id}`);
   }
 }

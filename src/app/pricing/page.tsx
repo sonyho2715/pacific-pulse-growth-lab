@@ -15,26 +15,26 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What does the project fee cover?",
+      "name": "What does the monthly retainer cover?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The one-time project fee covers the complete design and development of your website or application. This includes discovery calls, custom design, development, content setup, domain configuration, and launch support. You own everything we build."
+        "text": "Your monthly retainer is an all-inclusive package covering website hosting, SSL certificate, ongoing maintenance, content updates, security patches, analytics, and support. Everything you need for a complete digital presence with predictable monthly costs."
       }
     },
     {
       "@type": "Question",
-      "name": "What does the monthly fee cover?",
+      "name": "Is there a setup fee or contract?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Your monthly fee covers hosting, SSL certificate, analytics, ongoing support, and content updates. Think of it as your complete digital presence package - everything you need to stay online and growing."
+        "text": "No setup fees or long-term contracts. You pay only the monthly retainer, and you can cancel with 30 days notice. Yearly plans are billed annually and offer ~17% savings."
       }
     },
     {
       "@type": "Question",
-      "name": "How long does it take to build a website?",
+      "name": "How long does it take to get started?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Starter sites typically launch in 2-3 weeks. Growth and Professional projects take 4-6 weeks. Enterprise projects are scoped individually. We will give you a timeline during our discovery call."
+        "text": "Starter plans typically launch in 2-3 weeks. Growth and Scale projects take 4-6 weeks. Full-Service is scoped individually. We provide a detailed timeline during your free strategy call."
       }
     },
     {
@@ -101,7 +101,7 @@ export default function PricingPage() {
           Simple, Transparent Pricing
         </h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-          One-time project fee to build your solution, plus affordable monthly for hosting, support, and updates.
+          Predictable monthly retainer. All-inclusive packages with hosting, maintenance, support, and ongoing updates.
         </p>
 
         {/* ROI Guarantee */}
@@ -110,7 +110,7 @@ export default function PricingPage() {
             90-Day ROI Guarantee
           </p>
           <p className="text-amber-800 text-sm mt-1">
-            If you don&apos;t get at least 10 new bookings in your first 90 days, we&apos;ll refund your setup fee. No questions asked.
+            If you don&apos;t get at least 10 new bookings in your first 90 days, we&apos;ll refund your first three months. No questions asked.
           </p>
         </div>
 
@@ -141,7 +141,7 @@ export default function PricingPage() {
       {/* ROI Calculator Teaser */}
       <div className="max-w-3xl mx-auto px-4 pb-8">
         <div className="text-center text-slate-600 text-sm">
-          <span className="font-medium">Quick math:</span> At $100 average booking value, our Starter plan pays for itself with just <span className="font-bold text-slate-900">15 bookings</span> in year one.
+          <span className="font-medium">See your ROI:</span> Use our calculator below to see how quickly each plan pays for itself based on your business metrics.
         </div>
       </div>
 
@@ -208,7 +208,7 @@ export default function PricingPage() {
                 <Check className="w-6 h-6 text-emerald-600" />
               </div>
               <h3 className="font-bold text-slate-900 mb-2">90-Day ROI Guarantee</h3>
-              <p className="text-sm text-slate-600">10+ new bookings or your setup fee back</p>
+              <p className="text-sm text-slate-600">10+ new bookings or your first 3 months refunded</p>
             </div>
             <div className="p-6">
               <div className="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center mx-auto mb-4">
@@ -303,23 +303,13 @@ function PricingCard({
         </p>
       </div>
 
-      {/* Project Fee */}
-      <div className="mb-4">
-        <div className={`text-xs uppercase tracking-wide mb-1 ${plan.recommended ? 'text-sky-200' : 'text-slate-400'}`}>
-          One-time project fee
-        </div>
-        <div className={`text-3xl font-bold ${plan.recommended ? 'text-white' : 'text-slate-900'}`}>
-          ${plan.price.project.toLocaleString()}
-        </div>
-      </div>
-
-      {/* Monthly Fee */}
+      {/* Monthly Retainer */}
       <div className="mb-6 pb-6 border-b border-dashed ${plan.recommended ? 'border-sky-400' : 'border-slate-200'}">
         <div className={`text-xs uppercase tracking-wide mb-1 ${plan.recommended ? 'text-sky-200' : 'text-slate-400'}`}>
-          Then monthly
+          Monthly retainer
         </div>
         <div className="flex items-baseline gap-1">
-          <span className={`text-2xl font-bold ${plan.recommended ? 'text-white' : 'text-slate-900'}`}>
+          <span className={`text-4xl font-bold ${plan.recommended ? 'text-white' : 'text-slate-900'}`}>
             ${monthlyPrice}
           </span>
           <span className={`text-sm ${plan.recommended ? 'text-sky-100' : 'text-slate-500'}`}>
@@ -339,7 +329,7 @@ function PricingCard({
       </div>
 
       <Link
-        href={plan.id === 'enterprise' ? '/contact?plan=enterprise' : `/apply?plan=${plan.id}`}
+        href={`/apply?plan=${plan.id}`}
         className={`block w-full py-3 px-4 rounded-lg font-semibold text-center transition-colors ${
           plan.recommended
             ? 'bg-white text-sky-600 hover:bg-sky-50'
@@ -421,7 +411,7 @@ function FeatureComparison() {
                     <span className={`font-semibold ${plan.recommended ? 'text-sky-600' : 'text-slate-900'}`}>
                       {plan.name}
                     </span>
-                    <div className="text-sm text-slate-500">${plan.price.project.toLocaleString()}</div>
+                    <div className="text-sm text-slate-500">${plan.price.monthly.toLocaleString()}/mo</div>
                   </th>
                 ))}
               </tr>
@@ -470,20 +460,20 @@ function FeatureComparison() {
 function FAQ() {
   const faqs = [
     {
-      question: 'What does the project fee cover?',
-      answer: 'The one-time project fee covers the complete design and development of your website or application. This includes discovery calls, custom design, development, content setup, domain configuration, and launch support. You own everything we build.',
+      question: 'What does the monthly retainer cover?',
+      answer: 'Your monthly retainer is an all-inclusive package covering website hosting, SSL certificate, ongoing maintenance, content updates, security patches, analytics, and support. Everything you need for a complete digital presence with predictable monthly costs.',
     },
     {
-      question: 'What does the monthly fee cover?',
-      answer: 'Your monthly fee covers hosting, SSL certificate, analytics, ongoing support, and content updates. Think of it as your complete digital presence package - everything you need to stay online and growing.',
+      question: 'Is there a setup fee or contract?',
+      answer: 'No setup fees or long-term contracts. You pay only the monthly retainer, and you can cancel with 30 days notice. Yearly plans are billed annually and offer ~17% savings.',
     },
     {
       question: 'Can I upgrade or downgrade my plan?',
-      answer: 'Yes! You can upgrade anytime and we will prorate the difference. Downgrades take effect at your next billing cycle. If you upgrade, we will discuss what additional features you want and provide a quote for any new development work.',
+      answer: 'Yes! You can upgrade anytime and we will adjust your retainer for the new service level. Downgrades take effect at your next billing cycle. We make plan changes simple and transparent.',
     },
     {
-      question: 'How long does it take to build?',
-      answer: 'Starter sites typically launch in 2-3 weeks. Growth and Professional projects take 4-6 weeks. Enterprise projects are scoped individually. We will give you a timeline during our discovery call.',
+      question: 'How long does it take to get started?',
+      answer: 'Starter plans typically launch in 2-3 weeks. Growth and Scale projects take 4-6 weeks. Full-Service is scoped individually. We provide a detailed timeline during your free strategy call.',
     },
     {
       question: 'What if I want to cancel?',

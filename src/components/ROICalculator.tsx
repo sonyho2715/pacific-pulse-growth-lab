@@ -42,7 +42,7 @@ export function ROICalculator() {
 
     // Calculate payback for each plan
     const paybackPeriods = PLANS.map(plan => {
-      const totalFirstYearCost = plan.price.project + (plan.price.monthly * 12);
+      const totalFirstYearCost = plan.price.monthly * 12;
       const monthsToPayback = totalFirstYearCost / capturedRevenuePerMonth;
       const roi = ((capturedRevenuePerYear - totalFirstYearCost) / totalFirstYearCost) * 100;
 

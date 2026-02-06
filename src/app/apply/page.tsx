@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Check, ArrowRight, ArrowLeft, Building2, User, Phone, Mail, Calendar, Sparkles } from 'lucide-react';
-import { PLANS, getMonthlyPrice, getTotalFirstYear, type PlanTier } from '@/lib/plans';
+import { PLANS, getMonthlyPrice, getTotalFirstYear, getYearlySavingsPercent, type PlanTier } from '@/lib/plans';
 
 type Step = 1 | 2 | 3 | 4;
 
@@ -74,7 +74,6 @@ function ApplyPageContent() {
           billingCycle,
           planDetails: selectedPlanData ? {
             name: selectedPlanData.name,
-            projectFee: selectedPlanData.price.project,
             monthlyFee: getMonthlyPrice(selectedPlanData, billingCycle),
             firstYearTotal: getTotalFirstYear(selectedPlanData, billingCycle),
           } : null,
@@ -218,7 +217,7 @@ function ApplyPageContent() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
-              {PLANS.filter(p => p.id !== 'enterprise').map((plan) => {
+              {PLANS.map((plan) => {
                 const monthlyPrice = getMonthlyPrice(plan, billingCycle);
                 const isSelected = formData.selectedPlan === plan.id;
 
@@ -255,23 +254,19 @@ function ApplyPageContent() {
                       </div>
                     </div>
 
-                    <div className="mb-4">
-                      <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">
-                        Project Fee
-                      </div>
-                      <div className="text-2xl font-bold text-slate-900">
-                        ${plan.price.project.toLocaleString()}
-                      </div>
-                    </div>
-
                     <div className="mb-4 pb-4 border-b border-slate-200">
                       <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">
-                        Monthly
+                        Monthly Retainer
                       </div>
                       <div className="flex items-baseline gap-1">
-                        <span className="text-xl font-bold text-slate-900">${monthlyPrice}</span>
+                        <span className="text-2xl font-bold text-slate-900">${monthlyPrice}</span>
                         <span className="text-sm text-slate-500">/month</span>
                       </div>
+                      {billingCycle === 'yearly' && (
+                        <p className="text-xs text-emerald-600 mt-1">
+                          Save {getYearlySavingsPercent(plan)}% with yearly billing
+                        </p>
+                      )}
                     </div>
 
                     <div className="space-y-2">
@@ -518,13 +513,13 @@ function ApplyPageContent() {
                     <p className="text-slate-600">{selectedPlanData.tagline}</p>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm text-slate-500">Project Fee</div>
+                    <div className="text-sm text-slate-500">Monthly Retainer</div>
                     <div className="text-2xl font-bold text-slate-900">
-                      ${selectedPlanData.price.project.toLocaleString()}
+                      ${getMonthlyPrice(selectedPlanData, billingCycle).toLocaleString()}/month
                     </div>
-                    <div className="text-sm text-slate-500 mt-2">
-                      + ${getMonthlyPrice(selectedPlanData, billingCycle)}/month
-                      {billingCycle === 'yearly' && ' (yearly billing)'}
+                    <div className="text-sm text-slate-500 mt-1">
+                      {billingCycle === 'yearly' && '(Yearly billing - save ' + getYearlySavingsPercent(selectedPlanData) + '%)'}
+                      {billingCycle === 'monthly' && '(Billed monthly)'}
                     </div>
                   </div>
                 </div>
