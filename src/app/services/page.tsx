@@ -118,8 +118,8 @@ const services = [
       "Google Analytics & conversion tracking",
     ],
     pricing: {
-      oneTime: { price: "$5,000 - $15,000", description: "Complete website build with 30 days support" },
-      retainer: { price: "$1,500 - $3,000/mo", description: "Includes hosting, updates, SEO, unlimited changes, and priority support" },
+      oneTime: { price: "Custom Quote", description: "Pricing tailored to your specific needs and scope" },
+      retainer: { price: "Starting at $1,500/mo", description: "Includes hosting, updates, SEO, unlimited changes, and priority support" },
     },
     results: [
       { metric: "2x", label: "Average conversion increase" },
@@ -148,8 +148,8 @@ const services = [
       "Smart escalation to human when needed",
     ],
     pricing: {
-      oneTime: { price: "$3,000 - $8,000", description: "AI setup, custom training, and website integration" },
-      retainer: { price: "$1,500 - $3,000/mo", description: "API costs, ongoing training, optimization, and support" },
+      oneTime: { price: "Custom Quote", description: "Pricing based on complexity and integration requirements" },
+      retainer: { price: "Starting at $1,500/mo", description: "API costs, ongoing training, optimization, and support" },
     },
     results: [
       { metric: "24/7", label: "Lead capture" },
@@ -178,8 +178,8 @@ const services = [
       "Custom availability rules & buffers",
     ],
     pricing: {
-      oneTime: { price: "$2,500 - $6,000", description: "Full booking system setup and integration" },
-      retainer: { price: "$1,500 - $3,000/mo", description: "Maintenance, SMS credits, optimization, and priority support" },
+      oneTime: { price: "Custom Quote", description: "Pricing varies based on features and integrations needed" },
+      retainer: { price: "Starting at $1,500/mo", description: "Maintenance, SMS credits, optimization, and priority support" },
     },
     results: [
       { metric: "40%", label: "More appointments" },
@@ -208,8 +208,8 @@ const services = [
       "PCI-DSS compliant (we never store cards)",
     ],
     pricing: {
-      oneTime: { price: "$4,000 - $12,000", description: "Complete e-commerce setup with payment integration" },
-      retainer: { price: "$1,500 - $3,000/mo", description: "Maintenance, transaction monitoring, optimization, and priority support" },
+      oneTime: { price: "Custom Quote", description: "Pricing depends on catalog size and feature requirements" },
+      retainer: { price: "Starting at $1,500/mo", description: "Maintenance, transaction monitoring, optimization, and priority support" },
     },
     results: [
       { metric: "99.9%", label: "Payment success rate" },
@@ -475,12 +475,19 @@ export default function ServicesPage() {
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-sm font-medium text-slate-600">One-Time Investment</span>
                         </div>
-                        <div className="text-3xl font-bold text-slate-900 mb-1">
+                        <div className="text-3xl font-bold text-slate-900 mb-2">
                           {service.pricing.oneTime.price}
                         </div>
-                        <p className="text-sm text-slate-600">
+                        <p className="text-sm text-slate-600 mb-4">
                           {service.pricing.oneTime.description}
                         </p>
+                        <Link
+                          href="/apply"
+                          className="inline-flex items-center text-sky-600 font-medium text-sm hover:text-sky-700"
+                        >
+                          Schedule free consultation for pricing
+                          <ArrowRight className="w-4 h-4 ml-1" />
+                        </Link>
                       </>
                     ) : (
                       <>
