@@ -139,20 +139,20 @@ export default function UpgradeFromWixPage() {
             <div className="p-8 bg-gradient-to-br from-violet-50 to-purple-50 rounded-xl border-2 border-violet-500">
               <h3 className="text-lg font-bold text-slate-900 mb-4">Pacific Pulse (Annual)</h3>
               <div className="space-y-2 text-left mb-4">
-                <p className="text-slate-700">AI Starter: $199/mo = <span className="font-bold">$2,388/yr</span></p>
-                <p className="text-slate-700">+ Setup: $2,500 (one-time)</p>
-                <p className="text-slate-700">+ AI chatbot included</p>
-                <p className="text-slate-700">+ Booking automation</p>
-                <p className="text-slate-700">+ Custom design</p>
-                <p className="text-slate-700">+ You own the code</p>
+                <p className="text-slate-700">Growth Plan: $2,500/mo = <span className="font-bold">$30,000/yr</span></p>
+                <p className="text-slate-700">✓ SEO optimization</p>
+                <p className="text-slate-700">✓ Social media posting (3x/week)</p>
+                <p className="text-slate-700">✓ Email marketing (2,500 contacts)</p>
+                <p className="text-slate-700">✓ Monthly strategy calls</p>
+                <p className="text-slate-700">✓ Custom design + you own the code</p>
               </div>
-              <p className="text-xl font-bold text-violet-900">Year 1: $4,888</p>
-              <p className="text-sm text-violet-700 mt-2 font-semibold">Year 2+: $2,388/yr. Fully custom. AI-powered.</p>
+              <p className="text-xl font-bold text-violet-900">$30,000/yr</p>
+              <p className="text-sm text-violet-700 mt-2 font-semibold">No setup fees. Cancel anytime. Fully custom + managed marketing.</p>
             </div>
           </div>
 
           <p className="text-lg text-slate-700 mb-8">
-            <span className="font-bold">ROI:</span> If AI captures just 2 extra bookings/month at $150 each, you're profitable.
+            <span className="font-bold">ROI:</span> At $2,500/mo, you need just 17 bookings/month at $150 each to break even. Our Growth plan typically drives 30-50+ bookings monthly with SEO + social media.
           </p>
 
           <Link href="/apply" className="inline-flex items-center gap-2 px-8 py-4 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 transition">

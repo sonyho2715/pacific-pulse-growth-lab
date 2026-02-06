@@ -93,26 +93,31 @@ export default function SpaBookingSystemPage() {
           <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Pricing for Spas</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-6 bg-white rounded-xl border border-slate-200">
-              <h3 className="text-lg font-bold text-slate-900 mb-2">AI Starter</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Growth</h3>
+              <p className="text-sm text-slate-600 mb-3">Marketing + maintenance</p>
               <div className="text-3xl font-bold text-slate-900 mb-1">$2,500</div>
-              <div className="text-sm text-slate-600 mb-4">+ $199/month</div>
+              <div className="text-sm text-slate-600 mb-4">/month</div>
               <ul className="space-y-2 text-sm text-slate-700">
-                <li>✓ AI chatbot + booking</li>
-                <li>✓ Up to 3 services</li>
-                <li>✓ SMS reminders</li>
-                <li>✓ Stripe deposits</li>
+                <li>✓ Website + booking system</li>
+                <li>✓ SEO optimization</li>
+                <li>✓ Social media posting (3x/week)</li>
+                <li>✓ Email marketing (2,500 contacts)</li>
+                <li>✓ Monthly strategy calls</li>
               </ul>
             </div>
             <div className="p-6 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-xl border-2 border-teal-500">
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Professional</h3>
-              <div className="text-3xl font-bold text-slate-900 mb-1">$6,000</div>
-              <div className="text-sm text-slate-600 mb-4">+ $397/month</div>
+              <div className="inline-block px-3 py-1 bg-teal-600 text-white text-xs font-bold rounded-full mb-2">RECOMMENDED</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Scale</h3>
+              <p className="text-sm text-slate-600 mb-3">Full digital growth partner</p>
+              <div className="text-3xl font-bold text-slate-900 mb-1">$3,500</div>
+              <div className="text-sm text-slate-600 mb-4">/month</div>
               <ul className="space-y-2 text-sm text-slate-700 font-medium">
-                <li>✓ Everything in AI Starter</li>
-                <li>✓ Unlimited services</li>
-                <li>✓ Multi-location support</li>
-                <li>✓ Advanced AI training</li>
-                <li>✓ Priority support</li>
+                <li>✓ Everything in Growth</li>
+                <li>✓ AI Chatbot included</li>
+                <li>✓ Social media (5x/week)</li>
+                <li>✓ Email marketing (10,000 contacts)</li>
+                <li>✓ Marketing automation workflows</li>
+                <li>✓ Bi-weekly strategy calls</li>
               </ul>
             </div>
           </div>

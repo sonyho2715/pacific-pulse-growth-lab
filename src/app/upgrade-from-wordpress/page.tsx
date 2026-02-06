@@ -165,15 +165,18 @@ export default function UpgradeFromWordPressPage() {
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {[
-              { name: 'AI Starter', price: '$2,500', monthly: '$199/mo', pages: '8 pages + AI' },
-              { name: 'Growth', price: '$3,500', monthly: '$149/mo', pages: '15 pages + AI + Marketing' },
-              { name: 'Professional', price: '$6,000', monthly: '$397/mo', pages: 'Unlimited + Full AI' },
+              { name: 'Starter', tagline: 'Essential maintenance', price: '$1,500/mo', features: 'Website + hosting + support' },
+              { name: 'Growth', tagline: 'Marketing + maintenance', price: '$2,500/mo', features: 'SEO + social media + email marketing', recommended: true },
+              { name: 'Scale', tagline: 'Full digital growth', price: '$3,500/mo', features: 'AI chatbot + automation + optimization' },
             ].map((plan) => (
-              <div key={plan.name} className="p-6 bg-white rounded-xl border border-slate-200">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{plan.name}</h3>
-                <div className="text-3xl font-bold text-slate-900 mb-1">{plan.price}</div>
-                <div className="text-sm text-slate-600 mb-4">{plan.monthly}</div>
-                <p className="text-sm text-slate-700">{plan.pages}</p>
+              <div key={plan.name} className={`p-6 rounded-xl ${plan.recommended ? 'bg-gradient-to-br from-sky-50 to-blue-50 border-2 border-sky-500' : 'bg-white border border-slate-200'}`}>
+                {plan.recommended && (
+                  <div className="inline-block px-3 py-1 bg-sky-600 text-white text-xs font-bold rounded-full mb-2">RECOMMENDED</div>
+                )}
+                <h3 className="text-lg font-bold text-slate-900 mb-1">{plan.name}</h3>
+                <p className="text-sm text-slate-600 mb-3">{plan.tagline}</p>
+                <div className="text-3xl font-bold text-slate-900 mb-4">{plan.price}</div>
+                <p className="text-sm text-slate-700">{plan.features}</p>
               </div>
             ))}
           </div>

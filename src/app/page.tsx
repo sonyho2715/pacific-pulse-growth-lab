@@ -44,7 +44,7 @@ const features = [
 const faqs = [
   {
     question: "How much does a website cost?",
-    answer: "One-time projects typically range from $3,000-$15,000 depending on complexity. We also offer monthly retainer plans: Starter ($1,500/mo) for maintenance and support, Growth ($2,500/mo) adds social media and SEO, Scale ($3,500/mo) for full digital marketing, and Full-Service ($5,000+/mo) for a complete outsourced digital team. Every project starts with a free strategy call where we provide a detailed quote.",
+    answer: "We offer predictable monthly retainer plans with no setup fees: Starter ($1,500/mo) for maintenance and support, Growth ($2,500/mo) adds social media and SEO, Scale ($3,500/mo) for full digital marketing, and Full-Service ($5,000+/mo) for a complete outsourced digital team. Every engagement starts with a free strategy call where we recommend the best plan for your business.",
   },
   {
     question: "What technology do you use to build websites?",
