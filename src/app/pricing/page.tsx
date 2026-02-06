@@ -379,81 +379,175 @@ function PricingCard({
 }
 
 function FeatureComparison() {
-  const categories = [
+  const featureData = [
     {
-      key: 'website' as const,
-      label: 'Website Features',
-      features: ['Custom Website', 'Blog', 'Booking System', 'E-commerce']
+      category: 'WEBSITE FEATURES',
+      features: [
+        { name: 'Custom Website Design', starter: true, growth: true, scale: true, fullService: true },
+        { name: 'Mobile Responsive', starter: true, growth: true, scale: true, fullService: true },
+        { name: 'SSL Certificate & Security', starter: true, growth: true, scale: true, fullService: true },
+        { name: 'Website Hosting (Vercel)', starter: true, growth: true, scale: true, fullService: true },
+        { name: 'Monthly Maintenance & Updates', starter: true, growth: true, scale: true, fullService: true },
+        { name: 'SEO Optimization', starter: 'Basic', growth: 'Advanced', scale: 'Advanced', fullService: 'Advanced' },
+        { name: 'Google Analytics', starter: 'Basic', growth: 'Advanced', scale: 'Advanced', fullService: 'Advanced' },
+        { name: 'Blog/Content Management', starter: false, growth: true, scale: true, fullService: true },
+        { name: 'Booking System', starter: false, growth: 'Basic', scale: 'Advanced', fullService: 'Advanced' },
+        { name: 'E-commerce/Online Store', starter: false, growth: false, scale: true, fullService: true },
+        { name: 'Performance Optimization', starter: false, growth: true, scale: true, fullService: true },
+        { name: 'A/B Testing & Optimization', starter: false, growth: false, scale: true, fullService: true },
+        { name: 'Conversion Rate Optimization', starter: false, growth: false, scale: true, fullService: true },
+        { name: 'Custom Integrations', starter: false, growth: false, scale: false, fullService: true },
+        { name: 'Priority Development Queue', starter: false, growth: false, scale: false, fullService: true },
+      ],
     },
     {
-      key: 'automation' as const,
-      label: 'Automation & AI',
-      features: ['AI Chatbot', 'Email Marketing', 'Automated Notifications']
+      category: 'AUTOMATION & AI',
+      features: [
+        { name: 'AI Chatbot (Claude AI)', starter: false, growth: false, scale: 'Add $500/mo', fullService: 'Included' },
+        { name: 'Email Marketing', starter: false, growth: '2,500 contacts', scale: '10,000 contacts', fullService: 'Unlimited' },
+        { name: 'Social Media Posting', starter: false, growth: '3x/week', scale: '5x/week', fullService: 'Daily' },
+        { name: 'Marketing Automation Workflows', starter: false, growth: false, scale: true, fullService: true },
+        { name: 'Automated Booking Notifications', starter: false, growth: true, scale: true, fullService: true },
+        { name: 'Paid Ads Management', starter: false, growth: false, scale: false, fullService: true },
+        { name: 'Lead Capture & CRM Integration', starter: false, growth: 'Basic', scale: 'Advanced', fullService: 'Advanced' },
+      ],
     },
     {
-      key: 'support' as const,
-      label: 'Support & Updates',
-      features: ['Email Support', 'Phone Support', 'Content Updates', 'Priority Support']
+      category: 'SUPPORT & UPDATES',
+      features: [
+        { name: 'Email Support', starter: '48hr response', growth: '24hr response', scale: '12hr response', fullService: '4hr response' },
+        { name: 'Phone Support', starter: false, growth: false, scale: true, fullService: 'Direct line' },
+        { name: 'Content Updates', starter: '2/month', growth: '5/month', scale: 'Unlimited', fullService: 'Unlimited' },
+        { name: 'Strategy Calls', starter: false, growth: 'Monthly', scale: 'Bi-weekly', fullService: 'Weekly' },
+        { name: 'Dedicated Account Manager', starter: false, growth: false, scale: false, fullService: true },
+        { name: 'Quarterly Business Reviews', starter: false, growth: false, scale: false, fullService: true },
+        { name: 'Training & Onboarding', starter: 'Self-service', growth: 'Guided', scale: 'White glove', fullService: 'White glove' },
+      ],
     },
   ];
 
   return (
     <div className="py-16">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-slate-900 mb-12">
+        <h2 className="text-3xl font-bold text-center text-slate-900 mb-4">
           Compare All Features
         </h2>
+        <p className="text-center text-slate-600 mb-8">
+          All plans include hosting, SSL, backups, and security. Need something custom? <Link href="/contact" className="text-sky-600 hover:text-sky-700 font-semibold">Contact us for personalization.</Link>
+        </p>
 
         <div className="overflow-x-auto">
           <table className="w-full bg-white rounded-xl shadow-sm border border-slate-200">
             <thead>
               <tr className="border-b border-slate-200">
-                <th className="text-left py-4 px-6 font-semibold text-slate-900">Features</th>
-                {PLANS.map((plan) => (
-                  <th key={plan.id} className="text-center py-4 px-4">
-                    <span className={`font-semibold ${plan.recommended ? 'text-sky-600' : 'text-slate-900'}`}>
-                      {plan.name}
-                    </span>
-                    <div className="text-sm text-slate-500">${plan.price.monthly.toLocaleString()}/mo</div>
-                  </th>
-                ))}
+                <th className="text-left py-4 px-6 font-semibold text-slate-900 sticky left-0 bg-white z-10">Features</th>
+                <th className="text-center py-4 px-4">
+                  <span className="font-semibold text-slate-900">Starter</span>
+                  <div className="text-sm text-slate-500">$1,500/mo</div>
+                </th>
+                <th className="text-center py-4 px-4 bg-sky-50">
+                  <span className="font-semibold text-sky-600">Growth</span>
+                  <div className="text-sm text-sky-600 font-medium">$2,500/mo</div>
+                  <div className="text-xs text-sky-600 mt-1">⭐ Recommended</div>
+                </th>
+                <th className="text-center py-4 px-4">
+                  <span className="font-semibold text-slate-900">Scale</span>
+                  <div className="text-sm text-slate-500">$3,500/mo</div>
+                </th>
+                <th className="text-center py-4 px-4">
+                  <span className="font-semibold text-slate-900">Full-Service</span>
+                  <div className="text-sm text-slate-500">$5,000/mo</div>
+                </th>
               </tr>
             </thead>
             <tbody>
-              {categories.map((category) => (
+              {featureData.map((section) => (
                 <>
-                  <tr key={category.key} className="bg-slate-50">
+                  <tr key={section.category} className="bg-slate-50">
                     <td colSpan={5} className="py-3 px-6 font-semibold text-slate-700 text-sm uppercase tracking-wide">
-                      {category.label}
+                      {section.category}
                     </td>
                   </tr>
-                  {category.features.map((featureName) => (
-                    <tr key={`${category.key}-${featureName}`} className="border-t border-slate-100">
-                      <td className="py-3 px-6 text-slate-700">{featureName}</td>
-                      {PLANS.map((plan) => {
-                        const feature = plan.features[category.key].find(f => f.name === featureName);
-                        return (
-                          <td key={plan.id} className="text-center py-3 px-4">
-                            {feature?.included ? (
-                              feature.limit || feature.description ? (
-                                <span className="text-sm text-slate-700">
-                                  {feature.limit || feature.description}
-                                </span>
-                              ) : (
-                                <Check className="w-5 h-5 text-emerald-500 mx-auto" />
-                              )
-                            ) : (
-                              <X className="w-5 h-5 text-slate-300 mx-auto" />
-                            )}
-                          </td>
-                        );
-                      })}
+                  {section.features.map((feature, idx) => (
+                    <tr key={`${section.category}-${idx}`} className="border-t border-slate-100 hover:bg-slate-50">
+                      <td className="py-3 px-6 text-slate-700 sticky left-0 bg-white">{feature.name}</td>
+                      <td className="text-center py-3 px-4">
+                        {typeof feature.starter === 'boolean' ? (
+                          feature.starter ? (
+                            <Check className="w-5 h-5 text-emerald-500 mx-auto" />
+                          ) : (
+                            <X className="w-5 h-5 text-slate-300 mx-auto" />
+                          )
+                        ) : (
+                          <span className="text-sm text-slate-700">{feature.starter}</span>
+                        )}
+                      </td>
+                      <td className="text-center py-3 px-4 bg-sky-50/50">
+                        {typeof feature.growth === 'boolean' ? (
+                          feature.growth ? (
+                            <Check className="w-5 h-5 text-emerald-500 mx-auto" />
+                          ) : (
+                            <X className="w-5 h-5 text-slate-300 mx-auto" />
+                          )
+                        ) : (
+                          <span className="text-sm font-medium text-slate-700">{feature.growth}</span>
+                        )}
+                      </td>
+                      <td className="text-center py-3 px-4">
+                        {typeof feature.scale === 'boolean' ? (
+                          feature.scale ? (
+                            <Check className="w-5 h-5 text-emerald-500 mx-auto" />
+                          ) : (
+                            <X className="w-5 h-5 text-slate-300 mx-auto" />
+                          )
+                        ) : (
+                          <span className="text-sm text-slate-700">{feature.scale}</span>
+                        )}
+                      </td>
+                      <td className="text-center py-3 px-4">
+                        {typeof feature.fullService === 'boolean' ? (
+                          feature.fullService ? (
+                            <Check className="w-5 h-5 text-emerald-500 mx-auto" />
+                          ) : (
+                            <X className="w-5 h-5 text-slate-300 mx-auto" />
+                          )
+                        ) : (
+                          <span className="text-sm text-slate-700">{feature.fullService}</span>
+                        )}
+                      </td>
                     </tr>
                   ))}
                 </>
               ))}
+              {/* One-Time Service Option */}
+              <tr className="bg-amber-50 border-t-2 border-amber-200">
+                <td className="py-4 px-6 font-semibold text-slate-900 sticky left-0 bg-amber-50">
+                  One-Time Service
+                  <div className="text-xs font-normal text-slate-600 mt-1">No monthly commitment required</div>
+                </td>
+                <td colSpan={4} className="text-center py-4 px-4">
+                  <Link href="/contact" className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 font-semibold">
+                    Contact for custom quote
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <div className="text-xs text-slate-600 mt-1">Website builds, migrations, or specific projects</div>
+                </td>
+              </tr>
             </tbody>
           </table>
+        </div>
+
+        <div className="mt-8 text-center">
+          <p className="text-sm text-slate-600 mb-4">
+            Not sure which plan fits your needs? We'll help you choose the right solution.
+          </p>
+          <Link
+            href="/apply"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition shadow-lg"
+          >
+            Get Your Free Strategy Call
+            <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </div>
     </div>
