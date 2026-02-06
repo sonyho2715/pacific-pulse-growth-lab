@@ -329,6 +329,7 @@ export default function Home() {
               <a href="#demos" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Demos</a>
               <Link href="/services" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Services</Link>
               <Link href="/pricing" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Pricing</Link>
+              <Link href="/comparison" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Compare</Link>
               <Link href="/blog" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Blog</Link>
               <a href="#contact" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Contact</a>
             </div>

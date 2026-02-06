@@ -2,6 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Check, X, ArrowRight, Zap, Shield, Code, Clock } from 'lucide-react';
 
+export const metadata = {
+  title: 'Compare Pacific Pulse vs Traditional Agencies & DIY Tools | Honest Comparison',
+  description: 'See how Pacific Pulse AI-powered booking automation compares to traditional web agencies and DIY website builders. Honest 12-point feature comparison.',
+};
+
 const comparisons = [
   {
     feature: 'Setup Time',
@@ -106,6 +111,12 @@ export default function ComparisonPage() {
               />
               <span className="text-lg font-bold text-slate-900">Pacific Pulse</span>
             </Link>
+
+            <div className="hidden md:flex items-center gap-8">
+              <Link href="/services" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Services</Link>
+              <Link href="/pricing" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Pricing</Link>
+              <Link href="/comparison" className="text-sm font-medium text-sky-600">Compare</Link>
+            </div>
 
             <Link
               href="/apply"
