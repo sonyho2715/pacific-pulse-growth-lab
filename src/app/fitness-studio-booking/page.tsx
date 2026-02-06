@@ -51,6 +51,28 @@ export default function FitnessBookingPage() {
         </div>
       </section>
 
+      {/* Helpful Resources */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">Have Questions?</h2>
+            <p className="text-slate-600">Check out these resources to learn more</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <Link href="/pricing" className="p-6 border border-slate-200 rounded-xl hover:border-orange-500 hover:shadow-lg transition group">
+              <h3 className="font-bold text-slate-900 mb-2 group-hover:text-orange-600">View All Pricing Plans</h3>
+              <p className="text-sm text-slate-600">Compare features and pricing for all plan tiers</p>
+              <ArrowRight className="w-5 h-5 text-orange-600 mt-3" />
+            </Link>
+            <Link href="/comparison" className="p-6 border border-slate-200 rounded-xl hover:border-orange-500 hover:shadow-lg transition group">
+              <h3 className="font-bold text-slate-900 mb-2 group-hover:text-orange-600">Compare Us to Competitors</h3>
+              <p className="text-sm text-slate-600">See how we stack up against traditional agencies and DIY tools</p>
+              <ArrowRight className="w-5 h-5 text-orange-600 mt-3" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 px-4 bg-gradient-to-br from-orange-500 to-red-600 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-4">Automate Your Studio</h2>
