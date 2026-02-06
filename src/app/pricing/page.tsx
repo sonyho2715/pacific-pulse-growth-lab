@@ -74,9 +74,12 @@ export default function PricingPage() {
             </Link>
 
             <div className="hidden md:flex items-center gap-8">
+              <Link href="/#work" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Work</Link>
               <Link href="/services" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Services</Link>
               <Link href="/pricing" className="text-sm font-medium text-sky-600">Pricing</Link>
               <Link href="/comparison" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Compare</Link>
+              <Link href="/blog" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Blog</Link>
+              <Link href="/contact" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Contact</Link>
             </div>
 
             <Link
