@@ -65,18 +65,18 @@ const comparisons = [
     winner: 'pacific',
   },
   {
-    feature: 'Monthly Cost',
-    traditional: '$0-500+',
+    feature: 'Monthly Investment',
+    traditional: '$500-2,000+',
     diy: '$49-149',
-    pacificPulse: '$79-997 (tier-based)',
+    pacificPulse: '$1,500-5,000 (all-inclusive)',
     winner: 'diy',
   },
   {
-    feature: 'Setup Cost',
+    feature: 'Setup Fees',
     traditional: '$5,000-50,000',
     diy: '$0-500',
-    pacificPulse: '$1,500-10,000',
-    winner: 'diy',
+    pacificPulse: '$0 (no setup fees)',
+    winner: 'pacific',
   },
   {
     feature: 'Customization',
@@ -113,9 +113,12 @@ export default function ComparisonPage() {
             </Link>
 
             <div className="hidden md:flex items-center gap-8">
+              <Link href="/#work" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Work</Link>
               <Link href="/services" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Services</Link>
               <Link href="/pricing" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Pricing</Link>
               <Link href="/comparison" className="text-sm font-medium text-sky-600">Compare</Link>
+              <Link href="/blog" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Blog</Link>
+              <Link href="/contact" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Contact</Link>
             </div>
 
             <Link
