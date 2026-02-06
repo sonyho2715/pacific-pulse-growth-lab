@@ -316,6 +316,39 @@ export default function ComparisonPage() {
         </div>
       </section>
 
+      {/* Helpful Resources */}
+      <section className="py-16 px-4 bg-slate-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">Explore Solutions for Your Industry</h2>
+            <p className="text-slate-600">See how we help specific businesses like yours</p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-4">
+            <Link href="/spa-booking-system" className="p-5 border border-slate-200 bg-white rounded-xl hover:border-teal-500 hover:shadow-lg transition group">
+              <h3 className="font-bold text-slate-900 mb-1 group-hover:text-teal-600 text-sm">Spas & Massage</h3>
+              <p className="text-xs text-slate-600">24/7 booking automation</p>
+            </Link>
+            <Link href="/dental-practice-automation" className="p-5 border border-slate-200 bg-white rounded-xl hover:border-blue-500 hover:shadow-lg transition group">
+              <h3 className="font-bold text-slate-900 mb-1 group-hover:text-blue-600 text-sm">Dental Practices</h3>
+              <p className="text-xs text-slate-600">HIPAA-compliant booking</p>
+            </Link>
+            <Link href="/law-firm-lead-generation" className="p-5 border border-slate-200 bg-white rounded-xl hover:border-slate-700 hover:shadow-lg transition group">
+              <h3 className="font-bold text-slate-900 mb-1 group-hover:text-slate-700 text-sm">Law Firms</h3>
+              <p className="text-xs text-slate-600">AI client screening</p>
+            </Link>
+            <Link href="/fitness-studio-booking" className="p-5 border border-slate-200 bg-white rounded-xl hover:border-orange-500 hover:shadow-lg transition group">
+              <h3 className="font-bold text-slate-900 mb-1 group-hover:text-orange-600 text-sm">Fitness Studios</h3>
+              <p className="text-xs text-slate-600">Class scheduling</p>
+            </Link>
+          </div>
+          <div className="text-center mt-6">
+            <Link href="/pricing" className="inline-flex items-center gap-2 text-sky-600 font-semibold hover:text-sky-700">
+              View All Pricing Plans <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto">

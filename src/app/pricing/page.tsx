@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Script from 'next/script';
 import { Check, X, Sparkles, ArrowRight, Zap } from 'lucide-react';
 import { PLANS, getMonthlyPrice, getYearlySavingsPercent, getTotalFirstYear, type Plan, type PlanTier } from '@/lib/plans';
+import { ROICalculator } from '@/components/ROICalculator';
 
 // FAQ Schema for SEO featured snippets
 const faqSchema = {
@@ -149,6 +150,13 @@ export default function PricingPage() {
           ))}
         </div>
       </div>
+
+      {/* ROI Calculator Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <ROICalculator />
+        </div>
+      </section>
 
       {/* What's Included Section */}
       <div className="bg-slate-50 py-16 border-y border-slate-200">
