@@ -12,6 +12,10 @@ export const STRIPE_PRICES: Record<PlanTier, { monthly: string; yearly: string }
     monthly: process.env.STRIPE_PRICE_STARTER_MONTHLY || 'price_starter_monthly',
     yearly: process.env.STRIPE_PRICE_STARTER_YEARLY || 'price_starter_yearly',
   },
+  'ai-starter': {
+    monthly: process.env.STRIPE_PRICE_AI_STARTER_MONTHLY || 'price_ai_starter_monthly',
+    yearly: process.env.STRIPE_PRICE_AI_STARTER_YEARLY || 'price_ai_starter_yearly',
+  },
   growth: {
     monthly: process.env.STRIPE_PRICE_GROWTH_MONTHLY || 'price_growth_monthly',
     yearly: process.env.STRIPE_PRICE_GROWTH_YEARLY || 'price_growth_yearly',
@@ -29,6 +33,7 @@ export const STRIPE_PRICES: Record<PlanTier, { monthly: string; yearly: string }
 // Setup fee product IDs
 export const STRIPE_SETUP_FEES: Record<PlanTier, string> = {
   starter: process.env.STRIPE_PRICE_SETUP_STARTER || 'price_setup_starter',
+  'ai-starter': process.env.STRIPE_PRICE_SETUP_AI_STARTER || 'price_setup_ai_starter',
   growth: process.env.STRIPE_PRICE_SETUP_GROWTH || 'price_setup_growth',
   professional: process.env.STRIPE_PRICE_SETUP_PRO || 'price_setup_pro',
   enterprise: process.env.STRIPE_PRICE_SETUP_ENTERPRISE || 'price_setup_enterprise',
@@ -160,7 +165,7 @@ export async function updateSubscription({
 // Get plan from Stripe subscription
 export function getPlanFromSubscription(subscription: Stripe.Subscription): PlanTier | null {
   const plan = subscription.metadata?.plan as PlanTier;
-  if (plan && ['starter', 'growth', 'professional', 'enterprise'].includes(plan)) {
+  if (plan && ['starter', 'ai-starter', 'growth', 'professional', 'enterprise'].includes(plan)) {
     return plan;
   }
   return null;
@@ -204,10 +209,11 @@ export async function handleSubscriptionDeleted(subscription: Stripe.Subscriptio
 // Helper to create all products and prices in Stripe (run once during setup)
 export async function setupStripeProducts(): Promise<void> {
   const plans = [
-    { id: 'starter', name: 'Starter', monthlyPrice: 4900, yearlyPrice: 46800, setupFee: 29900 },
-    { id: 'growth', name: 'Growth', monthlyPrice: 9900, yearlyPrice: 94800, setupFee: 49900 },
-    { id: 'professional', name: 'Professional', monthlyPrice: 19900, yearlyPrice: 190800, setupFee: 99900 },
-    { id: 'enterprise', name: 'Enterprise', monthlyPrice: 49900, yearlyPrice: 478800, setupFee: 249900 },
+    { id: 'starter', name: 'Starter', monthlyPrice: 7900, yearlyPrice: 78000, setupFee: 150000 },
+    { id: 'ai-starter', name: 'AI Starter', monthlyPrice: 19900, yearlyPrice: 198000, setupFee: 250000 },
+    { id: 'growth', name: 'Growth', monthlyPrice: 14900, yearlyPrice: 150000, setupFee: 350000 },
+    { id: 'professional', name: 'Professional', monthlyPrice: 39700, yearlyPrice: 396000, setupFee: 600000 },
+    { id: 'enterprise', name: 'Enterprise', monthlyPrice: 99700, yearlyPrice: 996000, setupFee: 1000000 },
   ];
 
   for (const plan of plans) {
