@@ -257,7 +257,7 @@ Your customers text. They use Facebook. They order on Amazon. They can handle a 
 
 ### "I tried chatbots before and they sucked."
 
-You tried chatbots from 2020. This is 2026. Claude and GPT-4 changed everything. It's not even close to the same technology.
+You tried chatbots from 2020. This is 2026. Advanced AI models changed everything. It's not even close to the same technology.
 
 ## The $7,500 Question
 

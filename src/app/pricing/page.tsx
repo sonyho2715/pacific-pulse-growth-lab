@@ -403,7 +403,7 @@ function FeatureComparison() {
     {
       category: 'AUTOMATION & AI',
       features: [
-        { name: 'AI Chatbot (Claude AI)', starter: false, growth: false, scale: 'Add $500/mo', fullService: 'Included' },
+        { name: 'AI Chatbot (Advanced AI)', starter: false, growth: false, scale: 'Add $500/mo', fullService: 'Included' },
         { name: 'Email Marketing', starter: false, growth: '2,500 contacts', scale: '10,000 contacts', fullService: 'Unlimited' },
         { name: 'Social Media Posting', starter: false, growth: '3x/week', scale: '5x/week', fullService: 'Daily' },
         { name: 'Marketing Automation Workflows', starter: false, growth: false, scale: true, fullService: true },

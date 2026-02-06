@@ -52,7 +52,7 @@ const faqs = [
   },
   {
     question: "How does your AI chatbot work?",
-    answer: "We integrate Claude AI (by Anthropic) to create intelligent chatbots trained on your specific business. The AI understands context, answers complex questions naturally, captures lead information, and can book appointments directly into your calendar. It works 24/7, handles multiple conversations simultaneously, and escalates to you when needed. Setup includes custom training on your services, FAQs, and brand voice.",
+    answer: "We integrate advanced AI technology to create intelligent chatbots trained on your specific business. The AI understands context, answers complex questions naturally, captures lead information, and can book appointments directly into your calendar. It works 24/7, handles multiple conversations simultaneously, and escalates to you when needed. Setup includes custom training on your services, FAQs, and brand voice.",
   },
   {
     question: "Do you only work with Hawaii businesses?",
@@ -81,7 +81,7 @@ const featuredProjects = [
   {
     name: "Aloha Coaches",
     category: "AI-Powered SaaS",
-    description: "Transformational coaching platform with Claude AI-powered sessions, Stripe subscriptions, and automated booking.",
+    description: "Transformational coaching platform with Advanced AI-powered sessions, Stripe subscriptions, and automated booking.",
     url: "https://www.alohacoaches.com",
     image: "/portfolio/aloha-coaches.png",
     stats: "AI + Stripe",
@@ -254,7 +254,7 @@ const services = [
   {
     icon: Bot,
     title: "24/7 AI Sales Assistant",
-    description: "Claude AI-powered chatbots that capture leads, answer questions, and book appointments automatically—even at 2am.",
+    description: "Advanced AI-powered chatbots that capture leads, answer questions, and book appointments automatically—even at 2am.",
     features: ["Trained on your business", "Natural conversations", "Instant lead qualification"],
   },
   {
@@ -870,7 +870,7 @@ export default function Home() {
             <h2 className="text-xl font-bold text-slate-900">Built with modern technology</h2>
           </div>
           <div className="flex flex-wrap justify-center gap-8 text-slate-500">
-            {["Next.js 15", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Vercel", "Stripe", "Claude AI"].map((tech) => (
+            {["Next.js 15", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Vercel", "Stripe", "Advanced AI"].map((tech) => (
               <span key={tech} className="text-sm font-medium">{tech}</span>
             ))}
           </div>
