@@ -1,7 +1,7 @@
 // Pacific Pulse Service Plans Configuration
-// Productized service model: Project fee + Monthly retainer
+// Monthly retainer model: Predictable monthly investment
 
-export type PlanTier = 'starter' | 'ai-starter' | 'growth' | 'professional' | 'enterprise';
+export type PlanTier = 'starter' | 'growth' | 'scale' | 'full-service';
 
 export interface PlanFeature {
   name: string;
@@ -16,8 +16,7 @@ export interface Plan {
   tagline: string;
   description: string;
   price: {
-    project: number; // One-time project fee
-    monthly: number; // Ongoing monthly
+    monthly: number; // Monthly retainer
     yearlyMonthly: number; // Monthly rate if paid yearly
   };
   features: {
@@ -33,208 +32,128 @@ export const PLANS: Plan[] = [
   {
     id: 'starter',
     name: 'Starter',
-    tagline: 'Get online fast',
-    description: 'Perfect for small businesses ready to establish their online presence with a professional website.',
+    tagline: 'Essential maintenance & support',
+    description: 'Perfect for small businesses that need reliable hosting, maintenance, and support.',
     price: {
-      project: 1500,
-      monthly: 79,
-      yearlyMonthly: 65,
+      monthly: 1500,
+      yearlyMonthly: 1250,
     },
     features: {
       website: [
-        { name: 'Custom Website', included: true, description: 'Up to 5 pages' },
-        { name: 'Mobile Responsive', included: true },
-        { name: 'SSL Certificate', included: true },
-        { name: 'Custom Domain Setup', included: true },
-        { name: 'Basic SEO', included: true },
-        { name: 'Contact Form', included: true },
-        { name: 'Google Maps', included: true },
-        { name: 'Blog', included: false },
-        { name: 'Booking System', included: false },
-        { name: 'E-commerce', included: false },
+        { name: 'Website hosting & security', included: true },
+        { name: 'Monthly maintenance & updates', included: true },
+        { name: 'Basic analytics reporting', included: true },
+        { name: 'Mobile responsive design', included: true },
+        { name: 'SSL certificate', included: true },
       ],
       automation: [
         { name: 'AI Chatbot', included: false },
-        { name: 'Email Marketing', included: false },
-        { name: 'Lead Capture Forms', included: true, description: 'Basic' },
-        { name: 'Analytics Dashboard', included: true, description: 'Google Analytics' },
-        { name: 'Automated Notifications', included: false },
+        { name: 'Email marketing automation', included: false },
+        { name: 'Automated booking system', included: false },
       ],
       support: [
-        { name: 'Hosting Included', included: true },
-        { name: 'Email Support', included: true, description: '48hr response' },
-        { name: 'Phone Support', included: false },
-        { name: 'Content Updates', included: true, limit: '2/month' },
-        { name: 'Monthly Check-ins', included: false },
-        { name: 'Priority Support', included: false },
+        { name: 'Email support', included: true, description: '48hr response' },
+        { name: 'Content updates', included: true, limit: '2/month' },
+        { name: 'Phone support', included: false },
+        { name: 'Strategy calls', included: false },
       ],
     },
     cta: 'Get Started',
   },
   {
-    id: 'ai-starter',
-    name: 'AI Starter',
-    tagline: 'Try AI-powered automation',
-    description: 'Perfect entry point for businesses wanting AI chatbot automation without the full investment.',
+    id: 'growth',
+    name: 'Growth',
+    tagline: 'Marketing + maintenance',
+    description: 'For businesses ready to grow with social media management and SEO optimization.',
     price: {
-      project: 2500,
-      monthly: 199,
-      yearlyMonthly: 165,
+      monthly: 2500,
+      yearlyMonthly: 2100,
     },
     recommended: true,
     features: {
       website: [
-        { name: 'Custom Website', included: true, description: 'Up to 8 pages' },
-        { name: 'Mobile Responsive', included: true },
-        { name: 'SSL Certificate', included: true },
-        { name: 'Custom Domain Setup', included: true },
-        { name: 'Advanced SEO', included: true },
-        { name: 'Contact Form', included: true },
-        { name: 'Google Maps', included: true },
-        { name: 'Blog', included: false },
-        { name: 'Booking System', included: true, description: 'Basic calendar sync' },
-        { name: 'E-commerce', included: false },
-      ],
-      automation: [
-        { name: 'AI Chatbot', included: true, description: 'Basic training' },
-        { name: 'Email Marketing', included: false },
-        { name: 'Lead Capture Forms', included: true, description: 'Smart forms' },
-        { name: 'Analytics Dashboard', included: true, description: 'Google Analytics' },
-        { name: 'Automated Notifications', included: true, description: 'Basic reminders' },
-      ],
-      support: [
-        { name: 'Hosting Included', included: true },
-        { name: 'Email Support', included: true, description: '24hr response' },
-        { name: 'Phone Support', included: false },
-        { name: 'Content Updates', included: true, limit: '3/month' },
-        { name: 'Monthly Check-ins', included: false },
-        { name: 'Priority Support', included: false },
-      ],
-    },
-    cta: 'Try AI Now',
-  },
-  {
-    id: 'growth',
-    name: 'Growth',
-    tagline: 'Scale your bookings',
-    description: 'For service businesses ready to automate bookings and grow their customer base with marketing.',
-    price: {
-      project: 3500,
-      monthly: 149,
-      yearlyMonthly: 125,
-    },
-    features: {
-      website: [
-        { name: 'Custom Website', included: true, description: 'Up to 15 pages' },
-        { name: 'Mobile Responsive', included: true },
-        { name: 'SSL Certificate', included: true },
-        { name: 'Custom Domain Setup', included: true },
-        { name: 'Advanced SEO', included: true },
-        { name: 'Contact Form', included: true },
-        { name: 'Google Maps', included: true },
-        { name: 'Blog', included: true, description: 'With CMS' },
-        { name: 'Booking System', included: true, description: 'Calendar sync' },
-        { name: 'E-commerce', included: false },
+        { name: 'Everything in Starter, plus:', included: true },
+        { name: 'Advanced SEO optimization', included: true },
+        { name: 'Monthly analytics & insights', included: true },
+        { name: 'Performance optimization', included: true },
       ],
       automation: [
         { name: 'AI Chatbot', included: false },
-        { name: 'Email Marketing', included: true, limit: '2,500 contacts' },
-        { name: 'Lead Capture Forms', included: true, description: 'Advanced' },
-        { name: 'Analytics Dashboard', included: true, description: 'Full suite' },
-        { name: 'Automated Notifications', included: true, description: 'Booking reminders' },
+        { name: 'Social media posting', included: true, description: '3x/week' },
+        { name: 'Email marketing', included: true, limit: '2,500 contacts' },
       ],
       support: [
-        { name: 'Hosting Included', included: true },
-        { name: 'Email Support', included: true, description: '24hr response' },
-        { name: 'Phone Support', included: false },
-        { name: 'Content Updates', included: true, limit: '5/month' },
-        { name: 'Monthly Check-ins', included: true },
-        { name: 'Priority Support', included: false },
+        { name: 'Priority support', included: true, description: '24hr response' },
+        { name: 'Content updates', included: true, limit: '5/month' },
+        { name: 'Phone support', included: false },
+        { name: 'Monthly strategy calls', included: true },
       ],
     },
     cta: 'Start Growing',
   },
   {
-    id: 'professional',
-    name: 'Professional',
-    tagline: 'AI-powered growth',
-    description: 'Full-featured solution with AI chatbot that captures leads and books appointments 24/7.',
+    id: 'scale',
+    name: 'Scale',
+    tagline: 'Full digital growth partner',
+    description: 'Complete digital marketing solution with advanced automation and optimization.',
     price: {
-      project: 6000,
-      monthly: 397,
-      yearlyMonthly: 330,
+      monthly: 3500,
+      yearlyMonthly: 2900,
     },
     features: {
       website: [
-        { name: 'Custom Website', included: true, description: 'Unlimited pages' },
-        { name: 'Mobile Responsive', included: true },
-        { name: 'SSL Certificate', included: true },
-        { name: 'Custom Domain Setup', included: true },
-        { name: 'Advanced SEO', included: true },
-        { name: 'Contact Form', included: true },
-        { name: 'Google Maps', included: true },
-        { name: 'Blog', included: true, description: 'With CMS' },
-        { name: 'Booking System', included: true, description: 'Multi-service' },
-        { name: 'E-commerce', included: true, description: 'Up to 100 products' },
+        { name: 'Everything in Growth, plus:', included: true },
+        { name: 'A/B testing & optimization', included: true },
+        { name: 'Conversion rate optimization', included: true },
+        { name: 'Advanced content strategy', included: true },
       ],
       automation: [
-        { name: 'AI Chatbot', included: true, description: 'Trained on your business' },
-        { name: 'Email Marketing', included: true, limit: '10,000 contacts' },
-        { name: 'Lead Capture Forms', included: true, description: 'Smart forms' },
-        { name: 'Analytics Dashboard', included: true, description: 'Custom reports' },
-        { name: 'Automated Notifications', included: true, description: 'Full automation' },
+        { name: 'AI Chatbot', included: true, description: 'Add $500/mo' },
+        { name: 'Social media posting', included: true, description: '5x/week' },
+        { name: 'Email marketing', included: true, limit: '10,000 contacts' },
+        { name: 'Marketing automation workflows', included: true },
       ],
       support: [
-        { name: 'Hosting Included', included: true },
-        { name: 'Email Support', included: true, description: '4hr response' },
-        { name: 'Phone Support', included: true },
-        { name: 'Content Updates', included: true, limit: '10/month' },
-        { name: 'Monthly Check-ins', included: true, description: 'Bi-weekly' },
-        { name: 'Priority Support', included: true },
+        { name: 'Priority support', included: true, description: '12hr response' },
+        { name: 'Content updates', included: true, limit: 'Unlimited' },
+        { name: 'Phone support', included: true },
+        { name: 'Bi-weekly strategy calls', included: true },
       ],
     },
-    cta: 'Go Professional',
+    cta: 'Scale Up',
   },
   {
-    id: 'enterprise',
-    name: 'Enterprise',
-    tagline: 'Full-service partner',
-    description: 'Custom solutions with dedicated support for established businesses with complex needs.',
+    id: 'full-service',
+    name: 'Full-Service',
+    tagline: 'Your outsourced digital team',
+    description: 'Complete digital team with AI automation, paid ads, and dedicated account management.',
     price: {
-      project: 10000,
-      monthly: 997,
-      yearlyMonthly: 830,
+      monthly: 5000,
+      yearlyMonthly: 4200,
     },
     features: {
       website: [
-        { name: 'Custom Website', included: true, description: 'Custom development' },
-        { name: 'Mobile Responsive', included: true },
-        { name: 'SSL Certificate', included: true },
-        { name: 'Custom Domain Setup', included: true, description: 'Multiple domains' },
-        { name: 'Advanced SEO', included: true },
-        { name: 'Contact Form', included: true },
-        { name: 'Google Maps', included: true },
-        { name: 'Blog', included: true, description: 'Multi-author' },
-        { name: 'Booking System', included: true, description: 'Multi-location' },
-        { name: 'E-commerce', included: true, description: 'Unlimited products' },
+        { name: 'Everything in Scale, plus:', included: true },
+        { name: 'Custom integrations', included: true },
+        { name: 'Priority development queue', included: true },
+        { name: 'Quarterly business reviews', included: true },
       ],
       automation: [
-        { name: 'AI Chatbot', included: true, description: 'Custom trained + voice' },
-        { name: 'Email Marketing', included: true, limit: 'Unlimited' },
-        { name: 'Lead Capture Forms', included: true, description: 'CRM integration' },
-        { name: 'Analytics Dashboard', included: true, description: 'White-label' },
-        { name: 'Automated Notifications', included: true, description: 'Custom workflows' },
+        { name: 'AI Chatbot', included: true, description: 'Included' },
+        { name: 'Social media posting', included: true, description: 'Daily' },
+        { name: 'Email marketing', included: true, limit: 'Unlimited' },
+        { name: 'Paid ads management', included: true },
+        { name: 'Marketing automation workflows', included: true },
       ],
       support: [
-        { name: 'Hosting Included', included: true, description: 'Dedicated' },
-        { name: 'Email Support', included: true, description: '1hr response' },
-        { name: 'Phone Support', included: true, description: 'Direct line' },
-        { name: 'Content Updates', included: true, limit: 'Unlimited' },
-        { name: 'Monthly Check-ins', included: true, description: 'Weekly' },
-        { name: 'Priority Support', included: true, description: 'Dedicated manager' },
+        { name: 'Premium support', included: true, description: '4hr response' },
+        { name: 'Content updates', included: true, limit: 'Unlimited' },
+        { name: 'Phone support', included: true, description: 'Direct line' },
+        { name: 'Weekly strategy calls', included: true },
+        { name: 'Dedicated account manager', included: true },
       ],
     },
-    cta: 'Contact Us',
+    cta: 'Go Full-Service',
   },
 ];
 
@@ -257,7 +176,7 @@ export function getYearlySavingsPercent(plan: Plan): number {
 
 export function getTotalFirstYear(plan: Plan, billingCycle: 'monthly' | 'yearly'): number {
   const monthlyRate = getMonthlyPrice(plan, billingCycle);
-  return plan.price.project + (monthlyRate * 12);
+  return monthlyRate * 12;
 }
 
 // Feature flags for checking plan capabilities
@@ -285,10 +204,9 @@ export function getFeatureComparison() {
     featureNames.forEach(name => {
       const planValues: Record<PlanTier, string | number | boolean> = {
         starter: false,
-        'ai-starter': false,
         growth: false,
-        professional: false,
-        enterprise: false,
+        scale: false,
+        'full-service': false,
       };
 
       PLANS.forEach(plan => {
